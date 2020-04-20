@@ -4,7 +4,6 @@ const mongoose = require('mongoose'); // interacts with the mongo db
 
 app.get('/',
   (req, res, next) => {
-    req.
     console.log(req.url, 'this is a middleware');
     next();
   }
