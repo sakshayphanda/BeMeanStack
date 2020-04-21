@@ -1,1 +1,21 @@
-<p>login works!</p>
+<div class="login">
+  <div class="login__content">
+    <div class="title">Login</div>
+    <form #formValue="ngForm" (ngSubmit)="addOrderToDb(formValue.value)">
+      <div class="form-group">
+        <input #address="ngModel" ngModel name="address" class="form-control" type="text" placeholder="Address"
+          id="address">
+      </div>
+      <div class="form-group">
+        <input #pin="ngModel" ngModel name="pin" class="form-control" type="number" placeholder="pin code">
+      </div>
+
+      <button type="submit" class="btn selected">
+        Pay {{cartItems.totalCost | currency:"INR":true}}
+      </button>
+      <div>{{message}}</div>
+    </form>
+  </div>
+</div>
+
+
