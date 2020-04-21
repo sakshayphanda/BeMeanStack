@@ -1,2 +1,4 @@
-<app-login></app-login>
-<app-home></app-home>
+<app-login *ngIf="!isLoggedIn; else home"></app-login>
+<ng-template #home>
+  <app-home></app-home>
+</ng-template>
