@@ -1,21 +1,19 @@
 <div class="login">
   <div class="login__content">
     <div class="title">Login</div>
-    <form #formValue="ngForm" (ngSubmit)="addOrderToDb(formValue.value)">
-      <div class="form-group">
-        <input #address="ngModel" ngModel name="address" class="form-control" type="text" placeholder="Address"
-          id="address">
+    <form #formValue="ngForm" class="form">
+      <div class="form__inputs">
+        <input #address="ngModel" ngModel name="address" type="text" placeholder="Enter Email ID" id="address">
+        <input #pin="ngModel" ngModel name="pin" type="password" placeholder="Enter Password">
+        <div>{{message}}</div>
       </div>
-      <div class="form-group">
-        <input #pin="ngModel" ngModel name="pin" class="form-control" type="number" placeholder="pin code">
-      </div>
+      <div class="form-buttons">
+        <button mat-fab color="accent">Accent</button>
 
-      <button type="submit" class="btn selected">
-        Pay {{cartItems.totalCost | currency:"INR":true}}
-      </button>
-      <div>{{message}}</div>
+        <button mat-raised-button color="accent" type="submit" (click)="authenticate(formValue)">
+          Login
+        </button>
+      </div>
     </form>
   </div>
 </div>
-
-

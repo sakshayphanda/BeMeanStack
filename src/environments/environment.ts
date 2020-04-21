@@ -3,8 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-  baseApiUrl: 'http://localhost:5000/bemeanstack/us-central1/application/'
+  production: false
+ // baseApiUrl: 'http://localhost:5000/bemeanstack/us-central1/application/'
 };
 
 /*
