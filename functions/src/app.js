@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose'); // interacts with the mongo db
+const bodyParser = require('body-parser'); // to parse the incoming object into Json
+app.use(bodyParser.json());
 
 app.get('/',
   (req, res, next) => {
@@ -11,6 +13,7 @@ app.get('/',
 
 app.use(
   (req, res, next) => {
+    console.log(req.url);
     res.send('Hello from express');
   }
 );
