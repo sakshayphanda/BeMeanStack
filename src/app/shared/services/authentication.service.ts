@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
-import { ILogin } from '../models/interfaces/login.interface';
+import { IAuthenticate } from '../models/interfaces/authenticate.interface';
 import { HttpService } from './http.service';
 import { environment } from 'src/environments/environment';
+import { Authenticate } from '../models/enums/authentication.enum';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -13,14 +16,11 @@ export class AuthenticationService {
     private httpService: HttpService
   ) { }
 
-  athenticate(loginDetails: ILogin) {
-    console.log(loginDetails);
-    this.httpService.httpPost(environment.baseApiUrl + '/signin', loginDetails).subscribe(
-      response => {
-        console.log(response);
-
-      }
-    );
+  athenticate(loginDetails: IAuthenticate): Observable<any> {
+    return this.httpService.httpPost(environment.baseApiUrl + Authenticate.LOG_IN, loginDetails);
   }
 
+  register(signinDetails: IAuthenticate): Observable<any> {
+    return this.httpService.httpPost(environment.baseApiUrl + Authenticate.SIGN_IN, signinDetails);
+  }
 }

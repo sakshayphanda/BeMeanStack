@@ -5,7 +5,6 @@ const bodyParser = require('body-parser'); // to parse the incoming object into 
 const bcrypt = require('bcryptjs'); // for encrypting the passwords entered by user
 const jwt = require('jsonwebtoken');
 const User = require('./model/user/user');
-
 app.use(bodyParser.json());
 
 app.use((request, response, next) => {
@@ -18,9 +17,7 @@ app.use((request, response, next) => {
 
 app.post('/signin',
   (req, res, next) => {
-    console.log(req.body);
     console.log(req.url, 'checking auth ...');
-
     const user = new User(req.body);
     user.save().then(
       result => {
@@ -31,21 +28,35 @@ app.post('/signin',
     )
     .catch(
       err => {
-        res.status(500).json({
-          message: err
-        });
+        res.status(401).json(err);
       }
     );
   }
 );
 
-// app.use(
-//   (req, res, next) => {
-//     console.log(req.url);
-//     res.status(200).send('Hello from express');
-//   }
-// );
-
+app.post('/login',
+  (req, res, next) => {
+    console.log(req.body, 'checking auth ...');
+    //const user = new User(req.body);
+    User.findOne({email: req.body.email}).then(
+      result => {
+        if(!result) {
+          res.status(401).json({
+            error: 'Invalid credentials'
+          })
+        }
+        res.status(201).json({
+          message: 'Successfully logged in',
+        result: result});
+      }
+    )
+    .catch(
+      err => {
+        res.status(401).json(err);
+      }
+    );
+  }
+);
 
 // connection is created using mongoose (an external library added)
 mongoose.set('useNewUrlParser', true);

@@ -1,15 +1,18 @@
 <div class="login">
   <div class="login__content">
-    <div class="title">SignIn</div>
-    <form #loginDetails="ngForm" class="form">
+    <div class="title">Register/LogIn</div>
+    <form #userDetails="ngForm" class="form">
       <div class="form__inputs">
         <input #email="ngModel" ngModel name="email" type="text" placeholder="Enter Email ID">
         <input #password="ngModel" ngModel name="password" type="password" placeholder="Enter Password">
-        <div>{{message}}</div>
+        <div *ngIf="message" class="message">{{message}}</div>
       </div>
-      <div class="form-buttons">
-        <button mat-raised-button color="accent" type="submit" (click)="authenticate(loginDetails)">
-          SignIn
+      <div class="form__buttons">
+        <button mat-raised-button color="accent" type="submit" (click)="signIn(userDetails)">
+          Register
+        </button>
+        <button mat-raised-button color="accent" type="submit" (click)="authenticate(userDetails)">
+          Login
         </button>
       </div>
     </form>
