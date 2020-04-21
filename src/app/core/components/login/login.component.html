@@ -1,17 +1,15 @@
 <div class="login">
   <div class="login__content">
-    <div class="title">Login</div>
-    <form #formValue="ngForm" class="form">
+    <div class="title">SignIn</div>
+    <form #loginDetails="ngForm" class="form">
       <div class="form__inputs">
-        <input #address="ngModel" ngModel name="address" type="text" placeholder="Enter Email ID" id="address">
-        <input #pin="ngModel" ngModel name="pin" type="password" placeholder="Enter Password">
+        <input #email="ngModel" ngModel name="email" type="text" placeholder="Enter Email ID">
+        <input #password="ngModel" ngModel name="password" type="password" placeholder="Enter Password">
         <div>{{message}}</div>
       </div>
       <div class="form-buttons">
-        <button mat-fab color="accent">Accent</button>
-\
-        <button mat-raised-button color="accent" type="submit" (click)="authenticate(formValue)">
-          Login
+        <button mat-raised-button color="accent" type="submit" (click)="authenticate(loginDetails)">
+          SignIn
         </button>
       </div>
     </form>

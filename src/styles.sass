@@ -1,10 +1,10 @@
-
+@import '@angular/material/prebuilt-themes/pink-bluegrey.css'
 *
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
 
 \:root
   --primary: rgb(98, 136, 255)
-  --accent: rgb(136, 136, 136)
+  --accent: rgb(223, 93, 93)
   --warning: rgb(204, 0, 0)
   --primaryLighter: rgb(128, 152, 226)
   --primaryDarken: rgb(63, 109, 247)
@@ -19,5 +19,13 @@
   --color-light-blue-600: #039be5
 
 
+html
+  height: 100%
 body
   margin: 0
+  height: 100%
+
+
+.mat-flat-button.mat-accent, .mat-raised-button.mat-accent, .mat-fab.mat-accent, .mat-mini-fab.mat-accent
+  background: var(--accent)
+  color: white
