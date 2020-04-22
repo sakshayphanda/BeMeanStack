@@ -1,19 +1,36 @@
 <div class="login">
   <div class="login__content">
-    <div class="title">Register/LogIn</div>
+    <div class="title">Sign In to BeMeanStack</div>
+
+    <div class="social-signin">
+      <button mat-fab color="accent" type="submit" (click)="google()">
+        <i class="fab fa-google"></i>
+      </button>
+
+
+      <button mat-fab color="primary" type="submit" (click)="facebook()">
+        <i class="fab fa-facebook-f"></i>
+      </button>
+    </div>
+
     <form #userDetails="ngForm" class="form">
       <div class="form__inputs">
         <input #email="ngModel" ngModel name="email" type="text" placeholder="Enter Email ID">
         <input #password="ngModel" ngModel name="password" type="password" placeholder="Enter Password">
-        <div *ngIf="message" class="message">{{message}}</div>
+        <div *ngIf="message" class="message" [class.error]="error">{{message}}</div>
       </div>
       <div class="form__buttons">
-        <button mat-raised-button color="accent" type="submit" (click)="signIn(userDetails)">
+        <!-- <button mat-raised-button color="accent" type="submit" (click)="signIn(userDetails)">
           Register
-        </button>
+        </button> -->
         <button mat-raised-button color="accent" type="submit" (click)="authenticate(userDetails)">
           Login
         </button>
+
+
+        <!-- <button mat-raised-button color="accent" type="submit" (click)="signOutfacebook()">
+          Sign out fb
+        </button> -->
       </div>
     </form>
   </div>

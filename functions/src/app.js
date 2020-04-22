@@ -17,44 +17,66 @@ app.use((request, response, next) => {
 
 app.post('/signin',
   (req, res, next) => {
-    console.log(req.url, 'checking auth ...');
-    const user = new User(req.body);
-    user.save().then(
-      result => {
-        res.status(201).json({
-          message: 'Successfully created',
-        result: result});
-      }
-    )
-    .catch(
-      err => {
-        res.status(401).json(err);
-      }
-    );
-  }
-);
+    bcrypt.hash(req.body.password, 10)
+      .then(
+        userPassword => {
+          const userDetails = JSON.parse(JSON.stringify(req.body));
+          userDetails.password = userPassword;
+          const user = new User(userDetails);
+          user.save().then(
+            result => {
+              res.status(201).json({
+                message: 'Successfully created',
+                result: result
+              });
+            }
+          )
+            .catch(
+              err => {
+                res.status(401).json(err);
+              }
+            );
+        });
+  });
 
 app.post('/login',
   (req, res, next) => {
-    console.log(req.body, 'checking auth ...');
-    //const user = new User(req.body);
-    User.findOne({email: req.body.email}).then(
-      result => {
-        if(!result) {
-          res.status(401).json({
-            error: 'Invalid credentials'
-          })
+    User.findOne({ email: req.body.email })
+      .then(
+        user => {
+
+          if (!user) {
+            res.status(401).json({
+              message: 'Invalid credentials'
+            })
+          } else {
+            bcrypt.compare(req.body.password, user.password)
+            .then(
+              user => {
+                if(user) {
+                res.status(201).json(
+                  {
+                    message: 'Successfully logged in'
+                  });
+              } else {
+                res.status(401).json({
+                  message: 'Invalid credentials'
+                })
+              }
+            }
+            )
+            .catch(
+              error =>  {
+                res.status(401).json(error);
+            });
+          }
         }
-        res.status(201).json({
-          message: 'Successfully logged in',
-        result: result});
-      }
-    )
-    .catch(
-      err => {
-        res.status(401).json(err);
-      }
-    );
+      )
+      .catch(
+        err => {
+          res.status(401).json(err);
+        }
+      );
   }
 );
 

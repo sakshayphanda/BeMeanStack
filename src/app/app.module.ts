@@ -7,7 +7,17 @@ import { CoreModule } from './core/core.module';
 import { SharedModule } from './modules/shared/shared.module';
 import { AdminModule } from './modules/admin/admin.module';
 import { HttpClientModule } from '@angular/common/http';
+import * as firebase from 'firebase/app';
 
+const config = {
+  apiKey: "AIzaSyBAgpmHBxTqe8VHPwc3koB87T830vQ7boo",
+  authDomain: "bemeanstack.firebaseapp.com",
+  databaseURL: "https://bemeanstack.firebaseio.com",
+  projectId: "bemeanstack",
+  storageBucket: "",
+  messagingSenderId: "699849827638"
+};
+firebase.initializeApp(config);
 @NgModule({
   declarations: [
     AppComponent

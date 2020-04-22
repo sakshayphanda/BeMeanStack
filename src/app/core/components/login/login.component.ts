@@ -10,22 +10,38 @@ import { catchError } from 'rxjs/operators';
 })
 export class LoginComponent implements OnInit {
   message: string;
+  error: boolean;
   constructor(private authenticationService: AuthenticationService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.authenticationService.authToken();
+  }
+
+  facebook() {
+    this.authenticationService.fbSignInRedirect();
+  }
+
+  google() {
+    this.authenticationService.loginGoogle();
+  }
+
+  signOutfacebook() {
+    this.authenticationService.signOutFb();
+  }
 
   authenticate(userDetails) {
     this.authenticationService
       .athenticate(userDetails.value)
       .pipe(
         catchError((error) => {
-          console.log(error);
           this.message = error.error.message;
+          this.error = true;
           return throwError(error);
         })
       )
       .subscribe((response) => {
-        console.log(response);
+        this.error = false;
+        this.message = response.message;
       });
   }
 
@@ -34,14 +50,14 @@ export class LoginComponent implements OnInit {
       .register(userDetails.value)
       .pipe(
         catchError((error) => {
-          console.log(error);
+          this.error = true;
           this.message = error.error.message;
           return throwError(error);
         })
       )
       .subscribe((response) => {
+        this.error = false;
         this.message = response.message;
-        console.log(response);
       });
   }
 }

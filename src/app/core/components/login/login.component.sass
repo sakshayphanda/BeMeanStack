@@ -1,10 +1,10 @@
 input
   border: none
-  border: 1px solid #dbdbdb
+  background: #f1f1f1
+  //border: 1px solid #dbdbdb
   border-radius: 5px
   outline: none
   padding: 5px
-  min-width: 35rem
   height: 50px
   margin: 5px
 
@@ -13,20 +13,28 @@ input
   flex-direction: column
   height: 100%
   display: flex
-  align-items: center
   justify-content: center
-  background: var(--color-light-blue-600)
+  //background: rgb(111,102,255)
+  background: linear-gradient(90deg, rgba(111,102,255,1) 18%, rgba(18,194,255,1) 73%, rgba(0,212,255,1) 100%)
+  //background: var(--color-light-blue-600)
 
   &__content
     box-shadow: var(--cardBoxShadow)
     padding: 10px
     border-radius: 5px
-    width: 50%
-    height: 450px
+    width: 60%
+    height: 100%
     display: flex
     flex-direction: column
     justify-content: center
     background: white
+    .social-signin
+      display: flex
+      align-items: center
+      justify-content: center
+      padding: 10px
+      button
+        margin: 5px
     .title
       font-size: 1.5rem
       flex: 1
@@ -39,19 +47,22 @@ input
       display: flex
       flex-direction: column
       align-items: center
-      justify-content: center
+      padding: 50px
       &__inputs
         display: flex
         flex-direction: column
+        width: 100%
         .message
           height: 50px
           padding: 4px
-          width: 95%
-          color: blue
-          background: lightblue
+          color: green
+          background: lightgreen
           display: flex
           align-items: center
-          margin: 10px
+          margin: 5px
+          &.error
+            color: red
+            background: pink
       &__buttons
         display: flex
         justify-content: center
