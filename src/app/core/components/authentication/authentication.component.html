@@ -1,4 +1,6 @@
-<app-login *ngIf="!isLoggedIn; else home"></app-login>
+<app-login *ngIf="!isLoggedIn; else home">
+  <div class="title">Sign In to BeMeanStack</div>
+</app-login>
 <ng-template #home>
   <app-home></app-home>
 </ng-template>

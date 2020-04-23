@@ -1,6 +1,8 @@
 <div class="login">
   <div class="login__content">
-    <div class="title">Sign In to BeMeanStack</div>
+    <div class="title">
+      <ng-content select="div"></ng-content>
+    </div>
 
     <div class="social-signin">
       <button mat-fab color="accent" type="submit" (click)="google()">
