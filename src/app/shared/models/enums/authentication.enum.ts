@@ -1,4 +1,4 @@
 export enum Authenticate {
-  SIGN_IN = '/signin',
-  LOG_IN = '/login'
+  SIGN_UP = '/user/signup',
+  LOG_IN = '/user/login'
 }

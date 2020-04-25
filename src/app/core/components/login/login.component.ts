@@ -11,6 +11,7 @@ import { catchError } from 'rxjs/operators';
 export class LoginComponent implements OnInit {
   message: string;
   error: boolean;
+  showSignUp: boolean;
   constructor(private authenticationService: AuthenticationService) {}
 
   ngOnInit() {
@@ -30,6 +31,11 @@ export class LoginComponent implements OnInit {
   }
 
   authenticate(userDetails) {
+    this.showSignUp ? this.signup(userDetails) : this.login(userDetails);
+  }
+
+  login(userDetails) {
+
     this.authenticationService
       .athenticate(userDetails.value)
       .pipe(
@@ -45,7 +51,8 @@ export class LoginComponent implements OnInit {
       });
   }
 
-  signIn(userDetails) {
+  signup(userDetails) {
+    this.showSignUp = true;
     this.authenticationService
       .register(userDetails.value)
       .pipe(

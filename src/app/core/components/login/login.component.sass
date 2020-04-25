@@ -1,7 +1,6 @@
 input
   border: none
   background: #f1f1f1
-  //border: 1px solid #dbdbdb
   border-radius: 5px
   outline: none
   padding: 5px
@@ -9,16 +8,17 @@ input
   margin: 5px
 
 .login
+  position: relative
   display: flex
   flex-direction: column
   height: 100%
   display: flex
   justify-content: center
-  //background: rgb(111,102,255)
   background: linear-gradient(90deg, rgba(111,102,255,1) 18%, rgba(18,194,255,1) 73%, rgba(0,212,255,1) 100%)
-  //background: var(--color-light-blue-600)
 
   &__content
+    position: absolute
+    left: 0px
     box-shadow: var(--cardBoxShadow)
     padding: 10px
     border-radius: 5px
@@ -26,8 +26,12 @@ input
     height: 100%
     display: flex
     flex-direction: column
-    justify-content: center
     background: white
+    &.log-in
+      animation: slide-back 0.5s backwards
+    &.sign-up
+      left: unset
+      animation: slide 0.5s forwards
     .social-signin
       display: flex
       align-items: center
@@ -36,12 +40,19 @@ input
       button
         margin: 5px
     .title
-      font-size: 1.5rem
-      flex: 1
+      font-size: 2rem
+      flex: 2
       display: flex
       color: var(--primary)
       justify-content: center
       font-weight: 600
+    .auth-type
+      font-size: 1.5rem
+      flex: 2
+      display: flex
+      color: var(--accent)
+      font-weight: 600
+      justify-content: center
     .form
       flex: 9
       display: flex
@@ -70,3 +81,16 @@ input
         height: 50px
         button
           margin: 5px
+
+@keyframes slide
+  0%
+    right: 40%
+  100%
+    right: 0
+
+
+@keyframes slide-back
+  0%
+    left: 40%
+  100%
+    left: 0

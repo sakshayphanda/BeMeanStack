@@ -1,9 +1,11 @@
 <div class="login">
-  <div class="login__content">
+  <div class="login__content {{showSignUp ? 'sign-up' : 'log-in'}}">
     <div class="title">
       <ng-content select="div"></ng-content>
     </div>
-
+    <div class="auth-type">
+      {{showSignUp ? 'Register' : 'Login'}}
+    </div>
     <div class="social-signin">
       <button mat-fab color="accent" type="submit" (click)="google()">
         <i class="fab fa-google"></i>
@@ -22,11 +24,11 @@
         <div *ngIf="message" class="message" [class.error]="error">{{message}}</div>
       </div>
       <div class="form__buttons">
-        <!-- <button mat-raised-button color="accent" type="submit" (click)="signIn(userDetails)">
-          Register
-        </button> -->
+        <button mat-raised-button color="accent" type="submit" (click)="showSignUp = !showSignUp">
+          {{ !showSignUp ? 'Register >' : '< Login'}}
+        </button>
         <button mat-raised-button color="accent" type="submit" (click)="authenticate(userDetails)">
-          Login
+          {{ !showSignUp ? 'Login' : 'Register'}}
         </button>
 
 

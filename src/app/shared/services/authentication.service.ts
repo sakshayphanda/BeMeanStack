@@ -89,6 +89,6 @@ export class AuthenticationService {
   }
 
   register(signinDetails: IAuthenticate): Observable<any> {
-    return this.httpService.httpPost(environment.baseApiUrl + Authenticate.SIGN_IN, signinDetails);
+    return this.httpService.httpPost(environment.baseApiUrl + Authenticate.SIGN_UP, signinDetails);
   }
 }
