@@ -47,6 +47,7 @@ export class LoginComponent implements OnInit {
       )
       .subscribe((response) => {
         this.error = false;
+        localStorage.setItem('token', response.token);
         this.message = response.message;
       });
   }

@@ -1,17 +1,14 @@
 const http = require('http');
-const app = require('./app');
+const app = require('./functions/src/app');
 const os = require('os');
 const fileSystem = require('fs');
 const path = require('path');
-const Logger = require('./logger');
-
-
+const Logger = require('./functions/src/logger');
 const port = process.env.PORT || 3000;
 
 app.set('port', port);
 const server = http.createServer(app);
 server.listen(port);
-
 
 /**Path
 console.log(__dirname); // gives the directory of the file.

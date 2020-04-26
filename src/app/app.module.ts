@@ -6,8 +6,9 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './modules/shared/shared.module';
 import { AdminModule } from './modules/admin/admin.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import * as firebase from 'firebase/app';
+import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
 
 const config = {
   apiKey: "AIzaSyBAgpmHBxTqe8VHPwc3koB87T830vQ7boo",
@@ -31,7 +32,9 @@ firebase.initializeApp(config);
     SharedModule,
     AdminModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
