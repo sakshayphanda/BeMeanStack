@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from 'src/app/shared/services/authentication.service';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { Store } from '@ngrx/store';
+import { DefaultLogin, FacebookLogIn } from 'src/app/store/actions/auth.actions';
+import { authSelector } from 'src/app/store/reducers';
 
 @Component({
   selector: 'app-login',
@@ -12,14 +15,23 @@ export class LoginComponent implements OnInit {
   message: string;
   error: boolean;
   showSignUp: boolean;
-  constructor(private authenticationService: AuthenticationService) {}
+  constructor(
+    private authenticationService: AuthenticationService,
+    private store: Store<any>
+    ) {}
 
   ngOnInit() {
     this.authenticationService.authToken();
+    this.store.select(authSelector).subscribe(
+      userDetails => {
+        console.log(userDetails);
+      }
+    );
   }
 
   facebook() {
-    this.authenticationService.fbSignInRedirect();
+    // this.store.dispatch(new FacebookLogIn());
+   this.authenticationService.fbSignInWithPopup();
   }
 
   google() {
@@ -35,21 +47,21 @@ export class LoginComponent implements OnInit {
   }
 
   login(userDetails) {
-
-    this.authenticationService
-      .athenticate(userDetails.value)
-      .pipe(
-        catchError((error) => {
-          this.message = error.error.message;
-          this.error = true;
-          return throwError(error);
-        })
-      )
-      .subscribe((response) => {
-        this.error = false;
-        localStorage.setItem('token', response.token);
-        this.message = response.message;
-      });
+    this.store.dispatch(new DefaultLogin(userDetails.value));
+    // this.authenticationService
+    //   .athenticate(userDetails.value)
+    //   .pipe(
+    //     catchError((error) => {
+    //       this.message = error.error.message;
+    //       this.error = true;
+    //       return throwError(error);
+    //     })
+    //   )
+    //   .subscribe((response) => {
+    //     this.error = false;
+    //     localStorage.setItem('token', response.token);
+    //     this.message = response.message;
+    //   });
   }
 
   signup(userDetails) {

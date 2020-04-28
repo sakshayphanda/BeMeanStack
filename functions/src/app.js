@@ -3,7 +3,7 @@ const app = express();
 const mongoose = require('mongoose'); // interacts with the mongo db
 const bodyParser = require('body-parser'); // to parse the incoming object into Json
 app.use(bodyParser.json());
-const authenticationRoute = require('./controllers/authentication');
+const userRoute = require('./controllers/user');
 
 app.use((request, response, next) => {
   response.setHeader("Access-Control-Allow-Origin", "*");
@@ -11,8 +11,6 @@ app.use((request, response, next) => {
   response.setHeader("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
   next();
 });
-
-
 
 // connection is created using mongoose (an external library added)
 mongoose.set('useNewUrlParser', true);
@@ -26,7 +24,7 @@ mongoose.connect('mongodb+srv://'+ process.env.MONGO_USER_PASS + '@bemeanstack-b
     console.log(err, 'Can not connect to the database');
   });
 
-app.use('/user', authenticationRoute);
+app.use('/user', userRoute);
 
 
 module.exports = app;
