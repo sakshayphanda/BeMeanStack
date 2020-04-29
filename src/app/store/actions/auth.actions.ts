@@ -7,7 +7,8 @@ export enum authTypes {
   FACEBOOK_LOGIN = 'FACEBOOK_LOGIN',
   GOOGLE_SIGNUP = 'GOOGLE_SIGNUP',
   FACEBOOK_SIGNUP = 'FACEBOOK_SIGNUP',
-  LOGGED_IN = 'LOGGED_IN'
+  LOGGED_IN = 'LOGGED_IN',
+  CHECK_LOGGED_IN = 'CHECK_LOGGED_IN'
 }
 
 export class DefaultLogin implements Action {
@@ -25,4 +26,16 @@ export class FacebookLogIn implements Action {
   constructor() {}
 }
 
-export type Auth = DefaultLogin | LoggedIn | FacebookLogIn;
+export class GoogleLogIn implements Action {
+  readonly type = authTypes.GOOGLE_LOGIN;
+  constructor() {}
+}
+
+export class CheckLoggedIn implements Action {
+  readonly type = authTypes.CHECK_LOGGED_IN;
+  constructor() {
+
+  }
+}
+
+export type Auth = DefaultLogin | LoggedIn | FacebookLogIn | GoogleLogIn | CheckLoggedIn;

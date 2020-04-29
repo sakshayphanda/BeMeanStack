@@ -1,8 +1,7 @@
 import { Auth, authTypes } from '../actions/auth.actions';
 
 const defaultValues = {
-  loading: false,
-  token: null
+  loading: false
 }
 export const userAuthReducer = (state = defaultValues, action: Auth) => {
   switch (action.type) {
@@ -13,10 +12,9 @@ export const userAuthReducer = (state = defaultValues, action: Auth) => {
     }
 
     case authTypes.LOGGED_IN: {
-      const newState = {...state};
-      console.log(action);
+      let newState = Object.assign({}, state);
       localStorage.setItem('token', action.payload.token);
-      newState.token = action.payload.token;
+      newState = Object.assign(newState, action.payload);
       newState.loading = false;
       return {...newState};
     }

@@ -3,7 +3,7 @@ import { AuthenticationService } from 'src/app/shared/services/authentication.se
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
-import { DefaultLogin, FacebookLogIn } from 'src/app/store/actions/auth.actions';
+import { DefaultLogin, FacebookLogIn, GoogleLogIn, CheckLoggedIn } from 'src/app/store/actions/auth.actions';
 import { authSelector } from 'src/app/store/reducers';
 
 @Component({
@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
     ) {}
 
   ngOnInit() {
-    this.authenticationService.authToken();
+    this.store.dispatch(new CheckLoggedIn());
     this.store.select(authSelector).subscribe(
       userDetails => {
         console.log(userDetails);
@@ -30,12 +30,11 @@ export class LoginComponent implements OnInit {
   }
 
   facebook() {
-    // this.store.dispatch(new FacebookLogIn());
-   this.authenticationService.fbSignInWithPopup();
+   this.store.dispatch(new FacebookLogIn());
   }
 
   google() {
-    this.authenticationService.loginGoogle();
+    this.store.dispatch(new GoogleLogIn());
   }
 
   signOutfacebook() {
@@ -48,20 +47,6 @@ export class LoginComponent implements OnInit {
 
   login(userDetails) {
     this.store.dispatch(new DefaultLogin(userDetails.value));
-    // this.authenticationService
-    //   .athenticate(userDetails.value)
-    //   .pipe(
-    //     catchError((error) => {
-    //       this.message = error.error.message;
-    //       this.error = true;
-    //       return throwError(error);
-    //     })
-    //   )
-    //   .subscribe((response) => {
-    //     this.error = false;
-    //     localStorage.setItem('token', response.token);
-    //     this.message = response.message;
-    //   });
   }
 
   signup(userDetails) {

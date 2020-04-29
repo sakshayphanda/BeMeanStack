@@ -19,6 +19,8 @@
 
     <form #userDetails="ngForm" class="form">
       <div class="form__inputs">
+        <input *ngIf="showSignUp" #firstName="ngModel" ngModel name="firstName" type="text" placeholder="Enter First Name">
+        <input *ngIf="showSignUp" #lastName="ngModel" ngModel name="lastName" type="text" placeholder="Enter Last Name">
         <input #email="ngModel" ngModel name="email" type="text" placeholder="Enter Email ID">
         <input #password="ngModel" ngModel name="password" type="password" placeholder="Enter Password">
         <div *ngIf="message" class="message" [class.error]="error">{{message}}</div>
