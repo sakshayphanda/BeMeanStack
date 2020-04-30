@@ -11,7 +11,7 @@ import { authSelector } from 'src/app/store/reducers';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.sass'],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   message: string;
   error: boolean;
   showSignUp: boolean;
@@ -19,15 +19,6 @@ export class LoginComponent implements OnInit {
     private authenticationService: AuthenticationService,
     private store: Store<any>
     ) {}
-
-  ngOnInit() {
-    this.store.dispatch(new CheckLoggedIn());
-    this.store.select(authSelector).subscribe(
-      userDetails => {
-        console.log(userDetails);
-      }
-    );
-  }
 
   facebook() {
    this.store.dispatch(new FacebookLogIn());

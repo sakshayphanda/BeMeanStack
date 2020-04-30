@@ -8,7 +8,11 @@ export enum authTypes {
   GOOGLE_SIGNUP = 'GOOGLE_SIGNUP',
   FACEBOOK_SIGNUP = 'FACEBOOK_SIGNUP',
   LOGGED_IN = 'LOGGED_IN',
-  CHECK_LOGGED_IN = 'CHECK_LOGGED_IN'
+  CHECK_LOGGED_IN = 'CHECK_LOGGED_IN',
+
+  LOG_OUT_REQUEST = 'LOG_OUT_REQUEST',
+  LOG_OUT_SUCCESS = 'LOG_OUT_SUCCESS',
+  LOG_OUT_FAILED = 'LOG_OUT_FAILED'
 }
 
 export class DefaultLogin implements Action {
@@ -33,9 +37,16 @@ export class GoogleLogIn implements Action {
 
 export class CheckLoggedIn implements Action {
   readonly type = authTypes.CHECK_LOGGED_IN;
-  constructor() {
-
-  }
+  constructor() {}
+}
+export class LogoutRequest implements Action {
+  readonly type = authTypes.LOG_OUT_REQUEST;
+  constructor() {}
 }
 
-export type Auth = DefaultLogin | LoggedIn | FacebookLogIn | GoogleLogIn | CheckLoggedIn;
+export class LogoutSuccess implements Action {
+  readonly type = authTypes.LOG_OUT_SUCCESS;
+  constructor() {}
+}
+
+export type Auth = DefaultLogin | LoggedIn | FacebookLogIn | GoogleLogIn | CheckLoggedIn | LogoutRequest | LogoutSuccess;

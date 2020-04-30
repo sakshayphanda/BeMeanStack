@@ -54,7 +54,8 @@ router.post(ROUTES.LOG_IN,
                     response.status(STATUS.OK).json(
                       {
                         token: token,
-                        user: user,
+                        displayName: user.firstName + ' ' +  user.lastName,
+                        email: user.email,
                         message: MESSAGE.SUCCESS_LOGIN
                       });
                   } else {
