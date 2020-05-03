@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from 'src/app/shared/services/authentication.service';
 import { Store } from '@ngrx/store';
-import { CheckLoggedIn } from 'src/app/store/actions/auth.actions';
-import { authSelector } from 'src/app/store/reducers';
-import { IUserInfo } from 'src/app/shared/models/interfaces/authenticate.interface';
+import { authSelector } from 'src/app/store/selectors/auth.selector';
+import { DefaultAuth } from 'src/app/store/actions';
+import { IAuthInfo } from 'src/app/shared/models/interfaces/authenticate.interface';
 
 @Component({
   selector: 'app-authentication',
@@ -13,19 +12,21 @@ import { IUserInfo } from 'src/app/shared/models/interfaces/authenticate.interfa
 export class AuthenticationComponent implements OnInit {
 
   isLoggedIn = false;
-  user = {};
+  user: IAuthInfo;
   constructor(
     private store: Store<any>
   ) { }
 
   ngOnInit() {
-    this.store.dispatch(new CheckLoggedIn());
+    if (localStorage.getItem('email') && localStorage.getItem('token')) {
+      this.store.dispatch(new DefaultAuth.CheckLoggedIn());
+    }
     this.store.select(authSelector).subscribe(
-      (userDetails: any) => {
-        console.log(userDetails);
-        if(userDetails) {
-        this.user = userDetails;
-        this.isLoggedIn = userDetails.loggedIn;
+      (userDetails: IAuthInfo) => {
+        if (userDetails) {
+          console.log(userDetails);
+          this.user = {...userDetails};
+          this.isLoggedIn = userDetails.loggedIn;
         }
       }
     );

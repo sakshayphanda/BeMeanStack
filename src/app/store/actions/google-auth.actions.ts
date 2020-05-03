@@ -14,16 +14,11 @@ export const CHECK_LOGGED_IN = 'CHECK_LOGGED_IN';
 
 export class LoginRequest implements Action {
   readonly type = LOGIN_REQUEST;
-  constructor(public payload) {}
+  constructor() {}
 }
 
 export class LoginSuccess implements Action {
   readonly type = LOGIN_SUCCESS;
-  constructor(public payload) {}
-}
-
-export class LoginFailed implements Action {
-  readonly type = LOGIN_FAILED;
   constructor(public payload) {}
 }
 
@@ -40,7 +35,7 @@ export class LogoutSuccess implements Action {
 
 export class CheckLoggedIn implements Action {
   readonly type = CHECK_LOGGED_IN;
-  constructor() {}
+  constructor(public payload) {}
 }
 
-export type AuthTypes = CheckLoggedIn | LoginRequest | LoginSuccess | LoginFailed | LogoutRequest | LogoutSuccess;
+export type AuthTypes = CheckLoggedIn | LoginRequest | LoginSuccess | LogoutRequest | LogoutSuccess;

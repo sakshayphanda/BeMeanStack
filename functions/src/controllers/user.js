@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs'); // for encrypting the passwords entered by user
 const User = require('../model/user');
+const TokenSchema = require('../model/blacklist-tokens');
 const jwt = require('jsonwebtoken');
 const checkAuth = require('../middleware/check-auth'); // check for the auth token
 require('dotenv').config();
@@ -42,7 +43,7 @@ router.post(ROUTES.LOG_IN,
       .then(
         user => {
           if (!user) {
-            invalidCredentials();
+            invalidCredentials(response);
           } else {
             bcrypt.compare(request.body.password, user.password)
               .then(
@@ -51,21 +52,24 @@ router.post(ROUTES.LOG_IN,
                     const token = jwt.sign({ email: user.email, userId: user._id },
                       process.env.JWT_KEY, { expiresIn: GLOBAL.SESSION_TIMEOUT }
                     );
+
                     response.status(STATUS.OK).json(
                       {
-                        token: token,
-                        displayName: user.firstName + ' ' +  user.lastName,
-                        email: user.email,
-                        message: MESSAGE.SUCCESS_LOGIN
+                        user: {
+                          token: token,
+                          displayName: user.firstName + ' ' +  user.lastName,
+                          email: user.email,
+                          message: MESSAGE.SUCCESS_LOGIN
+                        }
                       });
                   } else {
-                    invalidCredentials();
+                    invalidCredentials(response);
                   }
                 }
               )
               .catch(
                 error => {
-                  response.status(STATUS.UNAUTHORIZED).json(error);
+                  invalidCredentials(response);
                 });
           }
         }
@@ -78,7 +82,47 @@ router.post(ROUTES.LOG_IN,
   }
 );
 
-function invalidCredentials() {
+router.post(ROUTES.CHECK_AUTH,checkAuth,  (request, response) => {
+  User.findOne({ email: request.body.email })
+    .then(
+      user => {
+        if (!user) {
+          invalidCredentials(response);
+        } else {
+          response.status(STATUS.OK).json({
+            user: {
+              token: request.headers.authorization,
+              displayName: user.firstName + ' ' +  user.lastName,
+              email: user.email,
+              message: MESSAGE.SUCCESS_LOGIN
+            }
+          });
+        }
+      }
+    )
+    .catch(
+      err => {
+        response.status(STATUS.UNAUTHORIZED).json(err);
+      }
+    );
+});
+
+router.get(ROUTES.LOG_OUT, (request, response) => {
+  const token = new TokenSchema({token: request.headers.authorization});
+
+  token.save().then(
+    result => {
+      response.status(STATUS.OK).json(result);
+    }
+  )
+    .catch(
+      err => {
+        response.status(STATUS.CONFLICT).json(err);
+      }
+    );
+});
+
+function invalidCredentials(response) {
   response.status(STATUS.UNAUTHORIZED).json({
     message: MESSAGE.INVALID_CREDENTIALS
   })

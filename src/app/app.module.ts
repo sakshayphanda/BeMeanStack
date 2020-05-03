@@ -13,10 +13,9 @@ import { StoreModule} from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
-import { RouterModule } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
 import { reducers, metaReducers } from './store/reducers';
-import { LoginEffects } from './store/effects/auth.effects';
+import { AuthEffects } from './store/effects/auth.effects';
 
 const config = {
   apiKey: 'AIzaSyBAgpmHBxTqe8VHPwc3koB87T830vQ7boo',
@@ -48,7 +47,7 @@ firebase.initializeApp(config);
     }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     StoreRouterConnectingModule.forRoot({stateKey: 'router'}),
-    EffectsModule.forRoot([LoginEffects])
+    EffectsModule.forRoot([AuthEffects])
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}

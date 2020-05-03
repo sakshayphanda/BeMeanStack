@@ -1,24 +1,26 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { AuthenticationService } from 'src/app/shared/services/authentication.service';
+import { Component, OnInit, Input, ChangeDetectionStrategy, OnChanges } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { authSelector } from 'src/app/store/reducers';
-import { IUserInfo } from 'src/app/shared/models/interfaces/authenticate.interface';
 import { LogoutRequest } from 'src/app/store/actions/auth.actions';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.sass']
+  styleUrls: ['./home.component.sass'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnChanges {
 
   @Input('user') user;
   constructor(
-    private authenticationService: AuthenticationService,
     private store: Store<any>
   ) { }
 
   ngOnInit() {
+  }
+
+  ngOnChanges(change) {
+    console.log(change);
+
   }
 
   logOut() {

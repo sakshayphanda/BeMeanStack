@@ -1,4 +1,6 @@
 module.exports = Object.freeze({
   LOG_IN: '/login',
-  SIGN_UP: '/signup'
+  LOG_OUT: '/logout',
+  SIGN_UP: '/signup',
+  CHECK_AUTH: '/check-auth'
 });

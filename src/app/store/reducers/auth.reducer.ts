@@ -1,28 +1,45 @@
-import { Auth, authTypes } from '../actions/auth.actions';
-import { IUserInfo } from 'src/app/shared/models/interfaces/authenticate.interface';
+import * as DefaultAuth from '../actions/auth.actions';
+import { IUserInfo, IAuthInfo } from 'src/app/shared/models/interfaces/authenticate.interface';
 
-const defaultValues: IUserInfo = {
+const defaultValues: IAuthInfo = {
   loading: false,
-  loggedIn: false
+  loggedIn: false,
+  user: {
+    email: null,
+    photoURL: null,
+    token: null,
+    displayName: null
+  },
+  message: null,
+  isError: false
 };
-export const userAuthReducer = (state = defaultValues, action: Auth) => {
+export const userAuthReducer = (state = defaultValues, action: DefaultAuth.AuthTypes) => {
   switch (action.type) {
-    case authTypes.DEFAULT_LOGIN: {
+    case DefaultAuth.LOGIN_REQUEST: {
       const newState = {...state};
       newState.loading = true;
-      return {...newState};
+      return newState;
     }
 
-    case authTypes.LOGGED_IN: {
+    case DefaultAuth.LOGIN_SUCCESS: {
       let newState = Object.assign({}, state);
-      localStorage.setItem('token', action.payload.token);
       newState = Object.assign(newState, action.payload);
       newState.loading = false;
       newState.loggedIn = true;
-      return {...newState};
+      newState.isError = false;
+      return newState;
     }
 
-    case authTypes.LOG_OUT_SUCCESS: {
+    case DefaultAuth.LOGIN_FAILED: {
+      const newState = Object.assign({}, state);
+      newState.loading = false;
+      newState.loggedIn = false;
+      newState.message = action.payload;
+      newState.isError = true;
+      return newState;
+    }
+
+    case DefaultAuth.LOGOUT_SUCCESS: {
       const newState = Object.assign({}, state);
       newState.loading = false;
       newState.loggedIn = false;

@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from 'src/app/shared/services/authentication.service';
-import { Observable, throwError } from 'rxjs';
+import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
-import { DefaultLogin, FacebookLogIn, GoogleLogIn, CheckLoggedIn } from 'src/app/store/actions/auth.actions';
-import { authSelector } from 'src/app/store/reducers';
-
+import { FbAuth, GAuth, DefaultAuth } from '../../../store/actions';
+import { IAuthInfo } from 'src/app/shared/models/interfaces/authenticate.interface';
+import { authSelector } from 'src/app/store/selectors/auth.selector';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.sass'],
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
   message: string;
   error: boolean;
   showSignUp: boolean;
@@ -20,12 +20,29 @@ export class LoginComponent {
     private store: Store<any>
     ) {}
 
+  ngOnInit() {
+    if (localStorage.getItem('email') && localStorage.getItem('token')) {
+      this.store.dispatch(new DefaultAuth.CheckLoggedIn());
+    }
+    this.store.select(authSelector).subscribe(
+      (userDetails: IAuthInfo) => {
+        if (userDetails) {
+          this.message = userDetails.message;
+          this.error = userDetails.isError;
+        }
+      }
+    );
+  }
+  login(userDetails) {
+    this.store.dispatch(new DefaultAuth.LoginRequest(userDetails.value));
+  }
+
   facebook() {
-   this.store.dispatch(new FacebookLogIn());
+   this.store.dispatch(new FbAuth.LoginRequest());
   }
 
   google() {
-    this.store.dispatch(new GoogleLogIn());
+    this.store.dispatch(new GAuth.LoginRequest());
   }
 
   signOutfacebook() {
@@ -36,9 +53,7 @@ export class LoginComponent {
     this.showSignUp ? this.signup(userDetails) : this.login(userDetails);
   }
 
-  login(userDetails) {
-    this.store.dispatch(new DefaultLogin(userDetails.value));
-  }
+
 
   signup(userDetails) {
     this.showSignUp = true;

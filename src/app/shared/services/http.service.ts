@@ -11,11 +11,11 @@ export class HttpService {
     private http: HttpClient
   ) { }
 
-  httpGet(url: string): Observable<any> {
+  get(url: string): Observable<any> {
     return this.http.get(url);
   }
 
-  httpPost(url: string, requestPayload: any): Observable<any> {
+  post(url: string, requestPayload: any): Observable<any> {
     return this.http.post(url, requestPayload);
   }
 }
