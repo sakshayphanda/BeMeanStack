@@ -18,7 +18,9 @@
     "express": "^4.17.1",
     "mongoose": "^5.9.9",
     "nodemon": "^2.0.3",
-    "mongoose-unique-validator": "^2.0.3"
+    "mongoose-unique-validator": "^2.0.3",
+    "dotenv": "^8.2.0",
+    "http-status-codes": "^1.4.0"
   },
   "devDependencies": {
     "firebase-functions-test": "^0.2.0"

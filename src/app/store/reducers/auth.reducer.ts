@@ -13,7 +13,7 @@ const defaultValues: IAuthInfo = {
   message: null,
   isError: false
 };
-export const userAuthReducer = (state = defaultValues, action: DefaultAuth.AuthTypes) => {
+export function userAuthReducer(state = defaultValues, action: DefaultAuth.AuthTypes) {
   switch (action.type) {
     case DefaultAuth.LOGIN_REQUEST: {
       const newState = {...state};

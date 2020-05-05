@@ -7,7 +7,6 @@ const auth = async (request, response, next) => {
     goAhead = false;
     const token = request.headers.authorization;
     await TokenSchema.findOne({token: token}).then( tk => {
-      console.log(token, tk);
 
       if(tk) {
       response.status(401).json({ message: "Auth failed!" });
