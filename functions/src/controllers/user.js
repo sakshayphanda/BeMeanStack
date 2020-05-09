@@ -50,7 +50,7 @@ router.post(ROUTES.LOG_IN,
                 userState => {
                   if (userState) {
                     const token = jwt.sign({ email: user.email, userId: user._id },
-                      process.env.JWT_KEY, { expiresIn: GLOBAL.SESSION_TIMEOUT }
+                      GLOBAL.JWT_KEY, { expiresIn: GLOBAL.SESSION_TIMEOUT }
                     );
 
                     response.status(STATUS.OK).json(

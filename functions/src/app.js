@@ -4,6 +4,7 @@ const mongoose = require('mongoose'); // interacts with the mongo db
 const bodyParser = require('body-parser'); // to parse the incoming object into Json
 app.use(bodyParser.json());
 const userRoute = require('./controllers/user');
+const GLOBAL = require('./constants/global.constants');
 
 app.use((request, response, next) => {
   response.setHeader("Access-Control-Allow-Origin", "*");
@@ -16,7 +17,7 @@ app.use((request, response, next) => {
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useUnifiedTopology', true);
 
-mongoose.connect('mongodb+srv://'+ process.env.MONGO_USER_PASS + '@bemeanstack-b1ev1.mongodb.net/test?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://'+ GLOBAL.MONGO_USER_PASS + '@bemeanstack-b1ev1.mongodb.net/test?retryWrites=true&w=majority')
   .then(() => {
     console.log('Connected to the database');
   })

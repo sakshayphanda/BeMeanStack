@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
 const TokenSchema = require('../model/blacklist-tokens');
+const GLOBAL = require('../constants/global.constants');
 
 
 const auth = async (request, response, next) => {
@@ -11,7 +12,7 @@ const auth = async (request, response, next) => {
       if(tk) {
       response.status(401).json({ message: "Auth failed!" });
       } else {
-        jwt.verify(token, process.env.JWT_KEY);
+        jwt.verify(token, GLOBAL.JWT_KEY);
         goAhead = true;
       }
       }
