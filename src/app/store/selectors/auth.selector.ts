@@ -1,8 +1,16 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { IUserInfo, IAuthInfo } from 'src/app/shared/models/interfaces/authenticate.interface';
+import { IAuthInfo } from 'src/app/shared/models/interfaces/authenticate.interface';
 
 
-export const authSelector = createFeatureSelector('userAuth');
+export const authSelector = createFeatureSelector('authentication');
 export const loadingState = createSelector(authSelector, (userAuth: IAuthInfo) => {
   return userAuth.loading;
+});
+
+export const users = createFeatureSelector('users');
+export const getAllUsers = createSelector(users, (data) => {
+  if(data) {
+  console.log(data);
+  return data[`users`];
+  }
 });

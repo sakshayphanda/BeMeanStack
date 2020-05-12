@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { IAuthenticate } from '../models/interfaces/authenticate.interface';
 import { HttpService } from './http.service';
 import { environment } from 'src/environments/environment';
-import { Authenticate } from '../models/enums/authentication.enum';
+import { AuthRoutes } from '../models/enums/routes.enum';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import * as firebase from 'firebase/app';
@@ -47,10 +47,10 @@ export class AuthenticationService {
   }
 
   athenticate(loginDetails: IAuthenticate): Observable<any> {
-    return this.httpService.post(environment.baseApiUrl + Authenticate.LOG_IN, loginDetails);
+    return this.httpService.post(environment.baseApiUrl + AuthRoutes.LOG_IN, loginDetails);
   }
 
   register(signinDetails: IAuthenticate): Observable<any> {
-    return this.httpService.post(environment.baseApiUrl + Authenticate.SIGN_UP, signinDetails);
+    return this.httpService.post(environment.baseApiUrl + AuthRoutes.SIGN_UP, signinDetails);
   }
 }

@@ -5,6 +5,7 @@ import { AuthenticationComponent } from './components/authentication/authenticat
 import { SharedModule } from '../modules/shared/shared.module';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { ListUsersComponent } from './components/home/list-users/list-users.component';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { LoginComponent } from './components/login/login.component';
     TopNavigationComponent,
     AuthenticationComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    ListUsersComponent
   ],
   imports: [
     SharedModule

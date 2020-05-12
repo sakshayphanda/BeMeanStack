@@ -1,6 +1,6 @@
-import * as DefaultAuth from './auth.actions';
-import * as FbAuth from './facebook-auth.actions';
-import * as GAuth from './google-auth.actions';
+import * as DefaultAuth from './authentication/auth.actions';
+import * as FbAuth from './authentication/facebook-auth.actions';
+import * as GAuth from './authentication/google-auth.actions';
 
 
 

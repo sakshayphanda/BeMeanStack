@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken');
 const checkAuth = require('../middleware/check-auth'); // check for the auth token
 require('dotenv').config();
 const MESSAGE = require('../constants/messages.constant');
-const ROUTES = require('../constants/user-routes.constants');
+const ROUTES = require('../constants/routes.constants');
 const GLOBAL = require('../constants/global.constants');
 const STATUS = require('http-status-codes');
 
@@ -50,7 +50,7 @@ router.post(ROUTES.LOG_IN,
                 userState => {
                   if (userState) {
                     const token = jwt.sign({ email: user.email, userId: user._id },
-                      GLOBAL.JWT_KEY, { expiresIn: GLOBAL.SESSION_TIMEOUT }
+                      process.env.JWT_KEY, { expiresIn: GLOBAL.SESSION_TIMEOUT }
                     );
 
                     response.status(STATUS.OK).json(
@@ -69,6 +69,8 @@ router.post(ROUTES.LOG_IN,
               )
               .catch(
                 error => {
+                  console.log(error);
+
                   invalidCredentials(response);
                 });
           }

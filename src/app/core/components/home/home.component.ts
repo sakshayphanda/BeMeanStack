@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, ChangeDetectionStrategy, OnChanges } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { LogoutRequest } from 'src/app/store/actions/auth.actions';
+import { LogoutRequest } from 'src/app/store/actions/authentication/auth.actions';
 
 @Component({
   selector: 'app-home',

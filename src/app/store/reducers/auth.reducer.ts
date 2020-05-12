@@ -1,5 +1,5 @@
-import * as DefaultAuth from '../actions/auth.actions';
-import { IUserInfo, IAuthInfo } from 'src/app/shared/models/interfaces/authenticate.interface';
+import * as DefaultAuth from '../actions/authentication/auth.actions';
+import { IAuthInfo } from 'src/app/shared/models/interfaces/authenticate.interface';
 
 const defaultValues: IAuthInfo = {
   loading: false,
@@ -13,7 +13,7 @@ const defaultValues: IAuthInfo = {
   message: null,
   isError: false
 };
-export function userAuthReducer(state = defaultValues, action: DefaultAuth.AuthTypes) {
+export function authenticationReducer(state = defaultValues, action: DefaultAuth.AuthTypes) {
   switch (action.type) {
     case DefaultAuth.LOGIN_REQUEST: {
       const newState = {...state};

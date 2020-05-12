@@ -3,7 +3,9 @@ const app = express();
 const mongoose = require('mongoose'); // interacts with the mongo db
 const bodyParser = require('body-parser'); // to parse the incoming object into Json
 app.use(bodyParser.json());
-const userRoute = require('./controllers/user');
+const authRoute = require('./controllers/authentication');
+const usersRoute = require('./controllers/users');
+
 const GLOBAL = require('./constants/global.constants');
 
 app.use((request, response, next) => {
@@ -17,7 +19,7 @@ app.use((request, response, next) => {
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useUnifiedTopology', true);
 
-mongoose.connect('mongodb+srv://'+ GLOBAL.MONGO_USER_PASS + '@bemeanstack-b1ev1.mongodb.net/test?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://'+ process.env.MONGO_USER_PASS + '@bemeanstack-b1ev1.mongodb.net/test?retryWrites=true&w=majority')
   .then(() => {
     console.log('Connected to the database');
   })
@@ -25,7 +27,7 @@ mongoose.connect('mongodb+srv://'+ GLOBAL.MONGO_USER_PASS + '@bemeanstack-b1ev1.
     console.log(err, 'Can not connect to the database');
   });
 
-app.use('/user', userRoute);
-
+app.use('/auth', authRoute);
+app.use('/users', usersRoute);
 
 module.exports = app;

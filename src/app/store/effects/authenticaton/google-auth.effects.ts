@@ -2,7 +2,7 @@ import { ofType, Effect, Actions } from '@ngrx/effects';
 import { Injectable } from '@angular/core';
 import { switchMap, catchError, map } from 'rxjs/operators';
 import * as firebase from 'firebase';
-import * as GAuth from '../actions/auth.actions';
+import * as GAuth from '../../actions/authentication/auth.actions';
 import { throwError, from } from 'rxjs';
 import { IUserInfo } from 'src/app/shared/models/interfaces/authenticate.interface';
 
