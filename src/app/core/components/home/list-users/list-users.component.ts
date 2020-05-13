@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { ListAllUsersRequest } from 'src/app/store/actions/users/users.actions';
 import { getAllUsers } from 'src/app/store/selectors/auth.selector';
