@@ -7,5 +7,6 @@ export enum AuthRoutes {
 
 
 export enum UserRoutes {
-  GET_ALL_USERS = '/users/get-all-users'
+  GET_ALL_USERS = '/users/get-all-users',
+  FRIEND_REQUEST = '/users/friend-request'
 }

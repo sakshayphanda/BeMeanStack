@@ -1,8 +1,8 @@
 <div class="users">
   <div class="users__title">Users</div>
   <div class="users__data">
-    <ng-container *ngFor="let user of users$ | async">
-     <p> {{user}} <button class="add">Add as a friend</button></p>
+    <ng-container *ngFor="let user of allUsersExceptCurrent">
+     <p> {{user.email}} <button class="add" (click) = "addasFriend(user.email)">Add as a friend</button></p>
     </ng-container>
   </div>
 

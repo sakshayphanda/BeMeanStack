@@ -10,18 +10,32 @@ import { UserRoutes } from 'src/app/shared/models/enums/routes.enum';
 @Injectable()
 export class UsersEffects {
   constructor(
-    private actions$: Actions<fromUsersActions.types>,
+    private actions$: Actions<fromUsersActions.RequestTypes>,
     private http: HttpService
     ) { }
 
   @Effect()
-  checkLoggedIn$ = this.actions$.pipe(ofType(fromUsersActions.ListUsersRequest),
+  listUsers$ = this.actions$.pipe(ofType(fromUsersActions.ListUsersRequest),
   switchMap(
     userDetail => {
       return this.http.get(environment.baseApiUrl + UserRoutes.GET_ALL_USERS).pipe(
         map(
           data => {
             return new fromUsersActions.ListAllUsers(data);
+          }
+        )
+      );
+    }
+  ));
+
+  @Effect()
+  addAsFriend$ = this.actions$.pipe(ofType(fromUsersActions.FRIEND_REQUEST),
+  switchMap(
+    data => {
+      return this.http.post(environment.baseApiUrl + UserRoutes.FRIEND_REQUEST, data.payload).pipe(
+        map(
+          response => {
+            return new fromUsersActions.FriendRequestSuccess();
           }
         )
       );

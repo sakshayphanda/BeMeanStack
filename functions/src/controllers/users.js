@@ -6,9 +6,9 @@ const User = require('../model/user');
 router.get(routes.GET_ALL_USERS, (request, response, next) => {
   User.find({}).then(
     users=> {
-      console.log(users);
+      console.log(request);
       const usernames = users.map(user => user.firstName + ' ' + user.lastName);
-      response.status(200).json(usernames);
+      response.status(200).json(users);
     }
   );
 })
