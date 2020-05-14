@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, ChangeDetectionStrategy, OnChanges } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { LogoutRequest } from 'src/app/store/actions/authentication/auth.actions';
+import { IUserInfo } from 'src/app/shared/models/interfaces/authenticate.interface';
 
 @Component({
   selector: 'app-home',
@@ -10,9 +11,8 @@ import { LogoutRequest } from 'src/app/store/actions/authentication/auth.actions
 })
 export class HomeComponent implements OnInit, OnChanges {
 
-  @Input('user') user;
+  @Input('user') user: IUserInfo;
   constructor(
-    private store: Store<any>
   ) { }
 
   ngOnInit() {
@@ -21,10 +21,6 @@ export class HomeComponent implements OnInit, OnChanges {
   ngOnChanges(change) {
     console.log(change);
 
-  }
-
-  logOut() {
-    this.store.dispatch(new LogoutRequest());
   }
 
 }

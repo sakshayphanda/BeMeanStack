@@ -1,6 +1,5 @@
 
 import { NgModule } from '@angular/core';
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './modules/shared/shared.module';
@@ -31,7 +30,6 @@ firebase.initializeApp(config);
     AppComponent
   ],
   imports: [
-    AppRoutingModule,
     CoreModule,
     SharedModule,
     AdminModule,

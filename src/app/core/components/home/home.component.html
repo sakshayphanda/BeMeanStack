@@ -1,7 +1,15 @@
 <div class="home">
-  <p class="home__welecome-text">Hello {{user.displayName}}</p>
-  <app-list-users></app-list-users>
-  <button mat-raised-button color="accent" type="submit" (click)="logOut()">
-    Sign out
-  </button>
+<div class="top-navigation">
+  <app-top-navigation><div style="font-family: cursive;" title>Be MEANStack</div></app-top-navigation>
 </div>
+
+<div id="side" class="side-navigation">
+  <app-side-navigation [user] = "user"></app-side-navigation>
+</div>
+<div class="dynamic">
+  <router-outlet></router-outlet>
+</div>
+
+</div>
+
+

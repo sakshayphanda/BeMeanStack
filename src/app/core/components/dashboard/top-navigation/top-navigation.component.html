@@ -1,1 +1,10 @@
-<p>top-navigation works!</p>
+<div class="top-nav">
+  <div class="title">
+    <ng-content select="[title]"></ng-content>
+  </div>
+
+  <button class="logout" mat-raised-button color="accent" type="submit" (click)="logOut()">
+    Sign out
+  </button>
+
+</div>

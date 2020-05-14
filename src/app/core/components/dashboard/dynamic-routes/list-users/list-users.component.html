@@ -1,0 +1,9 @@
+<div class="users">
+  <div class="users__title">Users</div>
+  <div class="users__data">
+    <ng-container *ngFor="let user of users$ | async">
+     <p> {{user}} <button class="add">Add as a friend</button></p>
+    </ng-container>
+  </div>
+
+</div>

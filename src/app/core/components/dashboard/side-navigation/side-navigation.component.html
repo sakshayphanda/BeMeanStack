@@ -1,1 +1,11 @@
-<p>side-navigation works!</p>
+<div class="container">
+  <div class="image-container">
+    <img src="https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png">
+    <p class="email">{{user.displayName}}</p>
+  </div>
+
+  <ng-container *ngFor="let action of actions">
+    <button class="btn btn-primary" [routerLinkActive]="['selected']"
+      [routerLink]="action.route">{{ action.name }}</button>
+  </ng-container>
+</div>

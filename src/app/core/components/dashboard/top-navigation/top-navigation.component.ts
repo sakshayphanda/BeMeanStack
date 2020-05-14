@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { LogoutRequest } from 'src/app/store/actions/authentication/auth.actions';
 
 @Component({
   selector: 'app-top-navigation',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopNavigationComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private store: Store<any>
+  ) { }
 
   ngOnInit() {
+  }
+
+  logOut() {
+    this.store.dispatch(new LogoutRequest());
   }
 
 }

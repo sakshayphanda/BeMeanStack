@@ -17,9 +17,6 @@ export class ListUsersComponent implements OnInit {
 
   ngOnInit(): void {
     this.users$ = this.store.select(getAllUsers);
-  }
-
-  getAllUsers() {
     this.store.dispatch(new ListAllUsersRequest());
   }
 }

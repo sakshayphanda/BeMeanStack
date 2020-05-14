@@ -5,7 +5,9 @@ import { AuthenticationComponent } from './components/authentication/authenticat
 import { SharedModule } from '../modules/shared/shared.module';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
-import { ListUsersComponent } from './components/home/list-users/list-users.component';
+import { ListUsersComponent } from './components/dashboard/dynamic-routes/list-users/list-users.component';
+import { DynamicRoutesComponent } from './components/dashboard/dynamic-routes/dynamic-routes.component';
+import { CoreRoutingModule } from './core-routing.module';
 
 @NgModule({
   declarations: [
@@ -14,10 +16,12 @@ import { ListUsersComponent } from './components/home/list-users/list-users.comp
     AuthenticationComponent,
     HomeComponent,
     LoginComponent,
-    ListUsersComponent
+    ListUsersComponent,
+    DynamicRoutesComponent
   ],
   imports: [
-    SharedModule
+    SharedModule,
+    CoreRoutingModule
   ],
   exports: [
     AuthenticationComponent
