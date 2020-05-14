@@ -10,7 +10,6 @@ export const loadingState = createSelector(authSelector, (userAuth: IAuthInfo) =
 export const users = createFeatureSelector('users');
 export const getAllUsers = createSelector(users, (data) => {
   if(data) {
-  console.log(data);
   return data[`users`];
   }
 });
