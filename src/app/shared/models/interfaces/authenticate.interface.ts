@@ -17,4 +17,5 @@ export interface IUserInfo {
   displayName: string;
   email: string;
   photoURL: string;
+  _id: string;
 }

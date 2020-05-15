@@ -3,5 +3,6 @@ module.exports = Object.freeze({
   LOG_OUT: '/logout',
   SIGN_UP: '/signup',
   CHECK_AUTH: '/check-auth',
-  GET_ALL_USERS: '/get-all-users'
+  GET_ALL_USERS: '/get-all-users',
+  FRIEND_REQUEST: '/friend-request'
 });

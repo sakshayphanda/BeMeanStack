@@ -8,7 +8,8 @@ const defaultValues: IAuthInfo = {
     email: null,
     photoURL: null,
     token: null,
-    displayName: null
+    displayName: null,
+    _id: null
   },
   message: null,
   isError: false

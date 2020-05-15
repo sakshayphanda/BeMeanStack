@@ -18,7 +18,12 @@ router.post(ROUTES.SIGN_UP,
       .then(
         userPassword => {
           const userDetails = JSON.parse(JSON.stringify(request.body));
-          userDetails.password = userPassword;
+          userDetails['displayName'] = userDetails.firstName + ' ' + userDetails.lastName;
+          userDetails['password'] = userPassword;
+          userDetails['photoUrl'] = '';
+          userDetails['friends'] = [];
+          userDetails['friendRequests'] = [];
+          userDetails['friendRequestsPending'] = [];
           const user = new User(userDetails);
           user.save().then(
             result => {
@@ -57,8 +62,12 @@ router.post(ROUTES.LOG_IN,
                       {
                         user: {
                           token: token,
-                          displayName: user.firstName + ' ' +  user.lastName,
+                          displayName: user.displayName,
                           email: user.email,
+                          _id: user._id,
+                          friendRequests: user.friendRequests,
+                          friendRequestsPending: user.friendRequestsPending,
+                          friends: user.friends,
                           message: MESSAGE.SUCCESS_LOGIN
                         }
                       });
@@ -94,9 +103,13 @@ router.post(ROUTES.CHECK_AUTH,checkAuth,  (request, response) => {
           response.status(STATUS.OK).json({
             user: {
               token: request.headers.authorization,
-              displayName: user.firstName + ' ' +  user.lastName,
               email: user.email,
-              message: MESSAGE.SUCCESS_LOGIN
+              message: MESSAGE.SUCCESS_LOGIN,
+              displayName: user.displayName,
+              _id: user._id,
+              friendRequests: user.friendRequests,
+              friendRequestsPending: user.friendRequestsPending,
+              friends: user.friends,
             }
           });
         }

@@ -14,7 +14,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ListUsersComponent implements OnInit {
   users$: Observable<any>;
   allUsersExceptCurrent = [];
-  currentUserEmail: string;
+  currentUserID: string;
   constructor(
     private store: Store<any>,
     private activatedRoute: ActivatedRoute,
@@ -23,13 +23,13 @@ export class ListUsersComponent implements OnInit {
 
   ngOnInit(): void {
     const params = this.activatedRoute.snapshot.queryParams;
-    this.currentUserEmail = params.user;
+    this.currentUserID = params.user;
     this.store.select(getAllUsers).subscribe(
       users => {
         if (users) {
           this.allUsersExceptCurrent = users.filter(
             user => {
-              if (user.email !== this.currentUserEmail) {
+              if (user._id !== this.currentUserID) {
                 return true;
               } else {
                 return false;
@@ -46,7 +46,7 @@ export class ListUsersComponent implements OnInit {
   addasFriend(toEmail: string) {
     const obj = {
       to: toEmail,
-      from: this.currentUserEmail
+      from: this.currentUserID
     };
     this.store.dispatch(new FriendRequest(obj));
   }

@@ -8,13 +8,15 @@ import { AuthRoutes } from 'src/app/shared/models/enums/routes.enum';
 import 'firebase/auth';
 import 'firebase/firestore';
 import { throwError, of } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 @Injectable()
 export class AuthEffects {
   constructor(
     private actions$: Actions<DefaultAuth.AuthTypes>,
-    private http: HttpService
+    private http: HttpService,
+    private router: Router
     ) { }
 
   @Effect()
@@ -59,6 +61,7 @@ export class AuthEffects {
       return this.http.get(environment.baseApiUrl + AuthRoutes.LOG_OUT).pipe(
         map(
           data => {
+            this.router.navigate(['']);
             return new DefaultAuth.LogoutSuccess();
           }
         )
