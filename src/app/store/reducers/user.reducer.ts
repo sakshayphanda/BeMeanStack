@@ -7,8 +7,6 @@ const defaultState = {
 export const usersReducer = (state = defaultState, action: fromUsersAction.SuccessTypes) => {
   switch (action.type) {
     case fromUsersAction.ListUsersSuccess: {
-      console.log(state);
-
       const newState = {...state};
       newState.users = action.payload;
       return {...newState};
