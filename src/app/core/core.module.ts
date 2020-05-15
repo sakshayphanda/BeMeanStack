@@ -8,6 +8,8 @@ import { LoginComponent } from './components/login/login.component';
 import { ListUsersComponent } from './components/dashboard/dynamic-routes/list-users/list-users.component';
 import { DynamicRoutesComponent } from './components/dashboard/dynamic-routes/dynamic-routes.component';
 import { CoreRoutingModule } from './core-routing.module';
+import { FriendsComponent } from './components/dashboard/dynamic-routes/friends/friends.component';
+import { ChatComponent } from './components/dashboard/dynamic-routes/chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { CoreRoutingModule } from './core-routing.module';
     HomeComponent,
     LoginComponent,
     ListUsersComponent,
-    DynamicRoutesComponent
+    DynamicRoutesComponent,
+    FriendsComponent,
+    ChatComponent
   ],
   imports: [
     SharedModule,

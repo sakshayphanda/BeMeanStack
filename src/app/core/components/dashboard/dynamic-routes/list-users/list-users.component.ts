@@ -40,7 +40,7 @@ export class ListUsersComponent implements OnInit {
         if (FR && Object.keys(FR).length) {
           console.log(FR);
 
-        //  this.store.dispatch(new UpdateUser(FR.updatedUser));
+          this.store.dispatch(new UpdateUser(FR));
         }
       }
     );

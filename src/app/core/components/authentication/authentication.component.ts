@@ -4,6 +4,7 @@ import { authSelector } from 'src/app/store/selectors/auth.selector';
 import { DefaultAuth } from 'src/app/store/actions';
 import { IAuthInfo } from 'src/app/shared/models/interfaces/authenticate.interface';
 import { AppState } from 'src/app/store/reducers';
+import { AuthenticationService } from 'src/app/shared/services/authentication.service';
 
 @Component({
   selector: 'app-authentication',
@@ -15,7 +16,8 @@ export class AuthenticationComponent implements OnInit {
   isLoggedIn = false;
   user: IAuthInfo;
   constructor(
-    private store: Store<AppState>
+    private store: Store<AppState>,
+    private authService: AuthenticationService
   ) { }
 
   ngOnInit() {
@@ -30,6 +32,7 @@ export class AuthenticationComponent implements OnInit {
 
         if (userDetails) {
           this.user = userDetails;
+          this.authService.userDetails = userDetails.user;
           this.isLoggedIn = userDetails.loggedIn;
         }
       }

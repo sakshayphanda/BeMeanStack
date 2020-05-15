@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IAuthenticate } from '../models/interfaces/authenticate.interface';
+import { IAuthenticate, IUserInfo } from '../models/interfaces/authenticate.interface';
 import { HttpService } from './http.service';
 import { environment } from 'src/environments/environment';
 import { AuthRoutes } from '../models/enums/routes.enum';
@@ -15,6 +15,7 @@ import 'firebase/firestore';
 
 export class AuthenticationService {
   isLoggedIn = false;
+  userDetails: IUserInfo;
   provider = new firebase.auth.FacebookAuthProvider();
   constructor(
     private httpService: HttpService
