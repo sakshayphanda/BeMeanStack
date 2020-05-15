@@ -5,8 +5,13 @@ import { storeFreeze } from 'ngrx-store-freeze'; // prevents the data from getti
 import { authenticationReducer } from './auth.reducer';
 import { usersReducer } from './user.reducer';
 
+export interface AppState {
+  router;
+  authentication;
+  users;
+}
 
-export const reducers: ActionReducerMap<{}> = {
+export const reducers: ActionReducerMap<AppState> = {
   router: routerReducer,
   authentication: authenticationReducer,
   users: usersReducer

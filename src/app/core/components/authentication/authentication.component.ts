@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { authSelector } from 'src/app/store/selectors/auth.selector';
 import { DefaultAuth } from 'src/app/store/actions';
 import { IAuthInfo } from 'src/app/shared/models/interfaces/authenticate.interface';
+import { AppState } from 'src/app/store/reducers';
 
 @Component({
   selector: 'app-authentication',
@@ -14,18 +15,21 @@ export class AuthenticationComponent implements OnInit {
   isLoggedIn = false;
   user: IAuthInfo;
   constructor(
-    private store: Store<any>
+    private store: Store<AppState>
   ) { }
 
   ngOnInit() {
     if (localStorage.getItem('email') && localStorage.getItem('token')) {
+      console.log('check');
+
       this.store.dispatch(new DefaultAuth.CheckLoggedIn());
     }
     this.store.select(authSelector).subscribe(
       (userDetails: IAuthInfo) => {
+        console.log(userDetails);
+
         if (userDetails) {
-          console.log(userDetails);
-          this.user = {...userDetails};
+          this.user = userDetails;
           this.isLoggedIn = userDetails.loggedIn;
         }
       }

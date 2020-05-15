@@ -9,7 +9,7 @@ import { IUserInfo } from 'src/app/shared/models/interfaces/authenticate.interfa
   styleUrls: ['./home.component.sass'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HomeComponent implements OnInit, OnChanges {
+export class HomeComponent implements OnInit {
 
   @Input('user') user: IUserInfo;
   constructor(
@@ -17,10 +17,4 @@ export class HomeComponent implements OnInit, OnChanges {
 
   ngOnInit() {
   }
-
-  ngOnChanges(change) {
-    console.log(change);
-
-  }
-
 }

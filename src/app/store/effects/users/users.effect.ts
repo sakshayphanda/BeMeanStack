@@ -18,6 +18,7 @@ export class UsersEffects {
   listUsers$ = this.actions$.pipe(ofType(fromUsersActions.ListUsersRequest),
   switchMap(
     userDetail => {
+
       return this.http.get(environment.baseApiUrl + UserRoutes.GET_ALL_USERS).pipe(
         map(
           data => {
@@ -35,7 +36,7 @@ export class UsersEffects {
       return this.http.post(environment.baseApiUrl + UserRoutes.FRIEND_REQUEST, data.payload).pipe(
         map(
           response => {
-            return new fromUsersActions.FriendRequestSuccess();
+            return new fromUsersActions.FriendRequestSuccess(response);
           }
         )
       );

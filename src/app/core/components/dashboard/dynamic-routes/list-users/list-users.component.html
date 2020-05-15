@@ -2,7 +2,7 @@
   <div class="users__title">Users</div>
   <div class="users__data">
     <ng-container *ngFor="let user of allUsersExceptCurrent">
-     <p> {{user.displayName}} <button class="add" (click) = "addasFriend(user.email)">Add as a friend</button></p>
+     <p> {{user.displayName}} <button class="add" (click) = "addasFriend(user._id)">Add as a friend</button></p>
     </ng-container>
   </div>
 

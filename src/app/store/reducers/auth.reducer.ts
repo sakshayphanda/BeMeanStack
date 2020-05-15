@@ -9,7 +9,10 @@ const defaultValues: IAuthInfo = {
     photoURL: null,
     token: null,
     displayName: null,
-    _id: null
+    _id: null,
+    friendRequests: [],
+    friendRequestsPending: [],
+    friends: []
   },
   message: null,
   isError: false
@@ -24,7 +27,7 @@ export function authenticationReducer(state = defaultValues, action: DefaultAuth
 
     case DefaultAuth.LOGIN_SUCCESS: {
       let newState = Object.assign({}, state);
-      newState = Object.assign(newState, action.payload);
+      newState = Object.assign({}, newState, action.payload);
       newState.loading = false;
       newState.loggedIn = true;
       newState.isError = false;
@@ -47,6 +50,20 @@ export function authenticationReducer(state = defaultValues, action: DefaultAuth
       localStorage.clear();
       return {...newState};
     }
+
+    case DefaultAuth.UPDATE_USER: {
+      const newState = Object.assign({}, state);
+
+      newState.user = action.payload;
+      console.log(newState, state);
+
+      return {...newState};
+    }
+
+    default : {
+      return state;
+    }
   }
-};
+}
+
 

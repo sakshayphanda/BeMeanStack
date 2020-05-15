@@ -11,7 +11,7 @@ export class ListAllUsersRequest implements Action {
 }
 export class ListAllUsers implements Action {
   readonly type = ListUsersSuccess;
-  constructor(public payload?: any) {}
+  constructor(public payload) {}
 }
 
 export class FriendRequest implements Action {
@@ -21,7 +21,7 @@ export class FriendRequest implements Action {
 
 export class FriendRequestSuccess implements Action {
   readonly type = FRIEND_REQUEST_SUCCESS;
-  constructor() {}
+  constructor(public payload) {}
 }
 
 

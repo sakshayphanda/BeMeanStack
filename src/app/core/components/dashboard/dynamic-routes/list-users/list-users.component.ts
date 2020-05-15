@@ -1,9 +1,11 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { ListAllUsersRequest, FriendRequest } from 'src/app/store/actions/users/users.actions';
-import { getAllUsers } from 'src/app/store/selectors/auth.selector';
+import { getAllUsers, friendRequest } from 'src/app/store/selectors/auth.selector';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { UpdateUser } from 'src/app/store/actions/authentication/auth.actions';
+import { AppState } from 'src/app/store/reducers';
 
 @Component({
   selector: 'app-list-users',
@@ -16,7 +18,7 @@ export class ListUsersComponent implements OnInit {
   allUsersExceptCurrent = [];
   currentUserID: string;
   constructor(
-    private store: Store<any>,
+    private store: Store<AppState>,
     private activatedRoute: ActivatedRoute,
     private changeDetection: ChangeDetectorRef
     ) {}
@@ -27,16 +29,18 @@ export class ListUsersComponent implements OnInit {
     this.store.select(getAllUsers).subscribe(
       users => {
         if (users) {
-          this.allUsersExceptCurrent = users.filter(
-            user => {
-              if (user._id !== this.currentUserID) {
-                return true;
-              } else {
-                return false;
-              }
-            }
-          );
+          this.allUsersExceptCurrent = users.filter(user => user._id !== this.currentUserID);
           this.changeDetection.markForCheck();
+        }
+      }
+    );
+
+    this.store.select(friendRequest).subscribe(
+      FR => {
+        if (FR && Object.keys(FR).length) {
+          console.log(FR);
+
+        //  this.store.dispatch(new UpdateUser(FR.updatedUser));
         }
       }
     );

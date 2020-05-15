@@ -18,4 +18,8 @@ export interface IUserInfo {
   email: string;
   photoURL: string;
   _id: string;
+  friendRequests: string[];
+  friendRequestsPending: string[];
+  friends: string[];
+
 }
