@@ -2,8 +2,10 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { AppState } from 'src/app/store/reducers';
 import { Store } from '@ngrx/store';
 import { ActivatedRoute } from '@angular/router';
-import { currentUser } from 'src/app/store/selectors/auth.selector';
+import { currentUser, friendRequest } from 'src/app/store/selectors/auth.selector';
 import { IAuthInfo, IUserInfo } from 'src/app/shared/models/interfaces/authenticate.interface';
+import { FriendRequestAcceptApi } from 'src/app/store/actions/users/users.actions';
+import { UpdateUser } from 'src/app/store/actions/authentication/auth.actions';
 
 @Component({
   selector: 'app-friends',
@@ -32,11 +34,21 @@ export class FriendsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const params = this.activatedRoute.snapshot.queryParams;
+    const path = this.activatedRoute.snapshot.routeConfig.path;
+    this.selectedType = path;
     this.store.select(currentUser).subscribe(
       (user: IUserInfo) => {
         if (user) {
           this.currentUser = user;
+          this.typeChanged(path);
+        }
+      }
+    );
+
+    this.store.select(friendRequest).subscribe(
+      user => {
+        if (user && Object.keys(user).length) {
+          this.store.dispatch(new UpdateUser(user));
         }
       }
     );
@@ -45,6 +57,15 @@ export class FriendsComponent implements OnInit {
   typeChanged(id) {
     this.selectedType = id;
     this.list = this.currentUser[this.selectedType];
+  }
+
+  friendReqAccept(user) {
+    this.store.dispatch(new FriendRequestAcceptApi({
+      to: user,
+      from: this.currentUser
+    }));
+    const index = this.list.findIndex(element => element._id === user._id);
+    this.list.splice(index, 1);
   }
 
 }

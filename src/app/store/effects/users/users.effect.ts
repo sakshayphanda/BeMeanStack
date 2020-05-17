@@ -42,4 +42,18 @@ export class UsersEffects {
       );
     }
   ));
+
+  @Effect()
+  acceptFriend$ = this.actions$.pipe(ofType(fromUsersActions.FRIEND_REQUEST_ACCEPT),
+  switchMap(
+    data => {
+      return this.http.post(environment.baseApiUrl + UserRoutes.FRIEND_REQUEST_ACCEPTED, data.payload).pipe(
+        map(
+          response => {
+            return new fromUsersActions.FriendRequestSuccess(response);
+          }
+        )
+      );
+    }
+  ));
 }

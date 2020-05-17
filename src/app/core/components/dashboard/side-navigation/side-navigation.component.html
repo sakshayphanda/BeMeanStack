@@ -6,6 +6,6 @@
 
   <ng-container *ngFor="let action of actions">
     <button class="btn btn-primary" [routerLinkActive]="['selected']"
-      [routerLink]="action.route" [queryParams] = "{user: user['_id']}">{{ action.name + ' ' + (action.count ? action.count : '') }}</button>
+      [routerLink]="action.route" [queryParams] = "action.params">{{ action.name + ' ' + (action.count ? action.count : '') }}</button>
   </ng-container>
 </div>

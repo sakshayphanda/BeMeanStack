@@ -19,7 +19,11 @@ const routes: Routes = [
     component: FriendsComponent
   },
   {
-    path: 'friendreq',
+    path: 'friendRequests',
+    component: FriendsComponent
+  },
+  {
+    path: 'friendRequestsPending',
     component: FriendsComponent
   },
   { path: '**',

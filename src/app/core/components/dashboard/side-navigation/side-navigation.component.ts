@@ -17,22 +17,26 @@ export class SideNavigationComponent implements OnInit, OnChanges {
       {
         name: 'Find users',
         route: 'users',
-        count: null
+        count: null,
+        params: {user: this.user._id}
       },
       {
         name: 'Friends',
         route: 'friends',
-        count: this.user.friends.length
+        count: this.user.friends.length,
+        params: false
       },
       {
         name: 'Friend Requests',
-        route: 'friendreq',
-        count: this.user.friendRequests.length
+        route: 'friendRequests',
+        count: this.user.friendRequests.length,
+        params: false
       },
       {
         name: 'Pending Requests',
-        route: 'pending',
-        count: this.user.friendRequestsPending.length
+        route: 'friendRequestsPending',
+        count: this.user.friendRequestsPending.length,
+        params: false
       }
     ];
   }
@@ -40,26 +44,30 @@ export class SideNavigationComponent implements OnInit, OnChanges {
   ngOnChanges(changes) {
     console.log(changes);
 
-    this.actions = [
+    this.actions =[
       {
         name: 'Find users',
         route: 'users',
-        count: null
+        count: null,
+        params: {user: this.user._id}
       },
       {
         name: 'Friends',
         route: 'friends',
-        count: this.user.friends.length
+        count: this.user.friends.length,
+        params: false
       },
       {
         name: 'Friend Requests',
-        route: 'friendreq',
-        count: this.user.friendRequests.length
+        route: 'friendRequests',
+        count: this.user.friendRequests.length,
+        params: false
       },
       {
         name: 'Pending Requests',
-        route: 'pending',
-        count: this.user.friendRequestsPending.length
+        route: 'friendRequestsPending',
+        count: this.user.friendRequestsPending.length,
+        params: false
       }
     ];
   }

@@ -4,5 +4,6 @@ module.exports = Object.freeze({
   SIGN_UP: '/signup',
   CHECK_AUTH: '/check-auth',
   GET_ALL_USERS: '/get-all-users',
-  FRIEND_REQUEST: '/friend-request'
+  FRIEND_REQUEST: '/friend-request',
+  FRIEND_REQUEST_ACCEPTED: '/friend-request-accepted'
 });
