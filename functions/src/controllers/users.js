@@ -14,21 +14,23 @@ router.get(routes.GET_ALL_USERS, (request, response, next) => {
 
 router.post(routes.FRIEND_REQUEST, (request, response, next) => {
   User.findOne({
-    _id: request.body.from
+    _id: request.body.from._id
   }).then(
     user=> {
       const updateUser = JSON.parse(JSON.stringify(user));
-      if (!updateUser.friendRequestsPending.includes(request.body.to)) {
-        updateUser.friendRequestsPending.push(request.body.to)
+      const notUnique = updateUser.friendRequestsPending.some(req => req._id === request.body.to._id);
+      if (!notUnique) {
+        updateUser.friendRequestsPending.push(request.body.to);
+        User.updateOne({
+          _id: request.body.from._id
+        }, {$set: updateUser}).then(
+          u => {
+            response.status(200).json(updateUser);
+          }
+        );
+      } else {
+        response.status(200).json(user);
       }
-      User.updateOne({
-        _id: request.body.from
-      }, {$set: updateUser}).then(
-        u => {
-          response.status(200).json(updateUser);
-        }
-      );
-
     }
   );
 
@@ -37,15 +39,17 @@ router.post(routes.FRIEND_REQUEST, (request, response, next) => {
   }).then(
     user=> {
       const updateUser = JSON.parse(JSON.stringify(user));
-      if(!updateUser.friendRequests.includes(request.body.from)) {
+      const notUnique = updateUser.friendRequests.some(req => req._id === request.body.from._id);
+      if (!notUnique) {
         updateUser.friendRequests.push(request.body.from);
+
+        User.updateOne({
+          _id: request.body.to
+        }, {$set: updateUser}).then(
+          u => {
+          }
+        );
       }
-      User.updateOne({
-        _id: request.body.to
-      }, {$set: updateUser}).then(
-        u => {
-        }
-      );
     }
   );
 });

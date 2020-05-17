@@ -17,6 +17,7 @@ export class ListUsersComponent implements OnInit {
   users$: Observable<any>;
   allUsersExceptCurrent = [];
   currentUserID: string;
+  currentUser;
   constructor(
     private store: Store<AppState>,
     private activatedRoute: ActivatedRoute,
@@ -29,29 +30,35 @@ export class ListUsersComponent implements OnInit {
     this.store.select(getAllUsers).subscribe(
       users => {
         if (users) {
-          this.allUsersExceptCurrent = users.filter(user => user._id !== this.currentUserID);
+          this.allUsersExceptCurrent = users.filter(user => {
+            if (user._id !== this.currentUserID) {
+              return true;
+            } else {
+              this.currentUser = user;
+              return false;
+            }
+          });
           this.changeDetection.markForCheck();
         }
       }
     );
 
     this.store.select(friendRequest).subscribe(
-      FR => {
-        if (FR && Object.keys(FR).length) {
-          console.log(FR);
-
-          this.store.dispatch(new UpdateUser(FR));
+      user => {
+        if (user && Object.keys(user).length) {
+          this.store.dispatch(new UpdateUser(user));
         }
       }
     );
     this.store.dispatch(new ListAllUsersRequest());
   }
 
-  addasFriend(toEmail: string) {
-    const obj = {
-      to: toEmail,
-      from: this.currentUserID
-    };
-    this.store.dispatch(new FriendRequest(obj));
+  addasFriend(user: string) {
+    this.store.dispatch(new FriendRequest({
+      to: user,
+      from: this.currentUser
+    }));
   }
+
+
 }

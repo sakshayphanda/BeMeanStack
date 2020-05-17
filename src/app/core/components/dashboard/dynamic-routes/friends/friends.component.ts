@@ -12,22 +12,39 @@ import { IAuthInfo, IUserInfo } from 'src/app/shared/models/interfaces/authentic
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FriendsComponent implements OnInit {
-
+  list = [];
+  selectedType = 'friends';
   currentUser: IUserInfo;
+  types = [{
+    id: 'friends',
+    label: 'Friends'
+  }, {
+    id: 'friendRequests',
+    label: 'Friend Requests'
+  },
+  {
+    id: 'friendRequestsPending',
+    label: 'Pending'
+  }];
   constructor(
     private store: Store<AppState>,
     private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
+    const params = this.activatedRoute.snapshot.queryParams;
     this.store.select(currentUser).subscribe(
       (user: IUserInfo) => {
-        console.log(user);
         if (user) {
           this.currentUser = user;
         }
       }
     );
+  }
+
+  typeChanged(id) {
+    this.selectedType = id;
+    this.list = this.currentUser[this.selectedType];
   }
 
 }
