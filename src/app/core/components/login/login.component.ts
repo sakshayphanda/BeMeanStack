@@ -53,8 +53,6 @@ export class LoginComponent implements OnInit{
     this.showSignUp ? this.signup(userDetails) : this.login(userDetails);
   }
 
-
-
   signup(userDetails) {
     this.showSignUp = true;
     this.authenticationService
