@@ -55,8 +55,8 @@ export class ListUsersComponent implements OnInit {
 
   addasFriend(user: string) {
     this.store.dispatch(new FriendRequest({
-      to: user,
-      from: this.currentUser
+      to: user[`_id`],
+      from: this.currentUser[`_id`]
     }));
   }
 

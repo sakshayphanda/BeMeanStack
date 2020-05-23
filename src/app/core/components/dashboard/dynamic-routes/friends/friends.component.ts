@@ -56,13 +56,13 @@ export class FriendsComponent implements OnInit {
 
   typeChanged(id) {
     this.selectedType = id;
-    this.list = this.currentUser[this.selectedType];
+    this.list = JSON.parse(JSON.stringify(this.currentUser[this.selectedType]));
   }
 
   friendReqAccept(user) {
     this.store.dispatch(new FriendRequestAcceptApi({
-      to: user,
-      from: this.currentUser
+      to: user[`_id`],
+      from: this.currentUser[`_id`]
     }));
     const index = this.list.findIndex(element => element._id === user._id);
     this.list.splice(index, 1);

@@ -3,102 +3,75 @@ const routes = require('../constants/routes.constants');
 const User = require('../model/user');
 
 
-router.get(routes.GET_ALL_USERS, (request, response, next) => {
-  User.find({}).then(
-    users=> {
-      const usernames = users.map(user => user.firstName + ' ' + user.lastName);
-      response.status(200).json(users);
-    }
-  );
-})
-
-router.post(routes.FRIEND_REQUEST, (request, response, next) => {
-  User.findOne({
-    _id: request.body.from._id
-  }).then(
+router.get(routes.GET_ALL_USERS, async (_request, response) => {
+  let users = await User.find({});
+  users = users.map(
     user=> {
-      const updateUser = JSON.parse(JSON.stringify(user));
-      const notUnique = updateUser.friendRequestsPending.some(req => req._id === request.body.to._id);
-      if (!notUnique) {
-        updateUser.friendRequestsPending.push(request.body.to);
-        User.updateOne({
-          _id: request.body.from._id
-        }, {$set: updateUser}).then(
-          u => {
-            response.status(200).json(updateUser);
-          }
-        );
-      } else {
-        response.status(200).json(user);
-      }
+      const currentUser = JSON.parse(JSON.stringify(user));
+       delete currentUser.friendRequests;
+       delete currentUser.friendRequestsPending;
+      return currentUser;
     }
   );
-
-  User.findOne({
-    _id: request.body.to
-  }).then(
-    user=> {
-      const updateUser = JSON.parse(JSON.stringify(user));
-      const notUnique = updateUser.friendRequests.some(req => req._id === request.body.from._id);
-      if (!notUnique) {
-        updateUser.friendRequests.push(request.body.from);
-
-        User.updateOne({
-          _id: request.body.to
-        }, {$set: updateUser}).then(
-          u => {
-          }
-        );
-      }
-    }
-  );
+  response.status(200).json(users);
 });
 
-router.post(routes.FRIEND_REQUEST_ACCEPTED, (request, response, next) => {
-
-  User.findOne({
-    _id: request.body.to
-  }).then(
-    user=> {
-      const updateUser = JSON.parse(JSON.stringify(user));
-      const notUnique = updateUser.friends.some(req => req._id === request.body.from._id);
-      if (!notUnique) {
-        updateUser.friends.push(request.body.from);
-        const index = updateUser.friendRequestsPending.findIndex(element => element._id === request.body.from._id);
-        updateUser.friendRequestsPending.splice(index, 1);
-        User.updateOne({
-          _id: request.body.to
-        }, {$set: updateUser}).then(
-          u => {
-          }
-        );
-      }
+router.post(routes.FRIEND_REQUEST, async (request, response, next) => {
+  const toUser = JSON.parse(JSON.stringify( await User.findOne({_id: request.body.to})));
+  const fromUser = JSON.parse(JSON.stringify( await User.findOne({_id: request.body.from})));
+  if (toUser && fromUser) {
+    const toUserUnique = !toUser.friendRequests.some(req => req._id === fromUser._id);
+    const fromUserUnique = !fromUser.friendRequestsPending.some(req => req._id === toUser._id);
+    if (toUserUnique && fromUserUnique) {
+      const toUserWithoutFriendInfo = JSON.parse(JSON.stringify(toUser));
+      delete toUserWithoutFriendInfo.friendRequests;
+      delete toUserWithoutFriendInfo.friendRequestsPending;
+      delete toUserWithoutFriendInfo.password;
+      const fromUserWithoutFriendInfo = JSON.parse(JSON.stringify(fromUser));
+      delete fromUserWithoutFriendInfo.friendRequests;
+      delete fromUserWithoutFriendInfo.friendRequestsPending;
+      delete fromUserWithoutFriendInfo.password;
+      toUser.friendRequests.push(fromUserWithoutFriendInfo);
+      fromUser.friendRequestsPending.push(toUserWithoutFriendInfo);
+      await User.updateOne({_id: fromUser._id}, {$set: fromUser});
+      await User.updateOne({_id: toUser._id}, {$set: toUser});
+      response.status(200).json(fromUser);
+    } else {
+      response.status(200).json('Already sent');
     }
-  );
+  }
+});
 
-  User.findOne({
-    _id: request.body.from._id
-  }).then(
-    user=> {
-      const updateUser = JSON.parse(JSON.stringify(user));
-      const notUnique = updateUser.friends.some(element => element._id === request.body.to._id);
-      if (!notUnique) {
-        updateUser.friends.push(request.body.to);
-        const index = updateUser.friendRequests.findIndex(element => element._id === request.body.to._id);
-        updateUser.friendRequests.splice(index, 1);
-        User.updateOne({
-          _id: request.body.from._id
-        }, {$set: updateUser}).then(
-          u => {
-            response.status(200).json(updateUser);
-          }
-        );
-      } else {
-        response.status(200).json(user);
-      }
+router.post(routes.FRIEND_REQUEST_ACCEPTED, async (request, response, next) => {
+  const toUser = JSON.parse(JSON.stringify( await User.findOne({_id: request.body.to})));
+  const fromUser = JSON.parse(JSON.stringify( await User.findOne({_id: request.body.from})));
+  if (toUser && fromUser) {
+    const isToUserUnique = !toUser.friends.some(req => req._id === fromUser._id);
+    const isFromUserUnique = !fromUser.friends.some(req => req._id === toUser._id);
+    if (isToUserUnique && isFromUserUnique) {
+      const index = fromUser.friendRequests.findIndex(req => req._id === request.body.from);
+      fromUser.friendRequests.splice(index, 1);
+      const index1 = toUser.friendRequestsPending.findIndex(req => req._id === request.body.to);
+      toUser.friendRequestsPending.splice(index1, 1);
+
+      const toUserWithoutFriendInfo = JSON.parse(JSON.stringify(toUser));
+      delete toUserWithoutFriendInfo.friendRequests;
+      delete toUserWithoutFriendInfo.friendRequestsPending;
+      delete toUserWithoutFriendInfo.password;
+      const fromUserWithoutFriendInfo = JSON.parse(JSON.stringify(fromUser));
+      delete fromUserWithoutFriendInfo.friendRequests;
+      delete fromUserWithoutFriendInfo.friendRequestsPending;
+      delete fromUserWithoutFriendInfo.password;
+
+      toUser.friends.push(fromUserWithoutFriendInfo);
+      fromUser.friends.push(toUserWithoutFriendInfo);
+      await User.updateOne({_id: fromUser._id}, {$set: fromUser});
+      await User.updateOne({_id: toUser._id}, {$set: toUser});
+      response.status(200).json(fromUser);
+    } else {
+      response.status(200).json('Already added');
     }
-  );
-
+  }
 });
 
 
