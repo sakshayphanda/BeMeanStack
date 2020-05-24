@@ -50,9 +50,9 @@ router.post(routes.FRIEND_REQUEST_ACCEPTED, async (request, response, next) => {
     const isToUserUnique = !toUser.friends.some(req => req._id === fromUser._id);
     const isFromUserUnique = !fromUser.friends.some(req => req._id === toUser._id);
     if (isToUserUnique && isFromUserUnique) {
-      const index = fromUser.friendRequests.findIndex(req => req._id === request.body.from);
+      const index = fromUser.friendRequests.findIndex(req => req._id === toUser._id);
       fromUser.friendRequests.splice(index, 1);
-      const index1 = toUser.friendRequestsPending.findIndex(req => req._id === request.body.to);
+      const index1 = toUser.friendRequestsPending.findIndex(req => req._id === fromUser._id);
       toUser.friendRequestsPending.splice(index1, 1);
 
       const toUserWithoutFriendInfo = JSON.parse(JSON.stringify(toUser));
@@ -104,7 +104,7 @@ router.post(routes.UNFRIEND, async (request, response, next) => {
     const isFromUserFriend = fromUser.friends.some(req => req._id === toUser._id);
     console.log(isFromUserFriend, isToUserFriend);
 
-    if (isToUserFriend && isFromUserFriend) {
+    if  (isFromUserFriend) {
 
       const index = fromUser.friends.findIndex(req => req._id === request.body.from);
       fromUser.friends.splice(index, 1);

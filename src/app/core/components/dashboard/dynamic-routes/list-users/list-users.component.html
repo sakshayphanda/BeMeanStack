@@ -4,7 +4,7 @@
     <ng-container *ngFor="let user of allUsersExceptCurrent">
      <p class="user"> {{user.displayName}}
       <button mat-raised-button color="primary" *ngIf="!user.alreadyAdded"  class="add" (click) = "addasFriend(user)">Add as a friend</button>
-      <button mat-raised-button color="primary" *ngIf="user.alreadyAdded"  class="add">Already Added</button>
+      <button mat-raised-button color="primary" *ngIf="user.alreadyAdded"  class="added">Already Added</button>
     </p>
 
     </ng-container>
