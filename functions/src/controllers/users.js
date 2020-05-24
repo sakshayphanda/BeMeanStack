@@ -8,8 +8,8 @@ router.get(routes.GET_ALL_USERS, async (_request, response) => {
   users = users.map(
     user=> {
       const currentUser = JSON.parse(JSON.stringify(user));
-       delete currentUser.friendRequests;
-       delete currentUser.friendRequestsPending;
+      delete currentUser.friendRequests;
+      delete currentUser.friendRequestsPending;
       return currentUser;
     }
   );
