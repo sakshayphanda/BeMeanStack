@@ -38,6 +38,25 @@ export class ListUsersComponent implements OnInit {
               return false;
             }
           });
+          this.allUsersExceptCurrent = this.allUsersExceptCurrent.map(
+            user => {
+              const newObj = Object.assign({}, user);
+              const alreadyAdded = this.currentUser.friends.some( u => u._id === user._id);
+              if (alreadyAdded) {
+                Object.defineProperty(newObj, 'alreadyAdded', {
+                  value: true
+                });
+                return newObj;
+              } else {
+                Object.defineProperty(newObj, 'alreadyAdded', {
+                  value: false
+                });
+                return newObj;
+              }
+            }
+          );
+          console.log(this.allUsersExceptCurrent);
+
           this.changeDetection.markForCheck();
         }
       }

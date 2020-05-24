@@ -56,4 +56,32 @@ export class UsersEffects {
       );
     }
   ));
+
+  @Effect()
+  rejectFriend$ = this.actions$.pipe(ofType(fromUsersActions.FRIEND_REQUEST_REJECT),
+  switchMap(
+    data => {
+      return this.http.post(environment.baseApiUrl + UserRoutes.FRIEND_REQUEST_REJECTED, data.payload).pipe(
+        map(
+          response => {
+            return new fromUsersActions.FriendRequestSuccess(response);
+          }
+        )
+      );
+    }
+  ));
+
+  @Effect()
+  unfriend$ = this.actions$.pipe(ofType(fromUsersActions.UNFRIEND),
+  switchMap(
+    data => {
+      return this.http.post(environment.baseApiUrl + UserRoutes.UNFRIEND, data.payload).pipe(
+        map(
+          response => {
+            return new fromUsersActions.FriendRequestSuccess(response);
+          }
+        )
+      );
+    }
+  ));
 }

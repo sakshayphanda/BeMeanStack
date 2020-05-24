@@ -5,5 +5,7 @@ module.exports = Object.freeze({
   CHECK_AUTH: '/check-auth',
   GET_ALL_USERS: '/get-all-users',
   FRIEND_REQUEST: '/friend-request',
-  FRIEND_REQUEST_ACCEPTED: '/friend-request-accepted'
+  FRIEND_REQUEST_ACCEPTED: '/friend-request-accepted',
+  FRIEND_REQUEST_REJECTED: '/friend-request-rejected',
+  UNFRIEND: '/unfriend'
 });

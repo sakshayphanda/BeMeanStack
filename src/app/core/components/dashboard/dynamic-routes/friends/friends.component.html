@@ -7,7 +7,8 @@
   <div class="users__data">
     <ng-container *ngFor="let user of list">
      <p class="user"> {{user.displayName}}
-       <button mat-raised-button color="accent" *ngIf = "selectedType === 'friends'" class="add">unfriend</button>
+       <button mat-raised-button color="accent" (click) = "unfriend(user)" *ngIf = "selectedType === 'friends'" class="add">unfriend</button>
+       <button mat-raised-button color="accent" (click) = "friendReqReject(user)" *ngIf = "selectedType === 'friendRequests'" class="add">Cancel</button>
        <button mat-raised-button color="accent" (click) = "friendReqAccept(user)" *ngIf = "selectedType === 'friendRequests'" class="add">Accept</button>
        <button mat-raised-button color="accent" *ngIf = "selectedType === 'friendRequestsPending'" class="add">Cancel</button>
       </p>

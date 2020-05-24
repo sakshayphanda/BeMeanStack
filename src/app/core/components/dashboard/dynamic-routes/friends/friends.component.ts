@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { ActivatedRoute } from '@angular/router';
 import { currentUser, friendRequest } from 'src/app/store/selectors/auth.selector';
 import { IAuthInfo, IUserInfo } from 'src/app/shared/models/interfaces/authenticate.interface';
-import { FriendRequestAcceptApi } from 'src/app/store/actions/users/users.actions';
+import { FriendRequestAcceptApi, FriendRequestRejectApi, UnfriendApi } from 'src/app/store/actions/users/users.actions';
 import { UpdateUser } from 'src/app/store/actions/authentication/auth.actions';
 
 @Component({
@@ -61,6 +61,24 @@ export class FriendsComponent implements OnInit {
 
   friendReqAccept(user) {
     this.store.dispatch(new FriendRequestAcceptApi({
+      to: user[`_id`],
+      from: this.currentUser[`_id`]
+    }));
+    const index = this.list.findIndex(element => element._id === user._id);
+    this.list.splice(index, 1);
+  }
+
+  friendReqReject(user) {
+    this.store.dispatch(new FriendRequestRejectApi({
+      to: user[`_id`],
+      from: this.currentUser[`_id`]
+    }));
+    const index = this.list.findIndex(element => element._id === user._id);
+    this.list.splice(index, 1);
+  }
+
+  unfriend(user) {
+    this.store.dispatch(new UnfriendApi({
       to: user[`_id`],
       from: this.currentUser[`_id`]
     }));
