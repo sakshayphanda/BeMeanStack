@@ -55,8 +55,6 @@ export class ListUsersComponent implements OnInit {
               }
             }
           );
-          console.log(this.allUsersExceptCurrent);
-
           this.changeDetection.markForCheck();
         }
       }

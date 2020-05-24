@@ -4,7 +4,7 @@ const defaultState = {
   users: [],
   updatedUser: {}
 };
-export const usersReducer = (state = defaultState, action: fromUsersAction.SuccessTypes) => {
+export function usersReducer(state = defaultState, action: fromUsersAction.SuccessTypes) {
   switch (action.type) {
     case fromUsersAction.ListUsersSuccess: {
       const newState = {...state};
@@ -22,4 +22,5 @@ export const usersReducer = (state = defaultState, action: fromUsersAction.Succe
       return state;
     }
   }
-};
+}
+
