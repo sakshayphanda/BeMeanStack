@@ -5,6 +5,7 @@ const bodyParser = require('body-parser'); // to parse the incoming object into 
 app.use(bodyParser.json());
 const authRoute = require('./controllers/authentication');
 const usersRoute = require('./controllers/users');
+const postsRoute = require('./controllers/posts');
 
 const GLOBAL = require('./constants/global.constants');
 
@@ -29,5 +30,6 @@ mongoose.connect('mongodb+srv://'+ process.env.MONGO_USER_PASS + '@bemeanstack-b
 
 app.use('/auth', authRoute);
 app.use('/users', usersRoute);
+// app.use('/posts', postsRoute)
 
 module.exports = app;

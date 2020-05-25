@@ -18,7 +18,6 @@ export class UsersEffects {
   listUsers$ = this.actions$.pipe(ofType(fromUsersActions.ListUsersRequest),
   switchMap(
     userDetail => {
-
       return this.http.get(environment.baseApiUrl + UserRoutes.GET_ALL_USERS).pipe(
         map(
           data => {

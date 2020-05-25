@@ -17,7 +17,7 @@ export const getAllUsers = createSelector(users, (data) => {
   }
 });
 
-export const friendRequest = createSelector(users, (data) => {
+export const friendRequestSuccess = createSelector(users, (data) => {
   if (data) {
   return data[`updatedUser`];
   }

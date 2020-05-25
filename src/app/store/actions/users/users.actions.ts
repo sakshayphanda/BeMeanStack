@@ -9,7 +9,7 @@ export const UNFRIEND = 'Users | Unfriend';
 
 
 
-export class ListAllUsersRequest implements Action {
+export class ListAllUsersApi implements Action {
   readonly type = ListUsersRequest;
   constructor() {}
 }
@@ -18,7 +18,7 @@ export class ListAllUsers implements Action {
   constructor(public payload) {}
 }
 
-export class FriendRequest implements Action {
+export class FriendRequestApi implements Action {
   readonly type = FRIEND_REQUEST;
   constructor(public payload: {to: any, from: any}) {}
 }
@@ -45,4 +45,4 @@ export class UnfriendApi implements Action {
 
 
 export type SuccessTypes = ListAllUsers | FriendRequestSuccess;
-export type RequestTypes = ListAllUsersRequest | FriendRequest | FriendRequestAcceptApi | FriendRequestRejectApi | UnfriendApi;
+export type RequestTypes = ListAllUsersApi | FriendRequestApi | FriendRequestAcceptApi | FriendRequestRejectApi | UnfriendApi;

@@ -1,6 +1,12 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { IUserInfo } from 'src/app/shared/models/interfaces/authenticate.interface';
 
+interface IActions {
+  name: string;
+  route: string;
+  count: number;
+  params: any;
+}
 @Component({
   selector: 'app-side-navigation',
   templateUrl: './side-navigation.component.html',
@@ -9,42 +15,25 @@ import { IUserInfo } from 'src/app/shared/models/interfaces/authenticate.interfa
 export class SideNavigationComponent implements OnInit, OnChanges {
 
   @Input('user') user: IUserInfo;
-  actions = [];
+  actions: IActions[] = [];
   constructor() { }
 
   ngOnInit() {
-    this.actions = [
-      {
-        name: 'Find users',
-        route: 'users',
-        count: null,
-        params: {user: this.user._id}
-      },
-      {
-        name: 'Friends',
-        route: 'friends',
-        count: this.user.friends.length,
-        params: false
-      },
-      {
-        name: 'Friend Requests',
-        route: 'friendRequests',
-        count: this.user.friendRequests.length,
-        params: false
-      },
-      {
-        name: 'Pending Requests',
-        route: 'friendRequestsPending',
-        count: this.user.friendRequestsPending.length,
-        params: false
-      }
-    ];
+    this.actions = this.getActions();
   }
 
-  ngOnChanges(changes) {
-    console.log(changes);
+  ngOnChanges() {
+    this.actions = this.getActions();
+  }
 
-    this.actions =[
+  getActions(): IActions[] {
+    const actions = [
+      {
+        name: 'News Feed',
+        route: 'feed',
+        count: null,
+        params: {user: this.user._id}
+      },
       {
         name: 'Find users',
         route: 'users',
@@ -70,6 +59,8 @@ export class SideNavigationComponent implements OnInit, OnChanges {
         params: false
       }
     ];
+
+    return actions;
   }
 
 }

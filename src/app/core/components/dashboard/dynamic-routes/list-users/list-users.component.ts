@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { ListAllUsersRequest, FriendRequest } from 'src/app/store/actions/users/users.actions';
-import { getAllUsers, friendRequest } from 'src/app/store/selectors/auth.selector';
+import {  ListAllUsersApi, FriendRequestApi } from 'src/app/store/actions/users/users.actions';
+import { getAllUsers, friendRequestSuccess } from 'src/app/store/selectors/auth.selector';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { UpdateUser } from 'src/app/store/actions/authentication/auth.actions';
@@ -60,22 +60,21 @@ export class ListUsersComponent implements OnInit {
       }
     );
 
-    this.store.select(friendRequest).subscribe(
+    this.store.select(friendRequestSuccess).subscribe(
       user => {
         if (user && Object.keys(user).length) {
           this.store.dispatch(new UpdateUser(user));
+
         }
       }
     );
-    this.store.dispatch(new ListAllUsersRequest());
+    this.store.dispatch(new ListAllUsersApi());
   }
 
   addasFriend(user: string) {
-    this.store.dispatch(new FriendRequest({
+    this.store.dispatch(new FriendRequestApi({
       to: user[`_id`],
       from: this.currentUser[`_id`]
     }));
   }
-
-
 }

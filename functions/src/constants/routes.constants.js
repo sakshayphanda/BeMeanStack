@@ -7,5 +7,6 @@ module.exports = Object.freeze({
   FRIEND_REQUEST: '/friend-request',
   FRIEND_REQUEST_ACCEPTED: '/friend-request-accepted',
   FRIEND_REQUEST_REJECTED: '/friend-request-rejected',
-  UNFRIEND: '/unfriend'
+  UNFRIEND: '/unfriend',
+  GET_ALL_POSTS: '/get-all-posts',
 });

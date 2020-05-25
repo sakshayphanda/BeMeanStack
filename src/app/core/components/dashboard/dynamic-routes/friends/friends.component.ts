@@ -1,8 +1,8 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { AppState } from 'src/app/store/reducers';
 import { Store } from '@ngrx/store';
-import { ActivatedRoute } from '@angular/router';
-import { currentUser, friendRequest } from 'src/app/store/selectors/auth.selector';
+import { ActivatedRoute, Router } from '@angular/router';
+import { currentUser, friendRequestSuccess } from 'src/app/store/selectors/auth.selector';
 import { IAuthInfo, IUserInfo } from 'src/app/shared/models/interfaces/authenticate.interface';
 import { FriendRequestAcceptApi, FriendRequestRejectApi, UnfriendApi } from 'src/app/store/actions/users/users.actions';
 import { UpdateUser } from 'src/app/store/actions/authentication/auth.actions';
@@ -30,7 +30,8 @@ export class FriendsComponent implements OnInit {
   }];
   constructor(
     private store: Store<AppState>,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -45,7 +46,7 @@ export class FriendsComponent implements OnInit {
       }
     );
 
-    this.store.select(friendRequest).subscribe(
+    this.store.select(friendRequestSuccess).subscribe(
       user => {
         if (user && Object.keys(user).length) {
           this.store.dispatch(new UpdateUser(user));
@@ -56,6 +57,7 @@ export class FriendsComponent implements OnInit {
 
   typeChanged(id) {
     this.selectedType = id;
+    this.router.navigate([id]);
     this.list = JSON.parse(JSON.stringify(this.currentUser[this.selectedType]));
   }
 

@@ -1,17 +1,27 @@
 <div class="users">
   <div class="users__title">
     <ng-container *ngFor="let type of types">
-    <button mat-raised-button color="primary" class="type" [class.selected] = "selectedType === type.id" (click) = "typeChanged(type.id)"> {{type.label}}</button>
-   </ng-container>
+      <button mat-raised-button color="primary" class="type" [class.selected]="selectedType === type.id"
+        (click)="typeChanged(type.id)"> {{type.label}}</button>
+    </ng-container>
   </div>
   <div class="users__data">
     <ng-container *ngFor="let user of list">
-     <p class="user"> {{user.displayName}}
-       <button mat-raised-button color="accent" (click) = "unfriend(user)" *ngIf = "selectedType === 'friends'" class="add">unfriend</button>
-       <button mat-raised-button color="accent" (click) = "friendReqReject(user)" *ngIf = "selectedType === 'friendRequests'" class="add">Cancel</button>
-       <button mat-raised-button color="accent" (click) = "friendReqAccept(user)" *ngIf = "selectedType === 'friendRequests'" class="add">Accept</button>
-       <!-- <button mat-raised-button color="accent" *ngIf = "selectedType === 'friendRequestsPending'" class="add">Cancel</button> -->
-      </p>
+      <div class="user">
+        <p class="user__name">{{user.displayName}}</p>
+        <button mat-raised-button color="accent" (click)="unfriend(user)" *ngIf="selectedType === 'friends'"
+          class="add">unfriend</button>
+        <button mat-raised-button color="accent" (click)="friendReqReject(user)"
+          *ngIf="selectedType === 'friendRequests'" class="add">Decline</button>
+        <button mat-raised-button color="accent" (click)="friendReqAccept(user)"
+          *ngIf="selectedType === 'friendRequests'" class="add">Accept</button>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="!list.length">
+      <div class="user">
+        <p class="user__name">Nothing to Show</p>
+      </div>
     </ng-container>
   </div>
 

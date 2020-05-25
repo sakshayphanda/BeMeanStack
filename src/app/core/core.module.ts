@@ -10,6 +10,7 @@ import { DynamicRoutesComponent } from './components/dashboard/dynamic-routes/dy
 import { CoreRoutingModule } from './core-routing.module';
 import { FriendsComponent } from './components/dashboard/dynamic-routes/friends/friends.component';
 import { ChatComponent } from './components/dashboard/dynamic-routes/chat/chat.component';
+import { FeedComponent } from './components/dashboard/dynamic-routes/feed/feed.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ChatComponent } from './components/dashboard/dynamic-routes/chat/chat.c
     ListUsersComponent,
     DynamicRoutesComponent,
     FriendsComponent,
-    ChatComponent
+    ChatComponent,
+    FeedComponent
   ],
   imports: [
     SharedModule,
