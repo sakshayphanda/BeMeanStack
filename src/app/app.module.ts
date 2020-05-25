@@ -15,6 +15,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { reducers, metaReducers } from './store/reducers';
 import { AuthEffects } from './store/effects/authenticaton/auth.effects';
 import { UsersEffects } from './store/effects/users/users.effect';
+import { PostsEffects } from './store/effects/posts/posts.effect';
 
 const config = {
   apiKey: 'AIzaSyBAgpmHBxTqe8VHPwc3koB87T830vQ7boo',
@@ -38,7 +39,7 @@ firebase.initializeApp(config);
     }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     StoreRouterConnectingModule.forRoot({stateKey: 'router'}),
-    EffectsModule.forRoot([AuthEffects, UsersEffects])
+    EffectsModule.forRoot([AuthEffects, UsersEffects, PostsEffects])
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}

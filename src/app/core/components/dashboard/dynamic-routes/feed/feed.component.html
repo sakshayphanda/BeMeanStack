@@ -1,9 +1,16 @@
-
 <div class="feeds">
   <div class="feeds__input">
-    <input type="text" placeholder="Write something you wish to share">
+    <input type="text" placeholder="Write something you wish to share" (change)="postText = $event.target.value">
   </div>
   <div class="feeds__button">
-    <button mat-flat-button color="primary">Post</button>
+    <button mat-flat-button color="primary" (click)="postCreate()">Post</button>
   </div>
 </div>
+
+<ng-container *ngFor="let post of posts">
+  <div class="posts">
+
+    {{post.text}}
+  </div>
+
+</ng-container>

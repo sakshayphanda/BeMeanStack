@@ -30,6 +30,6 @@ mongoose.connect('mongodb+srv://'+ process.env.MONGO_USER_PASS + '@bemeanstack-b
 
 app.use('/auth', authRoute);
 app.use('/users', usersRoute);
-// app.use('/posts', postsRoute)
+app.use('/posts', postsRoute)
 
 module.exports = app;

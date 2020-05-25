@@ -2,10 +2,11 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { AppState } from 'src/app/store/reducers';
 import { Store } from '@ngrx/store';
 import { ActivatedRoute, Router } from '@angular/router';
-import { currentUser, friendRequestSuccess } from 'src/app/store/selectors/auth.selector';
-import { IAuthInfo, IUserInfo } from 'src/app/shared/models/interfaces/authenticate.interface';
+import { currentUser } from 'src/app/store/selectors/auth.selector';
+import { IUserInfo } from 'src/app/shared/models/interfaces/authenticate.interface';
 import { FriendRequestAcceptApi, FriendRequestRejectApi, UnfriendApi } from 'src/app/store/actions/users/users.actions';
 import { UpdateUser } from 'src/app/store/actions/authentication/auth.actions';
+import { friendRequestSuccess } from 'src/app/store/selectors/user.selector';
 
 @Component({
   selector: 'app-friends',
@@ -23,10 +24,6 @@ export class FriendsComponent implements OnInit {
   }, {
     id: 'friendRequests',
     label: 'Friend Requests'
-  },
-  {
-    id: 'friendRequestsPending',
-    label: 'Pending'
   }];
   constructor(
     private store: Store<AppState>,
@@ -41,7 +38,7 @@ export class FriendsComponent implements OnInit {
       (user: IUserInfo) => {
         if (user) {
           this.currentUser = user;
-          this.typeChanged(path);
+          this.list = JSON.parse(JSON.stringify(this.currentUser[this.selectedType]));
         }
       }
     );

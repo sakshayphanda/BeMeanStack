@@ -24,7 +24,6 @@ router.post(ROUTES.SIGN_UP,
           userDetails['friends'] = [];
           userDetails['friendRequests'] = [];
           userDetails['friendRequestsPending'] = [];
-          userDetails['posts'] = [];
           const user = new User(userDetails);
           user.save().then(
             result => {

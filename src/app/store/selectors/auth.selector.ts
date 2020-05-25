@@ -10,15 +10,3 @@ export const loadingState = createSelector(authSelector, (userAuth: IAuthInfo) =
   return userAuth.loading;
 });
 
-export const users = createFeatureSelector('users');
-export const getAllUsers = createSelector(users, (data) => {
-  if(data) {
-  return data[`users`];
-  }
-});
-
-export const friendRequestSuccess = createSelector(users, (data) => {
-  if (data) {
-  return data[`updatedUser`];
-  }
-});

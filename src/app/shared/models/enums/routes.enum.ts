@@ -13,3 +13,8 @@ export enum UserRoutes {
   FRIEND_REQUEST_REJECTED = '/users/friend-request-rejected',
   UNFRIEND = '/users/unfriend'
 }
+
+export enum PostRoutes {
+  CREATE = '/posts/create-post',
+  GET_POSTS = '/posts/get-all-posts'
+}

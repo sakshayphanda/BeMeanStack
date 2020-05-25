@@ -1,11 +1,12 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { Store } from '@ngrx/store';
 import {  ListAllUsersApi, FriendRequestApi } from 'src/app/store/actions/users/users.actions';
-import { getAllUsers, friendRequestSuccess } from 'src/app/store/selectors/auth.selector';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { UpdateUser } from 'src/app/store/actions/authentication/auth.actions';
 import { AppState } from 'src/app/store/reducers';
+import { AuthenticationService } from 'src/app/shared/services/authentication.service';
+import { getAllUsers, friendRequestSuccess } from 'src/app/store/selectors/user.selector';
 
 @Component({
   selector: 'app-list-users',
@@ -21,23 +22,18 @@ export class ListUsersComponent implements OnInit {
   constructor(
     private store: Store<AppState>,
     private activatedRoute: ActivatedRoute,
-    private changeDetection: ChangeDetectorRef
+    private changeDetection: ChangeDetectorRef,
+    private authService: AuthenticationService
     ) {}
 
   ngOnInit(): void {
     const params = this.activatedRoute.snapshot.queryParams;
     this.currentUserID = params.user;
+    this.currentUser = this.authService.userDetails;
     this.store.select(getAllUsers).subscribe(
       users => {
         if (users) {
-          this.allUsersExceptCurrent = users.filter(user => {
-            if (user._id !== this.currentUserID) {
-              return true;
-            } else {
-              this.currentUser = user;
-              return false;
-            }
-          });
+          this.allUsersExceptCurrent = users.filter(user => user._id !== this.currentUserID);
           this.allUsersExceptCurrent = this.allUsersExceptCurrent.map(
             user => {
               const newObj = Object.assign({}, user);
@@ -76,5 +72,35 @@ export class ListUsersComponent implements OnInit {
       to: user[`_id`],
       from: this.currentUser[`_id`]
     }));
+  }
+
+  checkIfSent(user) {
+    let pending = false;
+    console.log(this.currentUser);
+
+    this.currentUser.friendRequestsPending.forEach(
+      item => {
+        if (item._id === user._id) {
+          pending = true;
+        }
+      }
+    );
+
+    return pending;
+  }
+
+  checkIfReceived(user) {
+    let received = false;
+    console.log(this.currentUser);
+
+    this.currentUser.friendRequests.forEach(
+      item => {
+        if (item._id === user._id) {
+          received = true;
+        }
+      }
+    );
+
+    return received;
   }
 }
