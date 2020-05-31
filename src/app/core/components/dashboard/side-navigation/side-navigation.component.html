@@ -1,11 +1,19 @@
 <div class="container">
   <div class="image-container">
-    <img src="https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png">
-    <p class="email">{{user.displayName}}</p>
+    <img
+      src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+    />
+    <p class="email">{{ user.displayName }}</p>
   </div>
 
   <ng-container *ngFor="let action of actions">
-    <button class="btn btn-primary" [routerLinkActive]="['selected']"
-      [routerLink]="action.route" [queryParams] = "action.params">{{ action.name + ' ' + (action.count ? action.count : '') }}</button>
+    <button
+      class="btn btn-primary"
+      [routerLinkActive]="['selected']"
+      [routerLink]="action.route"
+      [queryParams]="action.params"
+    >
+      {{ action.name + " " + (action.count ? action.count : "") }}
+    </button>
   </ng-container>
 </div>

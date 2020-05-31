@@ -69,4 +69,10 @@ export class LoginComponent implements OnInit{
         this.message = response.message;
       });
   }
+
+  loginRegisterToggle() {
+    this.showSignUp = !this.showSignUp;
+    this.error = false;
+    this.message = '';
+  }
 }
