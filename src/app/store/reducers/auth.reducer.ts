@@ -47,7 +47,6 @@ export function authenticationReducer(state = defaultValues, action: DefaultAuth
       const newState = Object.assign({}, state);
       newState.loading = false;
       newState.loggedIn = false;
-      localStorage.clear();
       return {...newState};
     }
 

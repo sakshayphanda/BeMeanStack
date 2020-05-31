@@ -45,19 +45,7 @@ export class SideNavigationComponent implements OnInit, OnChanges {
         route: 'friends',
         count: this.user.friends.length,
         params: false
-      },
-      {
-        name: 'Friend Requests',
-        route: 'friendRequests',
-        count: this.user.friendRequests.length,
-        params: false
-      },
-      // {
-      //   name: 'Pending Requests',
-      //   route: 'friendRequestsPending',
-      //   count: this.user.friendRequestsPending.length,
-      //   params: false
-      // }
+      }
     ];
 
     return actions;

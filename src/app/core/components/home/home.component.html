@@ -7,10 +7,20 @@
     </app-top-navigation>
   </div>
 
-  <div id="side" class="side-navigation">
+  <div id="side" *ngIf="showSideMenu" class="side-navigation">
     <app-side-navigation [user]="user"></app-side-navigation>
   </div>
   <div class="dynamic">
     <router-outlet></router-outlet>
   </div>
+</div>
+
+<div
+  class="menu-button"
+  *ngIf="showMenuButton"
+  (click)="showSideMenu = !showSideMenu"
+>
+  <span class="material-icons">
+    =
+  </span>
 </div>

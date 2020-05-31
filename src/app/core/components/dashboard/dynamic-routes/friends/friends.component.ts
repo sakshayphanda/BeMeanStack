@@ -54,7 +54,7 @@ export class FriendsComponent implements OnInit {
 
   typeChanged(id) {
     this.selectedType = id;
-    this.router.navigate([id]);
+    // this.router.navigate([id]);
     this.list = JSON.parse(JSON.stringify(this.currentUser[this.selectedType]));
   }
 

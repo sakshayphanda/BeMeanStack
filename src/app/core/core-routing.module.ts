@@ -20,14 +20,6 @@ const routes: Routes = [
     component: FriendsComponent
   },
   {
-    path: 'friendRequests',
-    component: FriendsComponent
-  },
-  {
-    path: 'friendRequestsPending',
-    component: FriendsComponent
-  },
-  {
     path: 'feed',
     component: FeedComponent
   },

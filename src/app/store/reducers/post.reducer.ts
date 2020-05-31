@@ -10,7 +10,7 @@ export function postsReducer(state = defaultState, action: fromPostsAction.Succe
     case fromPostsAction.CREATE_POSTS_SUCCESS: {
       let newState = Object.assign([], state);
       if (action.payload instanceof Array) {
-      newState = [...action.payload, ...newState];
+      newState = [...action.payload];
       } else {
         newState = [action.payload, ...newState];
       }
