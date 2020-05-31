@@ -1,15 +1,16 @@
 <div class="home">
-<div class="top-navigation">
-  <app-top-navigation><div style="font-family: cursive;" title>Be MEAN</div></app-top-navigation>
-</div>
+  <div class="top-navigation">
+    <app-top-navigation>
+      <div style="font-family: cursive;" title>
+        Be MEAN
+      </div>
+    </app-top-navigation>
+  </div>
 
-<div id="side" class="side-navigation">
-  <app-side-navigation [user] = "user"></app-side-navigation>
+  <div id="side" class="side-navigation">
+    <app-side-navigation [user]="user"></app-side-navigation>
+  </div>
+  <div class="dynamic">
+    <router-outlet></router-outlet>
+  </div>
 </div>
-<div class="dynamic">
-  <router-outlet></router-outlet>
-</div>
-
-</div>
-
-

@@ -9,13 +9,8 @@ input
 
 .login
   position: relative
-  display: flex
-  flex-direction: column
   height: 100%
-  display: flex
-  justify-content: center
   background: linear-gradient(90deg, rgba(111,102,255,1) 18%, rgba(18,194,255,1) 73%, rgba(0,212,255,1) 100%)
-
   &__content
     position: absolute
     left: 0px
@@ -26,7 +21,7 @@ input
     height: 100%
     display: flex
     flex-direction: column
-    background: white
+    background: #f6f6f6
     &.log-in
       animation: slide-back 0.5s backwards
     &.sign-up
@@ -40,19 +35,24 @@ input
       button
         margin: 5px
     .title
-      font-size: 2rem
+      font-size: 3rem
       flex: 2
       display: flex
       color: var(--primary)
       justify-content: center
       font-weight: 600
+      height: 40px
+      align-items: center
+      .logo
+        height: 100%
     .auth-type
-      font-size: 1.5rem
+      font-size: 1.8rem
       flex: 2
       display: flex
       color: var(--accent)
       font-weight: 600
       justify-content: center
+      align-items: center
     .form
       flex: 9
       display: flex
@@ -63,6 +63,7 @@ input
         display: flex
         flex-direction: column
         width: 100%
+        min-height: 300px
         .message
           height: 50px
           padding: 4px
@@ -88,9 +89,24 @@ input
   100%
     right: 0
 
-
 @keyframes slide-back
   0%
     left: 40%
   100%
     left: 0
+
+@media screen and ( max-width: 600px )
+  .login
+    &__content
+      width: 90%
+  @keyframes slide
+    0%
+      right: 10%
+    100%
+      right: 0
+
+  @keyframes slide-back
+    0%
+      left: 10%
+    100%
+      left: 0

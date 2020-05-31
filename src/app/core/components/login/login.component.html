@@ -1,12 +1,13 @@
 <div class="login">
-  <div class="login__content {{showSignUp ? 'sign-up' : 'log-in'}}">
+  <div class="login__content {{ showSignUp ? 'sign-up' : 'log-in' }}">
     <div class="title">
       <ng-content select="div"></ng-content>
+      <img class="logo" src="../../../../assets/Mean.png" />
     </div>
     <div class="auth-type">
-      {{showSignUp ? 'Register' : 'Login'}}
+      {{ showSignUp ? "REGISTER" : "LOGIN" }}
     </div>
-    <div class="social-signin">
+    <!-- <div class="social-signin">
       <button mat-fab color="accent" type="submit" (click)="google()">
         <i class="fab fa-google"></i>
       </button>
@@ -15,22 +16,60 @@
       <button mat-fab color="primary" type="submit" (click)="facebook()">
         <i class="fab fa-facebook-f"></i>
       </button>
-    </div>
+    </div> -->
 
     <form #userDetails="ngForm" class="form">
       <div class="form__inputs">
-        <input *ngIf="showSignUp" #firstName="ngModel" ngModel name="firstName" type="text" placeholder="Enter First Name">
-        <input *ngIf="showSignUp" #lastName="ngModel" ngModel name="lastName" type="text" placeholder="Enter Last Name">
-        <input #email="ngModel" ngModel name="email" type="text" placeholder="Enter Email ID">
-        <input #password="ngModel" ngModel name="password" type="password" placeholder="Enter Password">
-        <div *ngIf="message" class="message" [class.error]="error">{{message}}</div>
+        <input
+          *ngIf="showSignUp"
+          #firstName="ngModel"
+          ngModel
+          name="firstName"
+          type="text"
+          placeholder="Enter First Name"
+        />
+        <input
+          *ngIf="showSignUp"
+          #lastName="ngModel"
+          ngModel
+          name="lastName"
+          type="text"
+          placeholder="Enter Last Name"
+        />
+        <input
+          #email="ngModel"
+          ngModel
+          name="email"
+          type="text"
+          placeholder="Enter Email ID"
+        />
+        <input
+          #password="ngModel"
+          ngModel
+          name="password"
+          type="password"
+          placeholder="Enter Password"
+        />
+        <div *ngIf="message" class="message" [class.error]="error">
+          {{ message }}
+        </div>
       </div>
       <div class="form__buttons">
-        <button mat-raised-button color="accent" type="submit" (click)="authenticate(userDetails)">
-          {{ !showSignUp ? 'Login' : 'Register'}}
+        <button
+          mat-raised-button
+          color="accent"
+          type="submit"
+          (click)="authenticate(userDetails)"
+        >
+          {{ !showSignUp ? "Login" : "Register" }}
         </button>
-        <button mat-raised-button color="accent" type="submit" (click)="showSignUp = !showSignUp">
-          {{ !showSignUp ? 'Register >' : '< Login'}}
+        <button
+          mat-raised-button
+          color="accent"
+          type="submit"
+          (click)="showSignUp = !showSignUp"
+        >
+          {{ !showSignUp ? "Register >" : "< Login" }}
         </button>
       </div>
     </form>
