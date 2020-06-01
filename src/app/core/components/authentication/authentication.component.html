@@ -1,5 +1,5 @@
 <app-login *ngIf="!isLoggedIn; else home">
-  <div class="title" style="font-family: cursive; padding: 10px;">Be</div>
+  <div class="title" style="padding: 10px;">Be</div>
 </app-login>
 <ng-template #home>
   <app-home [user]="user.user"></app-home>

@@ -33,9 +33,6 @@ export class LoginComponent implements OnInit{
       }
     );
   }
-  login(userDetails) {
-    this.store.dispatch(new DefaultAuth.LoginRequest(userDetails.value));
-  }
 
   facebook() {
    this.store.dispatch(new FbAuth.LoginRequest());
@@ -53,8 +50,18 @@ export class LoginComponent implements OnInit{
     this.showSignUp ? this.signup(userDetails) : this.login(userDetails);
   }
 
+  login(userDetails) {
+    if (userDetails.value.email && userDetails.value.password) {
+    this.store.dispatch(new DefaultAuth.LoginRequest(userDetails.value));
+    } else {
+      this.message = 'Enter the credentials';
+      this.error = true;
+    }
+  }
+
+
   signup(userDetails) {
-    this.showSignUp = true;
+    if (userDetails.value.email && userDetails.value.password) {
     this.authenticationService
       .register(userDetails.value)
       .pipe(
@@ -68,6 +75,10 @@ export class LoginComponent implements OnInit{
         this.error = false;
         this.message = response.message;
       });
+    } else {
+      this.message = 'Enter all the fields';
+      this.error = true;
+    }
   }
 
   loginRegisterToggle() {

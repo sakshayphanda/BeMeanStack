@@ -22,6 +22,7 @@ input
     display: flex
     flex-direction: column
     background: #f6f6f6
+    box-sizing: border-box
     &.log-in
       animation: slide-back 0.5s backwards
     &.sign-up
@@ -49,7 +50,7 @@ input
       font-size: 1.8rem
       flex: 2
       display: flex
-      color: var(--accent)
+      color: var(--primary)
       font-weight: 600
       justify-content: center
       align-items: center
@@ -75,6 +76,8 @@ input
           &.error
             color: red
             background: pink
+            padding: 10px
+            border-radius: 5px
       &__buttons
         display: flex
         justify-content: center
