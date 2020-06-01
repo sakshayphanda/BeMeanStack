@@ -23,7 +23,13 @@
     "@angular/platform-browser": "~9.1.2",
     "@angular/platform-browser-dynamic": "~9.1.2",
     "@angular/router": "~9.1.2",
+    "@ngrx/effects": "^9.1.0",
+    "@ngrx/entity": "^9.1.0",
+    "@ngrx/router-store": "^9.1.0",
+    "@ngrx/store": "^9.1.0",
+    "@ngrx/store-devtools": "^9.1.0",
     "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "firebase": "^7.14.1",
@@ -33,15 +39,11 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.9",
     "mongoose-unique-validator": "^2.0.3",
+    "multer": "^1.4.2",
     "nodemon": "^2.0.3",
     "rxjs": "~6.5.5",
     "tslib": "^1.10.0",
-    "zone.js": "~0.10.3",
-    "@ngrx/effects": "^9.1.0",
-    "@ngrx/entity": "^9.1.0",
-    "@ngrx/router-store": "^9.1.0",
-    "@ngrx/store": "^9.1.0",
-    "@ngrx/store-devtools": "^9.1.0"
+    "zone.js": "~0.10.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.900.0-rc.7",
@@ -59,10 +61,10 @@
     "karma-coverage-istanbul-reporter": "~2.0.1",
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.4.0",
+    "ngrx-store-freeze": "^0.2.4",
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
-    "typescript": "~3.8.3",
-    "ngrx-store-freeze": "^0.2.4"
+    "typescript": "~3.8.3"
   }
 }

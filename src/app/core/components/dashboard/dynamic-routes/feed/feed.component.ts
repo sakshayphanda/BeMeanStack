@@ -15,6 +15,8 @@ export class FeedComponent implements OnInit {
 
   postText: string;
   posts;
+  imagePreview: string | ArrayBuffer;
+  imgFile: File;
   constructor(
     private store: Store<AppState>,
     private authService: AuthenticationService,
@@ -33,11 +35,24 @@ export class FeedComponent implements OnInit {
   }
 
   postCreate() {
-    this.store.dispatch(new CreatePostApi({
-      text: this.postText,
-      user: this.authService.userDetails
-    }));
+    const postData = new FormData();
+    postData.append('text', this.postText);
+  //  postData.append('user', JSON.parse(JSON.stringify(this.authService.userDetails)));
+    postData.append('image', this.imgFile);
+    this.store.dispatch(new CreatePostApi(postData));
 
+  }
+
+  imageFile(event: Event) {
+    this.imgFile = (event.target as HTMLInputElement).files[0];
+
+    console.log(event);
+    const reader = new FileReader();
+    reader.onload = () => {
+        this.imagePreview = reader.result;
+        this.changeDetectorRef.markForCheck();
+      };
+    reader.readAsDataURL(this.imgFile);
   }
 
 }

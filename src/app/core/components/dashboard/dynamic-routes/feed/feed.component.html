@@ -5,8 +5,12 @@
       placeholder="Write something you wish to share"
       (change)="postText = $event.target.value"
     />
+    <div style="width: 50%;height: 20%; display: flex; justify-content: center" *ngIf="imagePreview">
+      <img style="width: 50%; height: 100%" [src]="imagePreview">
+    </div>
   </div>
   <div class="feeds__button">
+    <input class="file-button" name="image" type="file" (change)="imageFile($event)">
     <button mat-flat-button color="primary" (click)="postCreate()">Post</button>
   </div>
 </div>
