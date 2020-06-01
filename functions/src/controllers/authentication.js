@@ -20,7 +20,7 @@ router.post(ROUTES.SIGN_UP,
           const userDetails = JSON.parse(JSON.stringify(request.body));
           userDetails['displayName'] = userDetails.firstName + ' ' + userDetails.lastName;
           userDetails['password'] = userPassword;
-          userDetails['photoUrl'] = '';
+          userDetails['photoUrl'] = 'https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png';
           userDetails['friends'] = [];
           userDetails['friendRequests'] = [];
           userDetails['friendRequestsPending'] = [];
