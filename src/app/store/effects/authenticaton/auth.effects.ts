@@ -58,10 +58,11 @@ export class AuthEffects {
   logout$ = this.actions$.pipe(ofType(DefaultAuth.LOGOUT_REQUEST),
   switchMap(
     userDetail => {
+      this.router.navigate(['']);
       return this.http.get(environment.baseApiUrl + AuthRoutes.LOG_OUT).pipe(
         map(
           data => {
-            this.router.navigate(['']);
+            localStorage.clear();
             return new DefaultAuth.LogoutSuccess();
           }
         )

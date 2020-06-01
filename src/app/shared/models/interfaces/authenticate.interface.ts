@@ -16,7 +16,7 @@ export interface IUserInfo {
   token: string;
   displayName: string;
   email: string;
-  photoURL: string;
+  photoUrl: string;
   _id: string;
   friendRequests: string[];
   friendRequestsPending: string[];

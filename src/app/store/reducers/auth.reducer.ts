@@ -6,7 +6,7 @@ const defaultValues: IAuthInfo = {
   loggedIn: false,
   user: {
     email: null,
-    photoURL: null,
+    photoUrl: null,
     token: null,
     displayName: null,
     _id: null,

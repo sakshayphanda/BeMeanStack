@@ -11,17 +11,24 @@ router.get(routes.GET_ALL_POSTS, async (_request, response) => {
 
 router.post(routes.CREATE_POST, async (request, response) => {
   console.log(request.body);
-
-  const post = new Post(request.body);
+  const currentUser = JSON.parse(JSON.stringify(request.body.user));
+  delete currentUser.friendRequests;
+  delete currentUser.friendRequestsPending;
+  delete currentUser.token;
+  delete currentUser.message;
+  const post = new Post({
+    text: request.body.text,
+    user: currentUser
+  });
   post.save().then(
     posts => response.status(200).json(posts)
   )
-  .catch(
-    error => {
-      console.log(error);
+    .catch(
+      error => {
+        console.log(error);
 
-    }
-  );
+      }
+    );
 });
 
 module.exports = router;

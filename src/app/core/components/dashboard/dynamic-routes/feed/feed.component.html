@@ -13,6 +13,10 @@
 
 <ng-container *ngFor="let post of posts">
   <div class="posts">
-    {{ post.text }}
+    <div class="name">
+      <img [src]="post?.user?.photoUrl" />
+      {{ post?.user?.displayName }}
+    </div>
+    <p class="text">{{ post.text }}</p>
   </div>
 </ng-container>

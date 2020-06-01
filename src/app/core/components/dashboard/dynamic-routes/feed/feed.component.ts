@@ -35,7 +35,7 @@ export class FeedComponent implements OnInit {
   postCreate() {
     this.store.dispatch(new CreatePostApi({
       text: this.postText,
-      user: this.authService.userDetails._id
+      user: this.authService.userDetails
     }));
 
   }

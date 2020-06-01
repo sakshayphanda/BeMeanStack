@@ -68,7 +68,8 @@ router.post(ROUTES.LOG_IN,
                           friendRequests: user.friendRequests,
                           friendRequestsPending: user.friendRequestsPending,
                           friends: user.friends,
-                          message: MESSAGE.SUCCESS_LOGIN
+                          message: MESSAGE.SUCCESS_LOGIN,
+                          photoUrl: user.photoUrl
                         }
                       });
                   } else {
@@ -93,7 +94,7 @@ router.post(ROUTES.LOG_IN,
   }
 );
 
-router.post(ROUTES.CHECK_AUTH,checkAuth,  (request, response) => {
+router.post(ROUTES.CHECK_AUTH, checkAuth, (request, response) => {
   User.findOne({ email: request.body.email })
     .then(
       user => {
@@ -110,6 +111,7 @@ router.post(ROUTES.CHECK_AUTH,checkAuth,  (request, response) => {
               friendRequests: user.friendRequests,
               friendRequestsPending: user.friendRequestsPending,
               friends: user.friends,
+              photoUrl: user.photoUrl
             }
           });
         }
@@ -123,7 +125,7 @@ router.post(ROUTES.CHECK_AUTH,checkAuth,  (request, response) => {
 });
 
 router.get(ROUTES.LOG_OUT, (request, response) => {
-  const token = new TokenSchema({token: request.headers.authorization});
+  const token = new TokenSchema({ token: request.headers.authorization });
 
   token.save().then(
     result => {

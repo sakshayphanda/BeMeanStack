@@ -17,9 +17,7 @@ export class TopNavigationComponent implements OnInit {
   }
 
   logOut() {
-    localStorage.clear();
     this.store.dispatch(new LogoutRequest());
-    window.location.reload();
   }
 
 }
