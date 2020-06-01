@@ -1,0 +1,1348 @@
+[debug] [2020-06-01T11:14:29.681Z] ----------------------------------------------------------------------
+[debug] [2020-06-01T11:14:29.684Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve --only functions
+[debug] [2020-06-01T11:14:29.684Z] CLI Version:   8.1.1
+[debug] [2020-06-01T11:14:29.685Z] Platform:      darwin
+[debug] [2020-06-01T11:14:29.685Z] Node Version:  v12.16.3
+[debug] [2020-06-01T11:14:29.693Z] Time:          Mon Jun 01 2020 16:44:29 GMT+0530 (India Standard Time)
+[debug] [2020-06-01T11:14:29.694Z] ----------------------------------------------------------------------
+[debug] [2020-06-01T11:14:29.694Z] 
+[debug] [2020-06-01T11:14:29.703Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-06-01T11:14:29.704Z] > authorizing via signed-in user
+[debug] [2020-06-01T11:14:29.705Z] [iam] checking project bemeanstack for permissions ["firebase.projects.get"]
+[debug] [2020-06-01T11:14:29.714Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-06-01T11:14:29.714Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-06-01T11:14:30.325Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 01 Jun 2020 11:14:30 GMT","server":"scaffolding on HTTPServer2","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-06-01T11:14:30.341Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/bemeanstack:testIamPermissions  
+ {"permissions":["firebase.projects.get"]}
+[debug] [2020-06-01T11:14:32.155Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 01 Jun 2020 11:14:31 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1454","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-06-01T11:14:32.157Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/bemeanstack  
+ 
+[debug] [2020-06-01T11:14:32.669Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 01 Jun 2020 11:14:32 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[warn] ⚠  Your requested "node" version "8" doesn't match your global version "12"
+[info] ✔  functions: functions emulator started at http://localhost:5000
+[info] i  functions: Watching "/Users/sakshay/Practice/MEANStack/bemeanstack/functions" for Cloud Functions...
+[debug] [2020-06-01T11:14:32.707Z] [worker-pool] addWorker(~diagnostic~) 
+[debug] [2020-06-01T11:14:32.708Z] [worker-pool] Adding worker with key ~diagnostic~, total=1 
+[debug] [2020-06-01T11:14:32.708Z] [worker-pool] submitWork(triggerId=) 
+[debug] [2020-06-01T11:14:32.708Z] [worker-~diagnostic~-5f2ec692-5dfc-435e-af8a-d7e9891aef1f]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3051.sock 
+[debug] [2020-06-01T11:14:32.708Z] [worker-~diagnostic~-5f2ec692-5dfc-435e-af8a-d7e9891aef1f]: BUSY 
+[debug] [2020-06-01T11:14:32.947Z] [runtime-status] [3051] Functions runtime initialized. {"cwd":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions","node_version":"12.16.3"} 
+[debug] [2020-06-01T11:14:32.947Z] [runtime-status] [3051] Disabled runtime features: undefined 
+[debug] [2020-06-01T11:14:32.953Z] [runtime-status] [3051] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-admin/lib/index.js"} 
+[debug] [2020-06-01T11:14:32.955Z] [runtime-status] [3051] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-06-01T11:14:32.959Z] [runtime-status] [3051] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] 
+[debug] [2020-06-01T11:14:33.019Z] [runtime-status] [3051] Checked functions.config() {"config":{}} 
+[debug] [2020-06-01T11:14:33.020Z] [runtime-status] [3051] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-06-01T11:14:33.020Z] [runtime-status] [3051] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-admin/lib/index.js"} 
+[debug] [2020-06-01T11:14:33.023Z] [runtime-status] [3051] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-06-01T11:14:33.024Z] [runtime-status] [3051] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-admin/lib/index.js"}} 
+[debug] [2020-06-01T11:14:33.027Z] [runtime-status] [3051] initializeApp(DEFAULT) {"databaseURL":"https://bemeanstack.firebaseio.com","storageBucket":"bemeanstack.appspot.com","projectId":"bemeanstack"} 
+[info] ✔  functions[application]: http function initialized (http://localhost:5000/bemeanstack/us-central1/application).
+[debug] [2020-06-01T11:14:33.757Z] [worker-~diagnostic~-5f2ec692-5dfc-435e-af8a-d7e9891aef1f]: IDLE 
+[info] >  (node:3051) DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead. {"user":"(node:3051) DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead."}
+[info] >  Connected to the database {"user":"Connected to the database"}
+[debug] [2020-06-01T11:14:39.825Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:14:39.825Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:14:39.826Z] Accepted request OPTIONS /bemeanstack/us-central1/application/auth/check-auth --> application
+[debug] [2020-06-01T11:14:39.830Z] [worker-pool] addWorker(application) 
+[debug] [2020-06-01T11:14:39.830Z] [worker-pool] Adding worker with key application, total=1 
+[debug] [2020-06-01T11:14:39.830Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:14:39.830Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:14:39.830Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:14:39.833Z] [work-queue] {"queueLength":1,"workRunningCount":1}
+[debug] [2020-06-01T11:14:39.833Z] [work-queue] {"queueLength":0,"workRunningCount":2}
+[debug] [2020-06-01T11:14:39.833Z] Accepted request OPTIONS /bemeanstack/us-central1/application/auth/check-auth --> application
+[debug] [2020-06-01T11:14:39.836Z] [worker-pool] addWorker(application) 
+[debug] [2020-06-01T11:14:39.836Z] [worker-pool] Adding worker with key application, total=2 
+[debug] [2020-06-01T11:14:39.836Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:14:39.836Z] [worker-application-4189ae23-c441-45dc-aeba-e09b78a0d2e4]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3059.sock 
+[debug] [2020-06-01T11:14:39.836Z] [worker-application-4189ae23-c441-45dc-aeba-e09b78a0d2e4]: BUSY 
+[debug] [2020-06-01T11:14:40.100Z] [runtime-status] [3058] Functions runtime initialized. {"cwd":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions","node_version":"12.16.3"} 
+[debug] [2020-06-01T11:14:40.100Z] [runtime-status] [3058] Disabled runtime features: undefined 
+[debug] [2020-06-01T11:14:40.100Z] [runtime-status] [3058] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-admin/lib/index.js"} 
+[debug] [2020-06-01T11:14:40.101Z] [runtime-status] [3059] Functions runtime initialized. {"cwd":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions","node_version":"12.16.3"} 
+[debug] [2020-06-01T11:14:40.101Z] [runtime-status] [3058] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-06-01T11:14:40.102Z] [runtime-status] [3059] Disabled runtime features: undefined 
+[debug] [2020-06-01T11:14:40.103Z] [runtime-status] [3059] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-admin/lib/index.js"} 
+[debug] [2020-06-01T11:14:40.104Z] [runtime-status] [3058] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] 
+[debug] [2020-06-01T11:14:40.104Z] [runtime-status] [3059] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-06-01T11:14:40.106Z] [runtime-status] [3059] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] 
+[debug] [2020-06-01T11:14:40.145Z] [runtime-status] [3058] Checked functions.config() {"config":{}} 
+[debug] [2020-06-01T11:14:40.145Z] [runtime-status] [3058] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-06-01T11:14:40.146Z] [runtime-status] [3059] Checked functions.config() {"config":{}} 
+[debug] [2020-06-01T11:14:40.147Z] [runtime-status] [3058] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-admin/lib/index.js"} 
+[debug] [2020-06-01T11:14:40.147Z] [runtime-status] [3058] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-06-01T11:14:40.148Z] [runtime-status] [3058] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-admin/lib/index.js"}} 
+[debug] [2020-06-01T11:14:40.148Z] [runtime-status] [3059] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-06-01T11:14:40.148Z] [runtime-status] [3059] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-admin/lib/index.js"} 
+[debug] [2020-06-01T11:14:40.149Z] [runtime-status] [3059] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-06-01T11:14:40.150Z] [runtime-status] [3059] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-admin/lib/index.js"}} 
+[debug] [2020-06-01T11:14:40.150Z] [runtime-status] [3058] initializeApp(DEFAULT) {"databaseURL":"https://bemeanstack.firebaseio.com","storageBucket":"bemeanstack.appspot.com","projectId":"bemeanstack"} 
+[debug] [2020-06-01T11:14:40.151Z] [runtime-status] [3059] initializeApp(DEFAULT) {"databaseURL":"https://bemeanstack.firebaseio.com","storageBucket":"bemeanstack.appspot.com","projectId":"bemeanstack"} 
+[debug] [2020-06-01T11:14:40.632Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[debug] [2020-06-01T11:14:40.632Z] [runtime-status] [3059] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:14:40.633Z] [runtime-status] [3059] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:14:40.633Z] [runtime-status] [3059] Running application in mode HTTPS 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:14:40.633Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:14:40.633Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:14:40.635Z] [runtime-status] [3059] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3059.sock 
+[debug] [2020-06-01T11:14:40.636Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:14:40.639Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:14:40.642Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:14:40.646Z] [runtime-status] [3059] Ephemeral server handling OPTIONS request 
+[debug] [2020-06-01T11:14:40.647Z] [runtime-status] [3058] Ephemeral server handling OPTIONS request 
+[debug] [2020-06-01T11:14:40.651Z] [runtime-status] [3059] Ephemeral server survived. 
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:14:40.652Z] [worker-application-4189ae23-c441-45dc-aeba-e09b78a0d2e4]: IDLE 
+[debug] [2020-06-01T11:14:40.652Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:14:40.653Z] [work-queue] {"queueLength":1,"workRunningCount":1}
+[debug] [2020-06-01T11:14:40.654Z] [work-queue] {"queueLength":0,"workRunningCount":2}
+[debug] [2020-06-01T11:14:40.654Z] Accepted request POST /bemeanstack/us-central1/application/auth/check-auth --> application
+[debug] [2020-06-01T11:14:40.654Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:14:40.654Z] [worker-application-4189ae23-c441-45dc-aeba-e09b78a0d2e4]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3059.sock 
+[debug] [2020-06-01T11:14:40.654Z] [worker-application-4189ae23-c441-45dc-aeba-e09b78a0d2e4]: BUSY 
+[debug] [2020-06-01T11:14:40.654Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:14:40.654Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:14:40.654Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:14:40.664Z] [runtime-status] [3059] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:14:40.665Z] [runtime-status] [3059] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:14:40.665Z] [runtime-status] [3059] Running application in mode HTTPS 
+[debug] [2020-06-01T11:14:40.666Z] [runtime-status] [3059] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3059.sock 
+[debug] [2020-06-01T11:14:40.667Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:14:40.690Z] [runtime-status] [3059] Ephemeral server handling POST request 
+[debug] [2020-06-01T11:14:40.695Z] [runtime-status] [3059] Ephemeral server survived. 
+[info] >  (node:3058) DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead. {"user":"(node:3058) DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead."}
+[info] >  Connected to the database {"user":"Connected to the database"}
+[info] >  (node:3059) DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead. {"user":"(node:3059) DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead."}
+[info] >  Connected to the database {"user":"Connected to the database"}
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:14:41.708Z] [worker-application-4189ae23-c441-45dc-aeba-e09b78a0d2e4]: IDLE 
+[debug] [2020-06-01T11:14:41.709Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:14:45.369Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:14:45.369Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:14:45.369Z] Accepted request OPTIONS /bemeanstack/us-central1/application/posts/get-all-posts --> application
+[debug] [2020-06-01T11:14:45.369Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:14:45.370Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:14:45.370Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:14:45.371Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:14:45.372Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:14:45.372Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:14:45.372Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:14:45.373Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:14:45.377Z] [runtime-status] [3058] Ephemeral server handling OPTIONS request 
+[debug] [2020-06-01T11:14:45.378Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:14:45.380Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:14:45.380Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:14:45.382Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:14:45.383Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:14:45.384Z] Accepted request GET /bemeanstack/us-central1/application/posts/get-all-posts --> application
+[debug] [2020-06-01T11:14:45.384Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:14:45.384Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:14:45.384Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:14:45.389Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:14:45.389Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:14:45.389Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:14:45.390Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:14:45.390Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:14:45.393Z] [runtime-status] [3058] Ephemeral server handling GET request 
+[debug] [2020-06-01T11:14:45.395Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] >  [ {"user":"["}
+[info] >    { {"user":"  {"}
+[info] >      _id: 5ed4c33be7c44044c31cdbfa, {"user":"    _id: 5ed4c33be7c44044c31cdbfa,"}
+[info] >      text: 'sasf', {"user":"    text: 'sasf',"}
+[info] >      user: Map { {"user":"    user: Map {"}
+[info] >        'displayName' => 'Sakshay Phanda', {"user":"      'displayName' => 'Sakshay Phanda',"}
+[info] >        'email' => 'sakshay@gmail.com', {"user":"      'email' => 'sakshay@gmail.com',"}
+[info] >        '_id' => '5ed4b91b5fe8ed2db9fcb926', {"user":"      '_id' => '5ed4b91b5fe8ed2db9fcb926',"}
+[info] >        'friends' => [Array], {"user":"      'friends' => [Array],"}
+[info] >        'photoUrl' => 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500' {"user":"      'photoUrl' => 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'"}
+[info] >      }, {"user":"    },"}
+[info] >      __v: 0 {"user":"    __v: 0"}
+[info] >    }, {"user":"  },"}
+[info] >    { {"user":"  {"}
+[info] >      _id: 5ed4c49be7c44044c31cdbfc, {"user":"    _id: 5ed4c49be7c44044c31cdbfc,"}
+[info] >      text: 'heyy', {"user":"    text: 'heyy',"}
+[info] >      user: Map { {"user":"    user: Map {"}
+[info] >        'displayName' => 'Anuj Gupta', {"user":"      'displayName' => 'Anuj Gupta',"}
+[info] >        'email' => 'anuj@gmail.com', {"user":"      'email' => 'anuj@gmail.com',"}
+[info] >        '_id' => '5ed4b9475fe8ed2db9fcb928', {"user":"      '_id' => '5ed4b9475fe8ed2db9fcb928',"}
+[info] >        'friends' => [Array], {"user":"      'friends' => [Array],"}
+[info] >        'photoUrl' => 'https://www.irreverentgent.com/wp-content/uploads/2018/03/Awesome-Profile-Pictures-for-Guys-look-away2.jpg' {"user":"      'photoUrl' => 'https://www.irreverentgent.com/wp-content/uploads/2018/03/Awesome-Profile-Pictures-for-Guys-look-away2.jpg'"}
+[info] >      }, {"user":"    },"}
+[info] >      __v: 0 {"user":"    __v: 0"}
+[info] >    }, {"user":"  },"}
+[info] >    { {"user":"  {"}
+[info] >      _id: 5ed4ca6ee7c44044c31cdc06, {"user":"    _id: 5ed4ca6ee7c44044c31cdc06,"}
+[info] >      text: 'Hey', {"user":"    text: 'Hey',"}
+[info] >      user: Map { {"user":"    user: Map {"}
+[info] >        'friends' => [Array], {"user":"      'friends' => [Array],"}
+[info] >        '_id' => '5ed4c952e7c44044c31cdbff', {"user":"      '_id' => '5ed4c952e7c44044c31cdbff',"}
+[info] >        'email' => 'lakshay@gmail.com', {"user":"      'email' => 'lakshay@gmail.com',"}
+[info] >        'password' => '$2a$10$J.objt/fExrfHCBGTbyMPOYHeZ6gINUiNJNUF7lFmz6h5I0D2ggZC', {"user":"      'password' => '$2a$10$J.objt/fExrfHCBGTbyMPOYHeZ6gINUiNJNUF7lFmz6h5I0D2ggZC',"}
+[info] >        'firstName' => 'Lakshay', {"user":"      'firstName' => 'Lakshay',"}
+[info] >        'lastName' => 'Phanda', {"user":"      'lastName' => 'Phanda',"}
+[info] >        'displayName' => 'Lakshay Phanda', {"user":"      'displayName' => 'Lakshay Phanda',"}
+[info] >        'photoUrl' => '', {"user":"      'photoUrl' => '',"}
+[info] >        '__v' => 0 {"user":"      '__v' => 0"}
+[info] >      }, {"user":"    },"}
+[info] >      __v: 0 {"user":"    __v: 0"}
+[info] >    } {"user":"  }"}
+[info] >  ] {"user":"]"}
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:14:45.477Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:14:45.477Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:14:48.438Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:14:48.438Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:14:48.438Z] Accepted request OPTIONS /bemeanstack/us-central1/application/users/get-all-users --> application
+[debug] [2020-06-01T11:14:48.438Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:14:48.439Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:14:48.439Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:14:48.443Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:14:48.443Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:14:48.443Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:14:48.444Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:14:48.446Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:14:48.461Z] [runtime-status] [3058] Ephemeral server handling OPTIONS request 
+[debug] [2020-06-01T11:14:48.465Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:14:48.465Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:14:48.466Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:14:48.467Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:14:48.467Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:14:48.467Z] Accepted request GET /bemeanstack/us-central1/application/users/get-all-users --> application
+[debug] [2020-06-01T11:14:48.467Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:14:48.467Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:14:48.467Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:14:48.475Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:14:48.476Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:14:48.476Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:14:48.477Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:14:48.477Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:14:48.480Z] [runtime-status] [3058] Ephemeral server handling GET request 
+[debug] [2020-06-01T11:14:48.480Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:14:48.531Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:14:48.531Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:14:49.837Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:14:49.837Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:14:49.837Z] Accepted request GET /bemeanstack/us-central1/application/posts/get-all-posts --> application
+[debug] [2020-06-01T11:14:49.838Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:14:49.838Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:14:49.838Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:14:49.839Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:14:49.839Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:14:49.839Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:14:49.840Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:14:49.841Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:14:49.843Z] [runtime-status] [3058] Ephemeral server handling GET request 
+[debug] [2020-06-01T11:14:49.845Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] >  [ {"user":"["}
+[info] >    { {"user":"  {"}
+[info] >      _id: 5ed4c33be7c44044c31cdbfa, {"user":"    _id: 5ed4c33be7c44044c31cdbfa,"}
+[info] >      text: 'sasf', {"user":"    text: 'sasf',"}
+[info] >      user: Map { {"user":"    user: Map {"}
+[info] >        'displayName' => 'Sakshay Phanda', {"user":"      'displayName' => 'Sakshay Phanda',"}
+[info] >        'email' => 'sakshay@gmail.com', {"user":"      'email' => 'sakshay@gmail.com',"}
+[info] >        '_id' => '5ed4b91b5fe8ed2db9fcb926', {"user":"      '_id' => '5ed4b91b5fe8ed2db9fcb926',"}
+[info] >        'friends' => [Array], {"user":"      'friends' => [Array],"}
+[info] >        'photoUrl' => 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500' {"user":"      'photoUrl' => 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'"}
+[info] >      }, {"user":"    },"}
+[info] >      __v: 0 {"user":"    __v: 0"}
+[info] >    }, {"user":"  },"}
+[info] >    { {"user":"  {"}
+[info] >      _id: 5ed4c49be7c44044c31cdbfc, {"user":"    _id: 5ed4c49be7c44044c31cdbfc,"}
+[info] >      text: 'heyy', {"user":"    text: 'heyy',"}
+[info] >      user: Map { {"user":"    user: Map {"}
+[info] >        'displayName' => 'Anuj Gupta', {"user":"      'displayName' => 'Anuj Gupta',"}
+[info] >        'email' => 'anuj@gmail.com', {"user":"      'email' => 'anuj@gmail.com',"}
+[info] >        '_id' => '5ed4b9475fe8ed2db9fcb928', {"user":"      '_id' => '5ed4b9475fe8ed2db9fcb928',"}
+[info] >        'friends' => [Array], {"user":"      'friends' => [Array],"}
+[info] >        'photoUrl' => 'https://www.irreverentgent.com/wp-content/uploads/2018/03/Awesome-Profile-Pictures-for-Guys-look-away2.jpg' {"user":"      'photoUrl' => 'https://www.irreverentgent.com/wp-content/uploads/2018/03/Awesome-Profile-Pictures-for-Guys-look-away2.jpg'"}
+[info] >      }, {"user":"    },"}
+[info] >      __v: 0 {"user":"    __v: 0"}
+[info] >    }, {"user":"  },"}
+[info] >    { {"user":"  {"}
+[info] >      _id: 5ed4ca6ee7c44044c31cdc06, {"user":"    _id: 5ed4ca6ee7c44044c31cdc06,"}
+[info] >      text: 'Hey', {"user":"    text: 'Hey',"}
+[info] >      user: Map { {"user":"    user: Map {"}
+[info] >        'friends' => [Array], {"user":"      'friends' => [Array],"}
+[info] >        '_id' => '5ed4c952e7c44044c31cdbff', {"user":"      '_id' => '5ed4c952e7c44044c31cdbff',"}
+[info] >        'email' => 'lakshay@gmail.com', {"user":"      'email' => 'lakshay@gmail.com',"}
+[info] >        'password' => '$2a$10$J.objt/fExrfHCBGTbyMPOYHeZ6gINUiNJNUF7lFmz6h5I0D2ggZC', {"user":"      'password' => '$2a$10$J.objt/fExrfHCBGTbyMPOYHeZ6gINUiNJNUF7lFmz6h5I0D2ggZC',"}
+[info] >        'firstName' => 'Lakshay', {"user":"      'firstName' => 'Lakshay',"}
+[info] >        'lastName' => 'Phanda', {"user":"      'lastName' => 'Phanda',"}
+[info] >        'displayName' => 'Lakshay Phanda', {"user":"      'displayName' => 'Lakshay Phanda',"}
+[info] >        'photoUrl' => '', {"user":"      'photoUrl' => '',"}
+[info] >        '__v' => 0 {"user":"      '__v' => 0"}
+[info] >      }, {"user":"    },"}
+[info] >      __v: 0 {"user":"    __v: 0"}
+[info] >    } {"user":"  }"}
+[info] >  ] {"user":"]"}
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:14:49.910Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:14:49.910Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:14:50.375Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:14:50.375Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:14:50.375Z] Accepted request GET /bemeanstack/us-central1/application/users/get-all-users --> application
+[debug] [2020-06-01T11:14:50.375Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:14:50.376Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:14:50.376Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:14:50.376Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:14:50.377Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:14:50.377Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:14:50.377Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:14:50.378Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:14:50.381Z] [runtime-status] [3058] Ephemeral server handling GET request 
+[debug] [2020-06-01T11:14:50.382Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:14:50.440Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:14:50.440Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:15:35.026Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:15:35.026Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:15:35.026Z] Accepted request OPTIONS /bemeanstack/us-central1/application/users/get-all-users --> application
+[debug] [2020-06-01T11:15:35.027Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:15:35.027Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:15:35.027Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:15:35.029Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:15:35.029Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:15:35.029Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:15:35.030Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:15:35.031Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:15:35.034Z] [runtime-status] [3058] Ephemeral server handling OPTIONS request 
+[debug] [2020-06-01T11:15:35.035Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:15:35.035Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:15:35.035Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:15:35.036Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:15:35.037Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:15:35.037Z] Accepted request GET /bemeanstack/us-central1/application/users/get-all-users --> application
+[debug] [2020-06-01T11:15:35.037Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:15:35.037Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:15:35.037Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:15:35.046Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:15:35.047Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:15:35.047Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:15:35.047Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:15:35.048Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:15:35.051Z] [runtime-status] [3058] Ephemeral server handling GET request 
+[debug] [2020-06-01T11:15:35.052Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:15:35.497Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:15:35.497Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:15:35.617Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:15:35.618Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:15:35.618Z] Accepted request OPTIONS /bemeanstack/us-central1/application/posts/get-all-posts --> application
+[debug] [2020-06-01T11:15:35.618Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:15:35.618Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:15:35.618Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:15:35.619Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:15:35.619Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:15:35.619Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:15:35.620Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:15:35.620Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:15:35.622Z] [runtime-status] [3058] Ephemeral server handling OPTIONS request 
+[debug] [2020-06-01T11:15:35.623Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:15:35.624Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:15:35.624Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:15:35.625Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:15:35.625Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:15:35.625Z] Accepted request GET /bemeanstack/us-central1/application/posts/get-all-posts --> application
+[debug] [2020-06-01T11:15:35.625Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:15:35.625Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:15:35.625Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:15:35.634Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:15:35.635Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:15:35.635Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:15:35.636Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:15:35.637Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:15:35.639Z] [runtime-status] [3058] Ephemeral server handling GET request 
+[debug] [2020-06-01T11:15:35.640Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] >  [] {"user":[]}
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:15:36.008Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:15:36.008Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:15:40.109Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:15:40.109Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:15:40.109Z] Accepted request OPTIONS /bemeanstack/us-central1/application/posts/create-post --> application
+[debug] [2020-06-01T11:15:40.109Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:15:40.110Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:15:40.110Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:15:40.111Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:15:40.111Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:15:40.111Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:15:40.113Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:15:40.115Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:15:40.119Z] [runtime-status] [3058] Ephemeral server handling OPTIONS request 
+[debug] [2020-06-01T11:15:40.119Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:15:40.120Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:15:40.120Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:15:40.122Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:15:40.122Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:15:40.122Z] Accepted request POST /bemeanstack/us-central1/application/posts/create-post --> application
+[debug] [2020-06-01T11:15:40.122Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:15:40.122Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:15:40.122Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:15:40.130Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:15:40.131Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:15:40.131Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:15:40.131Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:15:40.132Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:15:40.150Z] [runtime-status] [3058] Ephemeral server handling POST request 
+[info] >  { {"user":"{"}
+[info] >    text: 'Hey', {"user":"  text: 'Hey',"}
+[info] >    user: { {"user":"  user: {"}
+[info] >      token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNha3NoYXlAZ21haWwuY29tIiwidXNlcklkIjoiNWVkNGNjMjAyN2M5NWY0NzhiMTM1NmJjIiwiaWF0IjoxNTkxMDA0MjkxLCJleHAiOjE1OTEwNDAyOTF9.dOWdMGnWIrqajcZzljeNznRmzEIDdG6jtr60BrPxsrE', {"user":"    token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNha3NoYXlAZ21haWwuY29tIiwidXNlcklkIjoiNWVkNGNjMjAyN2M5NWY0NzhiMTM1NmJjIiwiaWF0IjoxNTkxMDA0MjkxLCJleHAiOjE1OTEwNDAyOTF9.dOWdMGnWIrqajcZzljeNznRmzEIDdG6jtr60BrPxsrE',"}
+[info] >      email: 'sakshay@gmail.com', {"user":"    email: 'sakshay@gmail.com',"}
+[info] >      message: 'Successfully logged in', {"user":"    message: 'Successfully logged in',"}
+[info] >      displayName: 'Sakshay Phanda', {"user":"    displayName: 'Sakshay Phanda',"}
+[info] >      _id: '5ed4cc2027c95f478b1356bc', {"user":"    _id: '5ed4cc2027c95f478b1356bc',"}
+[info] >      friendRequests: [], {"user":"    friendRequests: [],"}
+[info] >      friendRequestsPending: [], {"user":"    friendRequestsPending: [],"}
+[info] >      friends: [], {"user":"    friends: [],"}
+[info] >      photoUrl: 'https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png' {"user":"    photoUrl: 'https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png'"}
+[info] >    } {"user":"  }"}
+[info] >  } {"user":"}"}
+[debug] [2020-06-01T11:15:40.161Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:15:40.249Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:15:40.249Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:15:50.100Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:15:50.101Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:15:50.101Z] Accepted request OPTIONS /bemeanstack/us-central1/application/posts/create-post --> application
+[debug] [2020-06-01T11:15:50.101Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:15:50.101Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:15:50.101Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:15:50.102Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:15:50.105Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:15:50.105Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:15:50.105Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:15:50.106Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:15:50.108Z] [runtime-status] [3058] Ephemeral server handling OPTIONS request 
+[debug] [2020-06-01T11:15:50.109Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:15:50.110Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:15:50.110Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:15:50.110Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:15:50.111Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:15:50.111Z] Accepted request POST /bemeanstack/us-central1/application/posts/create-post --> application
+[debug] [2020-06-01T11:15:50.111Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:15:50.111Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:15:50.111Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:15:50.121Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:15:50.122Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:15:50.122Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:15:50.122Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:15:50.123Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:15:50.126Z] [runtime-status] [3058] Ephemeral server handling POST request 
+[info] >  { {"user":"{"}
+[info] >    text: 'How are you', {"user":"  text: 'How are you',"}
+[info] >    user: { {"user":"  user: {"}
+[info] >      token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNha3NoYXlAZ21haWwuY29tIiwidXNlcklkIjoiNWVkNGNjMjAyN2M5NWY0NzhiMTM1NmJjIiwiaWF0IjoxNTkxMDA0MjkxLCJleHAiOjE1OTEwNDAyOTF9.dOWdMGnWIrqajcZzljeNznRmzEIDdG6jtr60BrPxsrE', {"user":"    token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNha3NoYXlAZ21haWwuY29tIiwidXNlcklkIjoiNWVkNGNjMjAyN2M5NWY0NzhiMTM1NmJjIiwiaWF0IjoxNTkxMDA0MjkxLCJleHAiOjE1OTEwNDAyOTF9.dOWdMGnWIrqajcZzljeNznRmzEIDdG6jtr60BrPxsrE',"}
+[info] >      email: 'sakshay@gmail.com', {"user":"    email: 'sakshay@gmail.com',"}
+[info] >      message: 'Successfully logged in', {"user":"    message: 'Successfully logged in',"}
+[info] >      displayName: 'Sakshay Phanda', {"user":"    displayName: 'Sakshay Phanda',"}
+[info] >      _id: '5ed4cc2027c95f478b1356bc', {"user":"    _id: '5ed4cc2027c95f478b1356bc',"}
+[info] >      friendRequests: [], {"user":"    friendRequests: [],"}
+[info] >      friendRequestsPending: [], {"user":"    friendRequestsPending: [],"}
+[info] >      friends: [], {"user":"    friends: [],"}
+[info] >      photoUrl: 'https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png' {"user":"    photoUrl: 'https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png'"}
+[info] >    } {"user":"  }"}
+[info] >  } {"user":"}"}
+[debug] [2020-06-01T11:15:50.129Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:15:50.188Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:15:50.188Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:15:52.305Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:15:52.305Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:15:52.305Z] Accepted request OPTIONS /bemeanstack/us-central1/application/users/get-all-users --> application
+[debug] [2020-06-01T11:15:52.305Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:15:52.306Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:15:52.306Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:15:52.307Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:15:52.308Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:15:52.308Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:15:52.308Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:15:52.310Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:15:52.312Z] [runtime-status] [3058] Ephemeral server handling OPTIONS request 
+[debug] [2020-06-01T11:15:52.313Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:15:52.315Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:15:52.315Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:15:52.316Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:15:52.316Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:15:52.316Z] Accepted request GET /bemeanstack/us-central1/application/users/get-all-users --> application
+[debug] [2020-06-01T11:15:52.316Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:15:52.316Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:15:52.316Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:15:52.326Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:15:52.326Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:15:52.327Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:15:52.327Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:15:52.327Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:15:52.329Z] [runtime-status] [3058] Ephemeral server handling GET request 
+[debug] [2020-06-01T11:15:52.330Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:15:52.382Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:15:52.382Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:15:52.876Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:15:52.877Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:15:52.877Z] Accepted request OPTIONS /bemeanstack/us-central1/application/posts/get-all-posts --> application
+[debug] [2020-06-01T11:15:52.877Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:15:52.877Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:15:52.877Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:15:52.878Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:15:52.879Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:15:52.879Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:15:52.879Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:15:52.879Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:15:52.882Z] [runtime-status] [3058] Ephemeral server handling OPTIONS request 
+[debug] [2020-06-01T11:15:52.883Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:15:52.885Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:15:52.885Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:15:52.886Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:15:52.886Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:15:52.886Z] Accepted request GET /bemeanstack/us-central1/application/posts/get-all-posts --> application
+[debug] [2020-06-01T11:15:52.886Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:15:52.886Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:15:52.886Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:15:52.895Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:15:52.895Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:15:52.896Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:15:52.896Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:15:52.897Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:15:52.899Z] [runtime-status] [3058] Ephemeral server handling GET request 
+[debug] [2020-06-01T11:15:52.899Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] >  [ {"user":"["}
+[info] >    { {"user":"  {"}
+[info] >      _id: 5ed4e35cf9a9cb0bf2fa5e0f, {"user":"    _id: 5ed4e35cf9a9cb0bf2fa5e0f,"}
+[info] >      text: 'Hey', {"user":"    text: 'Hey',"}
+[info] >      user: Map { {"user":"    user: Map {"}
+[info] >        'email' => 'sakshay@gmail.com', {"user":"      'email' => 'sakshay@gmail.com',"}
+[info] >        'displayName' => 'Sakshay Phanda', {"user":"      'displayName' => 'Sakshay Phanda',"}
+[info] >        '_id' => '5ed4cc2027c95f478b1356bc', {"user":"      '_id' => '5ed4cc2027c95f478b1356bc',"}
+[info] >        'friends' => [], {"user":"      'friends' => [],"}
+[info] >        'photoUrl' => 'https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png' {"user":"      'photoUrl' => 'https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png'"}
+[info] >      }, {"user":"    },"}
+[info] >      __v: 0 {"user":"    __v: 0"}
+[info] >    }, {"user":"  },"}
+[info] >    { {"user":"  {"}
+[info] >      _id: 5ed4e366f9a9cb0bf2fa5e10, {"user":"    _id: 5ed4e366f9a9cb0bf2fa5e10,"}
+[info] >      text: 'How are you', {"user":"    text: 'How are you',"}
+[info] >      user: Map { {"user":"    user: Map {"}
+[info] >        'email' => 'sakshay@gmail.com', {"user":"      'email' => 'sakshay@gmail.com',"}
+[info] >        'displayName' => 'Sakshay Phanda', {"user":"      'displayName' => 'Sakshay Phanda',"}
+[info] >        '_id' => '5ed4cc2027c95f478b1356bc', {"user":"      '_id' => '5ed4cc2027c95f478b1356bc',"}
+[info] >        'friends' => [], {"user":"      'friends' => [],"}
+[info] >        'photoUrl' => 'https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png' {"user":"      'photoUrl' => 'https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png'"}
+[info] >      }, {"user":"    },"}
+[info] >      __v: 0 {"user":"    __v: 0"}
+[info] >    } {"user":"  }"}
+[info] >  ] {"user":"]"}
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:15:52.958Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:15:52.958Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:16:36.100Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:16:36.100Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:16:36.100Z] Accepted request OPTIONS /bemeanstack/us-central1/application/users/get-all-users --> application
+[debug] [2020-06-01T11:16:36.101Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:16:36.101Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:16:36.101Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:16:36.102Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:16:36.102Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:16:36.102Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:16:36.102Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:16:36.103Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:16:36.105Z] [runtime-status] [3058] Ephemeral server handling OPTIONS request 
+[debug] [2020-06-01T11:16:36.106Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:16:36.107Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:16:36.107Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:16:36.108Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:16:36.108Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:16:36.108Z] Accepted request GET /bemeanstack/us-central1/application/users/get-all-users --> application
+[debug] [2020-06-01T11:16:36.108Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:16:36.108Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:16:36.108Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:16:36.117Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:16:36.117Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:16:36.118Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:16:36.118Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:16:36.119Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:16:36.121Z] [runtime-status] [3058] Ephemeral server handling GET request 
+[debug] [2020-06-01T11:16:36.122Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:16:36.197Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:16:36.197Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:16:37.608Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:16:37.608Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:16:37.608Z] Accepted request OPTIONS /bemeanstack/us-central1/application/posts/get-all-posts --> application
+[debug] [2020-06-01T11:16:37.608Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:16:37.609Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:16:37.609Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:16:37.610Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:16:37.613Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:16:37.613Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:16:37.613Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:16:37.614Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:16:37.617Z] [runtime-status] [3058] Ephemeral server handling OPTIONS request 
+[debug] [2020-06-01T11:16:37.618Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:16:37.619Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:16:37.619Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:16:37.620Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:16:37.620Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:16:37.620Z] Accepted request GET /bemeanstack/us-central1/application/posts/get-all-posts --> application
+[debug] [2020-06-01T11:16:37.621Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:16:37.621Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:16:37.621Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:16:37.631Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:16:37.632Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:16:37.632Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:16:37.632Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:16:37.633Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:16:37.634Z] [runtime-status] [3058] Ephemeral server handling GET request 
+[debug] [2020-06-01T11:16:37.634Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] >  [ {"user":"["}
+[info] >    { {"user":"  {"}
+[info] >      _id: 5ed4e35cf9a9cb0bf2fa5e0f, {"user":"    _id: 5ed4e35cf9a9cb0bf2fa5e0f,"}
+[info] >      text: 'Hey', {"user":"    text: 'Hey',"}
+[info] >      user: Map { {"user":"    user: Map {"}
+[info] >        'email' => 'sakshay@gmail.com', {"user":"      'email' => 'sakshay@gmail.com',"}
+[info] >        'displayName' => 'Sakshay Phanda', {"user":"      'displayName' => 'Sakshay Phanda',"}
+[info] >        '_id' => '5ed4cc2027c95f478b1356bc', {"user":"      '_id' => '5ed4cc2027c95f478b1356bc',"}
+[info] >        'friends' => [], {"user":"      'friends' => [],"}
+[info] >        'photoUrl' => 'https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png' {"user":"      'photoUrl' => 'https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png'"}
+[info] >      }, {"user":"    },"}
+[info] >      __v: 0 {"user":"    __v: 0"}
+[info] >    }, {"user":"  },"}
+[info] >    { {"user":"  {"}
+[info] >      _id: 5ed4e366f9a9cb0bf2fa5e10, {"user":"    _id: 5ed4e366f9a9cb0bf2fa5e10,"}
+[info] >      text: 'How are you', {"user":"    text: 'How are you',"}
+[info] >      user: Map { {"user":"    user: Map {"}
+[info] >        'email' => 'sakshay@gmail.com', {"user":"      'email' => 'sakshay@gmail.com',"}
+[info] >        'displayName' => 'Sakshay Phanda', {"user":"      'displayName' => 'Sakshay Phanda',"}
+[info] >        '_id' => '5ed4cc2027c95f478b1356bc', {"user":"      '_id' => '5ed4cc2027c95f478b1356bc',"}
+[info] >        'friends' => [], {"user":"      'friends' => [],"}
+[info] >        'photoUrl' => 'https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png' {"user":"      'photoUrl' => 'https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png'"}
+[info] >      }, {"user":"    },"}
+[info] >      __v: 0 {"user":"    __v: 0"}
+[info] >    } {"user":"  }"}
+[info] >  ] {"user":"]"}
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:16:37.702Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:16:37.702Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:16:43.872Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:16:43.873Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:16:43.873Z] Accepted request OPTIONS /bemeanstack/us-central1/application/users/get-all-users --> application
+[debug] [2020-06-01T11:16:43.873Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:16:43.873Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:16:43.873Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:16:43.874Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:16:43.874Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:16:43.874Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:16:43.875Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:16:43.875Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:16:43.878Z] [runtime-status] [3058] Ephemeral server handling OPTIONS request 
+[debug] [2020-06-01T11:16:43.881Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:16:43.881Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:16:43.881Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:16:43.881Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:16:43.882Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:16:43.882Z] Accepted request GET /bemeanstack/us-central1/application/users/get-all-users --> application
+[debug] [2020-06-01T11:16:43.882Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:16:43.882Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:16:43.882Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:16:43.891Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:16:43.891Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:16:43.891Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:16:43.891Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:16:43.892Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:16:43.894Z] [runtime-status] [3058] Ephemeral server handling GET request 
+[debug] [2020-06-01T11:16:43.894Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:16:44.183Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:16:44.183Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:16:46.571Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:16:46.571Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:16:46.571Z] Accepted request OPTIONS /bemeanstack/us-central1/application/posts/get-all-posts --> application
+[debug] [2020-06-01T11:16:46.571Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:16:46.572Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:16:46.572Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:16:46.572Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:16:46.573Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:16:46.573Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:16:46.573Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:16:46.574Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:16:46.577Z] [runtime-status] [3058] Ephemeral server handling OPTIONS request 
+[debug] [2020-06-01T11:16:46.578Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:16:46.578Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:16:46.578Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:16:46.579Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:16:46.579Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:16:46.579Z] Accepted request GET /bemeanstack/us-central1/application/posts/get-all-posts --> application
+[debug] [2020-06-01T11:16:46.579Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:16:46.579Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:16:46.580Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:16:46.588Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:16:46.589Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:16:46.589Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:16:46.589Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:16:46.590Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:16:46.593Z] [runtime-status] [3058] Ephemeral server handling GET request 
+[debug] [2020-06-01T11:16:46.593Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] >  [ {"user":"["}
+[info] >    { {"user":"  {"}
+[info] >      _id: 5ed4e35cf9a9cb0bf2fa5e0f, {"user":"    _id: 5ed4e35cf9a9cb0bf2fa5e0f,"}
+[info] >      text: 'Hey', {"user":"    text: 'Hey',"}
+[info] >      user: Map { {"user":"    user: Map {"}
+[info] >        'email' => 'sakshay@gmail.com', {"user":"      'email' => 'sakshay@gmail.com',"}
+[info] >        'displayName' => 'Sakshay Phanda', {"user":"      'displayName' => 'Sakshay Phanda',"}
+[info] >        '_id' => '5ed4cc2027c95f478b1356bc', {"user":"      '_id' => '5ed4cc2027c95f478b1356bc',"}
+[info] >        'friends' => [], {"user":"      'friends' => [],"}
+[info] >        'photoUrl' => 'https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png' {"user":"      'photoUrl' => 'https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png'"}
+[info] >      }, {"user":"    },"}
+[info] >      __v: 0 {"user":"    __v: 0"}
+[info] >    }, {"user":"  },"}
+[info] >    { {"user":"  {"}
+[info] >      _id: 5ed4e366f9a9cb0bf2fa5e10, {"user":"    _id: 5ed4e366f9a9cb0bf2fa5e10,"}
+[info] >      text: 'How are you', {"user":"    text: 'How are you',"}
+[info] >      user: Map { {"user":"    user: Map {"}
+[info] >        'email' => 'sakshay@gmail.com', {"user":"      'email' => 'sakshay@gmail.com',"}
+[info] >        'displayName' => 'Sakshay Phanda', {"user":"      'displayName' => 'Sakshay Phanda',"}
+[info] >        '_id' => '5ed4cc2027c95f478b1356bc', {"user":"      '_id' => '5ed4cc2027c95f478b1356bc',"}
+[info] >        'friends' => [], {"user":"      'friends' => [],"}
+[info] >        'photoUrl' => 'https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png' {"user":"      'photoUrl' => 'https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png'"}
+[info] >      }, {"user":"    },"}
+[info] >      __v: 0 {"user":"    __v: 0"}
+[info] >    } {"user":"  }"}
+[info] >  ] {"user":"]"}
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:16:46.776Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:16:46.776Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:16:49.372Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:16:49.372Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:16:49.372Z] Accepted request OPTIONS /bemeanstack/us-central1/application/users/get-all-users --> application
+[debug] [2020-06-01T11:16:49.373Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:16:49.373Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:16:49.373Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:16:49.374Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:16:49.374Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:16:49.374Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:16:49.376Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:16:49.377Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:16:49.379Z] [runtime-status] [3058] Ephemeral server handling OPTIONS request 
+[debug] [2020-06-01T11:16:49.380Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:16:49.380Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:16:49.380Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:16:49.381Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:16:49.382Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:16:49.382Z] Accepted request GET /bemeanstack/us-central1/application/users/get-all-users --> application
+[debug] [2020-06-01T11:16:49.382Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:16:49.382Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:16:49.382Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:16:49.391Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:16:49.392Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:16:49.393Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:16:49.393Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:16:49.394Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:16:49.396Z] [runtime-status] [3058] Ephemeral server handling GET request 
+[debug] [2020-06-01T11:16:49.397Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:16:49.447Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:16:49.448Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:16:51.142Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:16:51.143Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:16:51.143Z] Accepted request GET /bemeanstack/us-central1/application/posts/get-all-posts --> application
+[debug] [2020-06-01T11:16:51.143Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:16:51.143Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:16:51.143Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:16:51.144Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:16:51.145Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:16:51.145Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:16:51.145Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:16:51.146Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:16:51.148Z] [runtime-status] [3058] Ephemeral server handling GET request 
+[debug] [2020-06-01T11:16:51.148Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] >  [ {"user":"["}
+[info] >    { {"user":"  {"}
+[info] >      _id: 5ed4e35cf9a9cb0bf2fa5e0f, {"user":"    _id: 5ed4e35cf9a9cb0bf2fa5e0f,"}
+[info] >      text: 'Hey', {"user":"    text: 'Hey',"}
+[info] >      user: Map { {"user":"    user: Map {"}
+[info] >        'email' => 'sakshay@gmail.com', {"user":"      'email' => 'sakshay@gmail.com',"}
+[info] >        'displayName' => 'Sakshay Phanda', {"user":"      'displayName' => 'Sakshay Phanda',"}
+[info] >        '_id' => '5ed4cc2027c95f478b1356bc', {"user":"      '_id' => '5ed4cc2027c95f478b1356bc',"}
+[info] >        'friends' => [], {"user":"      'friends' => [],"}
+[info] >        'photoUrl' => 'https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png' {"user":"      'photoUrl' => 'https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png'"}
+[info] >      }, {"user":"    },"}
+[info] >      __v: 0 {"user":"    __v: 0"}
+[info] >    }, {"user":"  },"}
+[info] >    { {"user":"  {"}
+[info] >      _id: 5ed4e366f9a9cb0bf2fa5e10, {"user":"    _id: 5ed4e366f9a9cb0bf2fa5e10,"}
+[info] >      text: 'How are you', {"user":"    text: 'How are you',"}
+[info] >      user: Map { {"user":"    user: Map {"}
+[info] >        'email' => 'sakshay@gmail.com', {"user":"      'email' => 'sakshay@gmail.com',"}
+[info] >        'displayName' => 'Sakshay Phanda', {"user":"      'displayName' => 'Sakshay Phanda',"}
+[info] >        '_id' => '5ed4cc2027c95f478b1356bc', {"user":"      '_id' => '5ed4cc2027c95f478b1356bc',"}
+[info] >        'friends' => [], {"user":"      'friends' => [],"}
+[info] >        'photoUrl' => 'https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png' {"user":"      'photoUrl' => 'https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png'"}
+[info] >      }, {"user":"    },"}
+[info] >      __v: 0 {"user":"    __v: 0"}
+[info] >    } {"user":"  }"}
+[info] >  ] {"user":"]"}
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:16:51.211Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:16:51.211Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:17:06.285Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:17:06.285Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:17:06.285Z] Accepted request OPTIONS /bemeanstack/us-central1/application/users/get-all-users --> application
+[debug] [2020-06-01T11:17:06.285Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:17:06.286Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:17:06.286Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:17:06.287Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:17:06.287Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:17:06.287Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:17:06.287Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:17:06.288Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:17:06.291Z] [runtime-status] [3058] Ephemeral server handling OPTIONS request 
+[debug] [2020-06-01T11:17:06.293Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:17:06.293Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:17:06.293Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:17:06.295Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:17:06.295Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:17:06.295Z] Accepted request GET /bemeanstack/us-central1/application/users/get-all-users --> application
+[debug] [2020-06-01T11:17:06.295Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:17:06.295Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:17:06.295Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:17:06.304Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:17:06.304Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:17:06.305Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:17:06.305Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:17:06.305Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:17:06.307Z] [runtime-status] [3058] Ephemeral server handling GET request 
+[debug] [2020-06-01T11:17:06.308Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:17:06.377Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:17:06.377Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:17:07.528Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:17:07.528Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:17:07.528Z] Accepted request OPTIONS /bemeanstack/us-central1/application/posts/get-all-posts --> application
+[debug] [2020-06-01T11:17:07.528Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:17:07.528Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:17:07.528Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:17:07.529Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:17:07.530Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:17:07.530Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:17:07.530Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:17:07.532Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:17:07.534Z] [runtime-status] [3058] Ephemeral server handling OPTIONS request 
+[debug] [2020-06-01T11:17:07.535Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:17:07.536Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:17:07.536Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:17:07.537Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:17:07.537Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:17:07.537Z] Accepted request GET /bemeanstack/us-central1/application/posts/get-all-posts --> application
+[debug] [2020-06-01T11:17:07.537Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:17:07.537Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:17:07.537Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:17:07.546Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:17:07.546Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:17:07.546Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:17:07.546Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:17:07.547Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:17:07.549Z] [runtime-status] [3058] Ephemeral server handling GET request 
+[debug] [2020-06-01T11:17:07.549Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] >  [ {"user":"["}
+[info] >    { {"user":"  {"}
+[info] >      _id: 5ed4e35cf9a9cb0bf2fa5e0f, {"user":"    _id: 5ed4e35cf9a9cb0bf2fa5e0f,"}
+[info] >      text: 'Hey', {"user":"    text: 'Hey',"}
+[info] >      user: Map { {"user":"    user: Map {"}
+[info] >        'email' => 'sakshay@gmail.com', {"user":"      'email' => 'sakshay@gmail.com',"}
+[info] >        'displayName' => 'Sakshay Phanda', {"user":"      'displayName' => 'Sakshay Phanda',"}
+[info] >        '_id' => '5ed4cc2027c95f478b1356bc', {"user":"      '_id' => '5ed4cc2027c95f478b1356bc',"}
+[info] >        'friends' => [], {"user":"      'friends' => [],"}
+[info] >        'photoUrl' => 'https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png' {"user":"      'photoUrl' => 'https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png'"}
+[info] >      }, {"user":"    },"}
+[info] >      __v: 0 {"user":"    __v: 0"}
+[info] >    }, {"user":"  },"}
+[info] >    { {"user":"  {"}
+[info] >      _id: 5ed4e366f9a9cb0bf2fa5e10, {"user":"    _id: 5ed4e366f9a9cb0bf2fa5e10,"}
+[info] >      text: 'How are you', {"user":"    text: 'How are you',"}
+[info] >      user: Map { {"user":"    user: Map {"}
+[info] >        'email' => 'sakshay@gmail.com', {"user":"      'email' => 'sakshay@gmail.com',"}
+[info] >        'displayName' => 'Sakshay Phanda', {"user":"      'displayName' => 'Sakshay Phanda',"}
+[info] >        '_id' => '5ed4cc2027c95f478b1356bc', {"user":"      '_id' => '5ed4cc2027c95f478b1356bc',"}
+[info] >        'friends' => [], {"user":"      'friends' => [],"}
+[info] >        'photoUrl' => 'https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png' {"user":"      'photoUrl' => 'https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png'"}
+[info] >      }, {"user":"    },"}
+[info] >      __v: 0 {"user":"    __v: 0"}
+[info] >    } {"user":"  }"}
+[info] >  ] {"user":"]"}
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:17:07.613Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:17:07.613Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:17:08.537Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:17:08.537Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:17:08.537Z] Accepted request GET /bemeanstack/us-central1/application/users/get-all-users --> application
+[debug] [2020-06-01T11:17:08.537Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:17:08.537Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:17:08.537Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:17:08.538Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:17:08.538Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:17:08.538Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:17:08.538Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:17:08.539Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:17:08.542Z] [runtime-status] [3058] Ephemeral server handling GET request 
+[debug] [2020-06-01T11:17:08.542Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:17:08.592Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:17:08.592Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:18:34.176Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:18:34.177Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:18:34.177Z] Accepted request OPTIONS /bemeanstack/us-central1/application/posts/get-all-posts --> application
+[debug] [2020-06-01T11:18:34.177Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:18:34.177Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:18:34.177Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:18:34.178Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:18:34.178Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:18:34.178Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:18:34.179Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:18:34.180Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:18:34.183Z] [runtime-status] [3058] Ephemeral server handling OPTIONS request 
+[debug] [2020-06-01T11:18:34.185Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:18:34.185Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:18:34.185Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:18:34.186Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:18:34.186Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:18:34.186Z] Accepted request GET /bemeanstack/us-central1/application/posts/get-all-posts --> application
+[debug] [2020-06-01T11:18:34.187Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:18:34.187Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:18:34.187Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:18:34.195Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:18:34.196Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:18:34.196Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:18:34.198Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:18:34.199Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:18:34.201Z] [runtime-status] [3058] Ephemeral server handling GET request 
+[debug] [2020-06-01T11:18:34.201Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] >  [ {"user":"["}
+[info] >    { {"user":"  {"}
+[info] >      _id: 5ed4e35cf9a9cb0bf2fa5e0f, {"user":"    _id: 5ed4e35cf9a9cb0bf2fa5e0f,"}
+[info] >      text: 'Hey', {"user":"    text: 'Hey',"}
+[info] >      user: Map { {"user":"    user: Map {"}
+[info] >        'email' => 'sakshay@gmail.com', {"user":"      'email' => 'sakshay@gmail.com',"}
+[info] >        'displayName' => 'Sakshay Phanda', {"user":"      'displayName' => 'Sakshay Phanda',"}
+[info] >        '_id' => '5ed4cc2027c95f478b1356bc', {"user":"      '_id' => '5ed4cc2027c95f478b1356bc',"}
+[info] >        'friends' => [], {"user":"      'friends' => [],"}
+[info] >        'photoUrl' => 'https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png' {"user":"      'photoUrl' => 'https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png'"}
+[info] >      }, {"user":"    },"}
+[info] >      __v: 0 {"user":"    __v: 0"}
+[info] >    }, {"user":"  },"}
+[info] >    { {"user":"  {"}
+[info] >      _id: 5ed4e366f9a9cb0bf2fa5e10, {"user":"    _id: 5ed4e366f9a9cb0bf2fa5e10,"}
+[info] >      text: 'How are you', {"user":"    text: 'How are you',"}
+[info] >      user: Map { {"user":"    user: Map {"}
+[info] >        'email' => 'sakshay@gmail.com', {"user":"      'email' => 'sakshay@gmail.com',"}
+[info] >        'displayName' => 'Sakshay Phanda', {"user":"      'displayName' => 'Sakshay Phanda',"}
+[info] >        '_id' => '5ed4cc2027c95f478b1356bc', {"user":"      '_id' => '5ed4cc2027c95f478b1356bc',"}
+[info] >        'friends' => [], {"user":"      'friends' => [],"}
+[info] >        'photoUrl' => 'https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png' {"user":"      'photoUrl' => 'https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png'"}
+[info] >      }, {"user":"    },"}
+[info] >      __v: 0 {"user":"    __v: 0"}
+[info] >    } {"user":"  }"}
+[info] >  ] {"user":"]"}
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:18:34.290Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:18:34.291Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:18:35.124Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:18:35.124Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:18:35.124Z] Accepted request OPTIONS /bemeanstack/us-central1/application/users/get-all-users --> application
+[debug] [2020-06-01T11:18:35.125Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:18:35.125Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:18:35.125Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:18:35.125Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:18:35.126Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:18:35.127Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:18:35.127Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:18:35.127Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:18:35.130Z] [runtime-status] [3058] Ephemeral server handling OPTIONS request 
+[debug] [2020-06-01T11:18:35.131Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:18:35.132Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:18:35.132Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:18:35.134Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:18:35.134Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:18:35.134Z] Accepted request GET /bemeanstack/us-central1/application/users/get-all-users --> application
+[debug] [2020-06-01T11:18:35.134Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:18:35.134Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:18:35.134Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:18:35.143Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:18:35.144Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:18:35.144Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:18:35.144Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:18:35.145Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:18:35.147Z] [runtime-status] [3058] Ephemeral server handling GET request 
+[debug] [2020-06-01T11:18:35.148Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:18:35.241Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:18:35.241Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:18:38.668Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:18:38.669Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:18:38.669Z] Accepted request GET /bemeanstack/us-central1/application/posts/get-all-posts --> application
+[debug] [2020-06-01T11:18:38.669Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:18:38.669Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:18:38.669Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:18:38.670Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:18:38.671Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:18:38.671Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:18:38.671Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:18:38.672Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:18:38.674Z] [runtime-status] [3058] Ephemeral server handling GET request 
+[debug] [2020-06-01T11:18:38.674Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] >  [ {"user":"["}
+[info] >    { {"user":"  {"}
+[info] >      _id: 5ed4e35cf9a9cb0bf2fa5e0f, {"user":"    _id: 5ed4e35cf9a9cb0bf2fa5e0f,"}
+[info] >      text: 'Hey', {"user":"    text: 'Hey',"}
+[info] >      user: Map { {"user":"    user: Map {"}
+[info] >        'email' => 'sakshay@gmail.com', {"user":"      'email' => 'sakshay@gmail.com',"}
+[info] >        'displayName' => 'Sakshay Phanda', {"user":"      'displayName' => 'Sakshay Phanda',"}
+[info] >        '_id' => '5ed4cc2027c95f478b1356bc', {"user":"      '_id' => '5ed4cc2027c95f478b1356bc',"}
+[info] >        'friends' => [], {"user":"      'friends' => [],"}
+[info] >        'photoUrl' => 'https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png' {"user":"      'photoUrl' => 'https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png'"}
+[info] >      }, {"user":"    },"}
+[info] >      __v: 0 {"user":"    __v: 0"}
+[info] >    }, {"user":"  },"}
+[info] >    { {"user":"  {"}
+[info] >      _id: 5ed4e366f9a9cb0bf2fa5e10, {"user":"    _id: 5ed4e366f9a9cb0bf2fa5e10,"}
+[info] >      text: 'How are you', {"user":"    text: 'How are you',"}
+[info] >      user: Map { {"user":"    user: Map {"}
+[info] >        'email' => 'sakshay@gmail.com', {"user":"      'email' => 'sakshay@gmail.com',"}
+[info] >        'displayName' => 'Sakshay Phanda', {"user":"      'displayName' => 'Sakshay Phanda',"}
+[info] >        '_id' => '5ed4cc2027c95f478b1356bc', {"user":"      '_id' => '5ed4cc2027c95f478b1356bc',"}
+[info] >        'friends' => [], {"user":"      'friends' => [],"}
+[info] >        'photoUrl' => 'https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png' {"user":"      'photoUrl' => 'https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png'"}
+[info] >      }, {"user":"    },"}
+[info] >      __v: 0 {"user":"    __v: 0"}
+[info] >    } {"user":"  }"}
+[info] >  ] {"user":"]"}
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:18:38.788Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:18:38.788Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:18:39.243Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:18:39.243Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:18:39.243Z] Accepted request GET /bemeanstack/us-central1/application/users/get-all-users --> application
+[debug] [2020-06-01T11:18:39.243Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:18:39.244Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:18:39.244Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:18:39.244Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:18:39.245Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:18:39.245Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:18:39.246Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:18:39.246Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:18:39.248Z] [runtime-status] [3058] Ephemeral server handling GET request 
+[debug] [2020-06-01T11:18:39.249Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:18:39.377Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:18:39.378Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:19:17.705Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:19:17.705Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:19:17.705Z] Accepted request OPTIONS /bemeanstack/us-central1/application/posts/get-all-posts --> application
+[debug] [2020-06-01T11:19:17.705Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:19:17.705Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:19:17.705Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:19:17.706Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:19:17.706Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:19:17.706Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:19:17.707Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:19:17.708Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:19:17.710Z] [runtime-status] [3058] Ephemeral server handling OPTIONS request 
+[debug] [2020-06-01T11:19:17.711Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:19:17.712Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:19:17.712Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:19:17.713Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:19:17.713Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:19:17.713Z] Accepted request GET /bemeanstack/us-central1/application/posts/get-all-posts --> application
+[debug] [2020-06-01T11:19:17.713Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:19:17.713Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:19:17.714Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:19:17.723Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:19:17.724Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:19:17.724Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:19:17.724Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:19:17.724Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:19:17.727Z] [runtime-status] [3058] Ephemeral server handling GET request 
+[debug] [2020-06-01T11:19:17.727Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] >  [ {"user":"["}
+[info] >    { {"user":"  {"}
+[info] >      _id: 5ed4e35cf9a9cb0bf2fa5e0f, {"user":"    _id: 5ed4e35cf9a9cb0bf2fa5e0f,"}
+[info] >      text: 'Hey', {"user":"    text: 'Hey',"}
+[info] >      user: Map { {"user":"    user: Map {"}
+[info] >        'email' => 'sakshay@gmail.com', {"user":"      'email' => 'sakshay@gmail.com',"}
+[info] >        'displayName' => 'Sakshay Phanda', {"user":"      'displayName' => 'Sakshay Phanda',"}
+[info] >        '_id' => '5ed4cc2027c95f478b1356bc', {"user":"      '_id' => '5ed4cc2027c95f478b1356bc',"}
+[info] >        'friends' => [], {"user":"      'friends' => [],"}
+[info] >        'photoUrl' => 'https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png' {"user":"      'photoUrl' => 'https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png'"}
+[info] >      }, {"user":"    },"}
+[info] >      __v: 0 {"user":"    __v: 0"}
+[info] >    }, {"user":"  },"}
+[info] >    { {"user":"  {"}
+[info] >      _id: 5ed4e366f9a9cb0bf2fa5e10, {"user":"    _id: 5ed4e366f9a9cb0bf2fa5e10,"}
+[info] >      text: 'How are you', {"user":"    text: 'How are you',"}
+[info] >      user: Map { {"user":"    user: Map {"}
+[info] >        'email' => 'sakshay@gmail.com', {"user":"      'email' => 'sakshay@gmail.com',"}
+[info] >        'displayName' => 'Sakshay Phanda', {"user":"      'displayName' => 'Sakshay Phanda',"}
+[info] >        '_id' => '5ed4cc2027c95f478b1356bc', {"user":"      '_id' => '5ed4cc2027c95f478b1356bc',"}
+[info] >        'friends' => [], {"user":"      'friends' => [],"}
+[info] >        'photoUrl' => 'https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png' {"user":"      'photoUrl' => 'https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png'"}
+[info] >      }, {"user":"    },"}
+[info] >      __v: 0 {"user":"    __v: 0"}
+[info] >    } {"user":"  }"}
+[info] >  ] {"user":"]"}
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:19:17.839Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:19:17.839Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:19:18.188Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:19:18.189Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:19:18.189Z] Accepted request OPTIONS /bemeanstack/us-central1/application/users/get-all-users --> application
+[debug] [2020-06-01T11:19:18.189Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:19:18.189Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:19:18.189Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:19:18.190Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:19:18.190Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:19:18.190Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:19:18.192Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:19:18.192Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:19:18.195Z] [runtime-status] [3058] Ephemeral server handling OPTIONS request 
+[debug] [2020-06-01T11:19:18.195Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:19:18.196Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:19:18.196Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:19:18.197Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:19:18.197Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:19:18.197Z] Accepted request GET /bemeanstack/us-central1/application/users/get-all-users --> application
+[debug] [2020-06-01T11:19:18.198Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:19:18.198Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:19:18.198Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:19:18.207Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:19:18.207Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:19:18.207Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:19:18.207Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:19:18.208Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:19:18.209Z] [runtime-status] [3058] Ephemeral server handling GET request 
+[debug] [2020-06-01T11:19:18.210Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:19:18.257Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:19:18.257Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:19:23.625Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:19:23.625Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:19:23.625Z] Accepted request OPTIONS /bemeanstack/us-central1/application/posts/get-all-posts --> application
+[debug] [2020-06-01T11:19:23.625Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:19:23.626Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:19:23.626Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:19:23.626Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:19:23.627Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:19:23.627Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:19:23.627Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:19:23.628Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:19:23.633Z] [runtime-status] [3058] Ephemeral server handling OPTIONS request 
+[debug] [2020-06-01T11:19:23.633Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:19:23.636Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:19:23.636Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:19:23.637Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:19:23.637Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:19:23.638Z] Accepted request GET /bemeanstack/us-central1/application/posts/get-all-posts --> application
+[debug] [2020-06-01T11:19:23.638Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:19:23.638Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:19:23.638Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:19:23.646Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:19:23.646Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:19:23.646Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:19:23.646Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:19:23.647Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:19:23.649Z] [runtime-status] [3058] Ephemeral server handling GET request 
+[debug] [2020-06-01T11:19:23.649Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] >  [ {"user":"["}
+[info] >    { {"user":"  {"}
+[info] >      _id: 5ed4e35cf9a9cb0bf2fa5e0f, {"user":"    _id: 5ed4e35cf9a9cb0bf2fa5e0f,"}
+[info] >      text: 'Hey', {"user":"    text: 'Hey',"}
+[info] >      user: Map { {"user":"    user: Map {"}
+[info] >        'email' => 'sakshay@gmail.com', {"user":"      'email' => 'sakshay@gmail.com',"}
+[info] >        'displayName' => 'Sakshay Phanda', {"user":"      'displayName' => 'Sakshay Phanda',"}
+[info] >        '_id' => '5ed4cc2027c95f478b1356bc', {"user":"      '_id' => '5ed4cc2027c95f478b1356bc',"}
+[info] >        'friends' => [], {"user":"      'friends' => [],"}
+[info] >        'photoUrl' => 'https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png' {"user":"      'photoUrl' => 'https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png'"}
+[info] >      }, {"user":"    },"}
+[info] >      __v: 0 {"user":"    __v: 0"}
+[info] >    }, {"user":"  },"}
+[info] >    { {"user":"  {"}
+[info] >      _id: 5ed4e366f9a9cb0bf2fa5e10, {"user":"    _id: 5ed4e366f9a9cb0bf2fa5e10,"}
+[info] >      text: 'How are you', {"user":"    text: 'How are you',"}
+[info] >      user: Map { {"user":"    user: Map {"}
+[info] >        'email' => 'sakshay@gmail.com', {"user":"      'email' => 'sakshay@gmail.com',"}
+[info] >        'displayName' => 'Sakshay Phanda', {"user":"      'displayName' => 'Sakshay Phanda',"}
+[info] >        '_id' => '5ed4cc2027c95f478b1356bc', {"user":"      '_id' => '5ed4cc2027c95f478b1356bc',"}
+[info] >        'friends' => [], {"user":"      'friends' => [],"}
+[info] >        'photoUrl' => 'https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png' {"user":"      'photoUrl' => 'https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png'"}
+[info] >      }, {"user":"    },"}
+[info] >      __v: 0 {"user":"    __v: 0"}
+[info] >    } {"user":"  }"}
+[info] >  ] {"user":"]"}
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:19:23.718Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:19:23.718Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:19:24.362Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:19:24.362Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:19:24.362Z] Accepted request OPTIONS /bemeanstack/us-central1/application/users/get-all-users --> application
+[debug] [2020-06-01T11:19:24.362Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:19:24.363Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:19:24.363Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:19:24.363Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:19:24.364Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:19:24.364Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:19:24.364Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:19:24.365Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:19:24.368Z] [runtime-status] [3058] Ephemeral server handling OPTIONS request 
+[debug] [2020-06-01T11:19:24.369Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:19:24.370Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:19:24.370Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:19:24.370Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:19:24.371Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:19:24.371Z] Accepted request GET /bemeanstack/us-central1/application/users/get-all-users --> application
+[debug] [2020-06-01T11:19:24.371Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:19:24.371Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:19:24.371Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:19:24.379Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:19:24.380Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:19:24.380Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:19:24.381Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:19:24.382Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:19:24.384Z] [runtime-status] [3058] Ephemeral server handling GET request 
+[debug] [2020-06-01T11:19:24.385Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:19:24.437Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:19:24.437Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:19:28.098Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:19:28.099Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:19:28.099Z] Accepted request GET /bemeanstack/us-central1/application/posts/get-all-posts --> application
+[debug] [2020-06-01T11:19:28.099Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:19:28.099Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:19:28.099Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:19:28.100Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:19:28.100Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:19:28.100Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:19:28.100Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:19:28.105Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:19:28.107Z] [runtime-status] [3058] Ephemeral server handling GET request 
+[debug] [2020-06-01T11:19:28.107Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] >  [ {"user":"["}
+[info] >    { {"user":"  {"}
+[info] >      _id: 5ed4e35cf9a9cb0bf2fa5e0f, {"user":"    _id: 5ed4e35cf9a9cb0bf2fa5e0f,"}
+[info] >      text: 'Hey', {"user":"    text: 'Hey',"}
+[info] >      user: Map { {"user":"    user: Map {"}
+[info] >        'email' => 'sakshay@gmail.com', {"user":"      'email' => 'sakshay@gmail.com',"}
+[info] >        'displayName' => 'Sakshay Phanda', {"user":"      'displayName' => 'Sakshay Phanda',"}
+[info] >        '_id' => '5ed4cc2027c95f478b1356bc', {"user":"      '_id' => '5ed4cc2027c95f478b1356bc',"}
+[info] >        'friends' => [], {"user":"      'friends' => [],"}
+[info] >        'photoUrl' => 'https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png' {"user":"      'photoUrl' => 'https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png'"}
+[info] >      }, {"user":"    },"}
+[info] >      __v: 0 {"user":"    __v: 0"}
+[info] >    }, {"user":"  },"}
+[info] >    { {"user":"  {"}
+[info] >      _id: 5ed4e366f9a9cb0bf2fa5e10, {"user":"    _id: 5ed4e366f9a9cb0bf2fa5e10,"}
+[info] >      text: 'How are you', {"user":"    text: 'How are you',"}
+[info] >      user: Map { {"user":"    user: Map {"}
+[info] >        'email' => 'sakshay@gmail.com', {"user":"      'email' => 'sakshay@gmail.com',"}
+[info] >        'displayName' => 'Sakshay Phanda', {"user":"      'displayName' => 'Sakshay Phanda',"}
+[info] >        '_id' => '5ed4cc2027c95f478b1356bc', {"user":"      '_id' => '5ed4cc2027c95f478b1356bc',"}
+[info] >        'friends' => [], {"user":"      'friends' => [],"}
+[info] >        'photoUrl' => 'https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png' {"user":"      'photoUrl' => 'https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png'"}
+[info] >      }, {"user":"    },"}
+[info] >      __v: 0 {"user":"    __v: 0"}
+[info] >    } {"user":"  }"}
+[info] >  ] {"user":"]"}
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:19:28.204Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:19:28.205Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-01T11:19:28.880Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-01T11:19:28.880Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-01T11:19:28.880Z] Accepted request GET /bemeanstack/us-central1/application/users/get-all-users --> application
+[debug] [2020-06-01T11:19:28.880Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-01T11:19:28.880Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:19:28.880Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: BUSY 
+[debug] [2020-06-01T11:19:28.881Z] [runtime-status] [3058] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-01T11:19:28.881Z] [runtime-status] [3058] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-01T11:19:28.881Z] [runtime-status] [3058] Running application in mode HTTPS 
+[debug] [2020-06-01T11:19:28.882Z] [runtime-status] [3058] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_3058.sock 
+[debug] [2020-06-01T11:19:28.882Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-01T11:19:28.884Z] [runtime-status] [3058] Ephemeral server handling GET request 
+[debug] [2020-06-01T11:19:28.885Z] [runtime-status] [3058] Ephemeral server survived. 
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-01T11:19:29.001Z] [worker-application-b61f8e7b-4ec2-4e5f-98bc-c769ec38b795]: IDLE 
+[debug] [2020-06-01T11:19:29.001Z] [work-queue] {"queueLength":0,"workRunningCount":0}

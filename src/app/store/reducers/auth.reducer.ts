@@ -55,7 +55,7 @@ export function authenticationReducer(state = defaultValues, action: DefaultAuth
 
       newState.user = action.payload;
       console.log(newState, state);
-
+      window.location.reload();
       return {...newState};
     }
 
