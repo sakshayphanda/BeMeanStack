@@ -28,7 +28,6 @@ export class HomeComponent implements OnInit {
     }
 
     window.addEventListener('resize', (ev) => {
-      console.log(ev[`target`][`innerWidth`]);
       if (ev[`target`][`innerWidth`] < 900) {
         this.showMenuButton = true;
         this.showSideMenu = false;
