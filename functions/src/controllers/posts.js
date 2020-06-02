@@ -26,7 +26,7 @@ router.get(routes.GET_ALL_POSTS, async (_request, response) => {
 });
 
 router.post(routes.CREATE_POST, multer({storage: storage}).single('image'), (request, response) => {
-  console.log(request.file);
+  console.log(request.name);
   return;
   const currentUser = JSON.parse(JSON.stringify(request.body.user));
   delete currentUser.friendRequests;
