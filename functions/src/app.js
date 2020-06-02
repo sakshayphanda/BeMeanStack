@@ -24,8 +24,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 
 
-// app.use('/uploads', express.static(path.join('./uploads')));
-app.use('/postUploads', express.static('postUploads')); // to make this folder publically available
+app.use('/postUploads', express.static(path.join('./postUploads')));
+// app.use('/postUploads', express.static('postUploads')); // to make this folder publically available
 
 
 app.use((request, response, next) => {
