@@ -7,6 +7,8 @@ const authRoute = require('./controllers/authentication');
 const usersRoute = require('./controllers/users');
 const postsRoute = require('./controllers/posts');
 
+app.set('view engine', 'ejs')
+
 
 // connection is created using mongoose (an external library added)
 mongoose.set('useNewUrlParser', true);
@@ -20,11 +22,10 @@ mongoose.connect('mongodb+srv://'+ process.env.MONGO_USER_PASS + '@bemeanstack-b
     console.log(err, 'Can not connect to the database');
   });
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
 
 
 
-app.use('/postUploads', express.static(path.join('./postUploads')));
+app.use('/images', express.static(path.join('./images/')));
 // app.use('/postUploads', express.static('postUploads')); // to make this folder publically available
 
 
