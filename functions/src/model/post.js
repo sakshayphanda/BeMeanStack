@@ -3,9 +3,9 @@ const uniqueValidator = require('mongoose-unique-validator'); // a package to va
 
 // just a blueprint or a model
 const postSchema = mongoose.Schema({
- // user: { type: Map, required: true },
+  user: { type: Map, required: true},
   text: { type: String, required: true },
-  attachment: { type: String, required: false}
+  attachment: { data: Buffer, contentType: String, required: false}
 });
 
 // postSchema.plugin(uniqueValidator); // a method provided by mongoose

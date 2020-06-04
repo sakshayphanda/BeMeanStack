@@ -2,6 +2,7 @@
   <div class="feeds__input">
     <input
       type="text"
+      [value]="postText"
       placeholder="Write something you wish to share"
       (change)="postText = $event.target.value"
     />
@@ -10,7 +11,7 @@
     </div>
   </div>
   <div class="feeds__button">
-    <input class="file-button" name="image" type="file" (change)="imageFile($event)">
+    <input class="file-button" [value] = "imagePreview" name="image" type="file" (change)="imageFile($event)">
     <button mat-flat-button color="primary" (click)="postCreate()">Post</button>
   </div>
 </div>
@@ -22,5 +23,6 @@
       {{ post?.user?.displayName }}
     </div>
     <p class="text">{{ post.text }}</p>
+    <img *ngIf="post?.attachment" style="height: 400px;width: 400px;" [src]="getImage(post?.attachment?.data.data, post)">
   </div>
 </ng-container>

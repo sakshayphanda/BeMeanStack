@@ -1,9 +1,6 @@
 import * as fromPostsAction from '../actions/posts/posts.actions';
 
-const defaultState = [{
-  text: 'First Post',
-  user: null
-}];
+const defaultState = [];
 export function postsReducer(state = defaultState, action: fromPostsAction.SuccessTypes) {
   switch (action.type) {
 
