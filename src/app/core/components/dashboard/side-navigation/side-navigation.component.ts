@@ -1,5 +1,8 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { IUserInfo } from 'src/app/shared/models/interfaces/authenticate.interface';
+import { AppState } from 'src/app/store/reducers';
+import { Store } from '@ngrx/store';
+import { UpdateUserApi } from 'src/app/store/actions/authentication/auth.actions';
 
 interface IActions {
   name: string;
@@ -10,16 +13,23 @@ interface IActions {
 @Component({
   selector: 'app-side-navigation',
   templateUrl: './side-navigation.component.html',
-  styleUrls: ['./side-navigation.component.sass']
+  styleUrls: ['./side-navigation.component.sass'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SideNavigationComponent implements OnInit, OnChanges {
 
   @Input('user') user: IUserInfo;
   actions: IActions[] = [];
-  constructor() { }
+  profilePic: File;
+  imagePreview: string | ArrayBuffer;
+  constructor(
+    private changeDetectorRef: ChangeDetectorRef,
+    private store: Store<AppState>
+  ) { }
 
   ngOnInit() {
     this.actions = this.getActions();
+
   }
 
   ngOnChanges() {
@@ -49,6 +59,24 @@ export class SideNavigationComponent implements OnInit, OnChanges {
     ];
 
     return actions;
+  }
+
+  updateProfilePic() {
+    const userData = new FormData();
+    userData.append('_id', this.user._id);
+    userData.append('picture', this.profilePic);
+    this.store.dispatch(new UpdateUserApi(userData));
+  }
+
+  imageFile(event: Event) {
+    this.profilePic = (event.target as HTMLInputElement).files[0];
+    console.log(event);
+    const reader = new FileReader();
+    reader.onload = () => {
+        this.imagePreview = reader.result;
+        this.changeDetectorRef.markForCheck();
+      };
+    reader.readAsDataURL(this.profilePic);
   }
 
 }

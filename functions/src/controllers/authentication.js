@@ -139,6 +139,19 @@ router.get(ROUTES.LOG_OUT, (request, response) => {
     );
 });
 
+router.get(ROUTES.UPDATE_USER, (request, response) => {
+  // User.save().then(
+  //   result => {
+  //     response.status(STATUS.OK).json(result);
+  //   }
+  // )
+  //   .catch(
+  //     err => {
+  //       response.status(STATUS.CONFLICT).json(err);
+  //     }
+  //   );
+});
+
 function invalidCredentials(response) {
   response.status(STATUS.UNAUTHORIZED).json({
     message: MESSAGE.INVALID_CREDENTIALS

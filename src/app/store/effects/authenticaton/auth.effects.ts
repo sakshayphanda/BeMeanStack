@@ -69,4 +69,18 @@ export class AuthEffects {
       );
     }
   ));
+
+  @Effect()
+  updateUser$ = this.actions$.pipe(ofType(DefaultAuth.UPDATE_USER_API),
+  switchMap(
+    userDetail => {
+      return this.http.get(environment.baseApiUrl + AuthRoutes.UPDATE_USER).pipe(
+        map(
+          data => {
+            return new DefaultAuth.UpdateUser(data);
+          }
+        )
+      );
+    }
+  ));
 }

@@ -1,11 +1,14 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
 const uniqueValidator = require('mongoose-unique-validator'); // a package to validate the unique keys like email
 
 // just a blueprint or a model
 const postSchema = mongoose.Schema({
-  user: { type: Map, required: true},
+ // userId: { type: String, required: true},
   text: { type: String, required: true },
-  imageUrl: {type: String, required: false}
+  imageUrl: {type: String, required: false},
+  user: { type: Schema.Types.ObjectId, ref: 'User' }
   // attachment: { data: Buffer, contentType: String, required: false}
 });
 

@@ -12,6 +12,8 @@ export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
 export const SIGNUP_FAILED = 'SIGNUP_FAILED';
 export const CHECK_LOGGED_IN = 'CHECK_LOGGED_IN';
 export const UPDATE_USER = 'Update User';
+export const UPDATE_USER_API = 'Update User API';
+
 
 export class LoginRequest implements Action {
   readonly type = LOGIN_REQUEST;
@@ -44,9 +46,15 @@ export class CheckLoggedIn implements Action {
   constructor() {}
 }
 
+export class UpdateUserApi implements Action {
+  readonly type = UPDATE_USER_API;
+  constructor(public payload) {}
+}
+
 export class UpdateUser implements Action {
   readonly type = UPDATE_USER;
   constructor(public payload) {}
 }
 
-export type AuthTypes = CheckLoggedIn | LoginRequest | LoginSuccess | LoginFailed | LogoutRequest | LogoutSuccess | UpdateUser;
+export type AuthTypes = CheckLoggedIn | LoginRequest | LoginSuccess | LoginFailed | LogoutRequest |
+LogoutSuccess | UpdateUser | UpdateUserApi;

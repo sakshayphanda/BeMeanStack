@@ -39,8 +39,9 @@ export class FeedComponent implements OnInit {
   postCreate() {
     const postData = new FormData();
     postData.append('text', this.postText);
-    postData.append('user', new Blob([JSON.stringify(this.authService.userDetails)], {type: 'application/json'}));
+   // postData.append('user', new Blob([JSON.stringify(this.authService.userDetails)], {type: 'application/json'}));
     postData.append('image', this.imgFile);
+    postData.append('user', this.authService.userDetails._id);
     this.store.dispatch(new CreatePostApi(postData));
 
     this.postText = '';
