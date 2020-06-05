@@ -23,6 +23,6 @@
       {{ post?.user?.displayName }}
     </div>
     <p class="text">{{ post.text }}</p>
-    <img *ngIf="post?.attachment" style="height: 400px;width: 400px;" [src]="getImage(post?.attachment?.data.data, post)">
+    <img *ngIf="post?.imageUrl" style="height: 400px;width: 400px;" [src]="post.imageUrl">
   </div>
 </ng-container>
