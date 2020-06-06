@@ -47,6 +47,7 @@ export function authenticationReducer(state = defaultValues, action: DefaultAuth
       const newState = Object.assign({}, state);
       newState.loading = false;
       newState.loggedIn = false;
+      window.location.reload();
       return {...newState};
     }
 
@@ -55,7 +56,7 @@ export function authenticationReducer(state = defaultValues, action: DefaultAuth
 
       newState.user = action.payload;
       console.log(newState, state);
-      window.location.reload();
+      // window.location.reload();
       return {...newState};
     }
 

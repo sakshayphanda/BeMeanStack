@@ -53,7 +53,13 @@ router.post(routes.CREATE_POST, (request, response) => {
                 console.log('uploaded');
                 post.imageUrl = `https://storage.googleapis.com/${imagesbucketName}/posts/${files.image.name}`;
                 post.save().then(
-                  posts => response.status(200).json(posts)
+                  async (post) => {
+                   const currentPost = await
+                    post
+                    .populate('user', 'displayName photoUrl')
+                    .execPopulate();
+                    response.status(200).json(currentPost);
+                    }
                 )
                   .catch(
                     error => {

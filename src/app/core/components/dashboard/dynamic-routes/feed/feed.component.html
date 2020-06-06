@@ -2,7 +2,7 @@
   <div class="feeds__input">
     <input
       type="text"
-      [value]="postText"
+      [value]="postText ? postText : null"
       placeholder="Write something you wish to share"
       (change)="postText = $event.target.value"
     />

@@ -183,8 +183,7 @@ router.post(ROUTES.UPDATE_USER, (request, response) => {
                 User.findByIdAndUpdate({_id: fields._id}, {photoUrl: `https://storage.googleapis.com/${imagesbucketName}/Profile Pictures/${fields._id}/${files.picture.name}`})
                 .then(
                   result => {
-                    console.log(result);
-
+                    response.status(STATUS.OK).json(result);
                   }
                 );
 
