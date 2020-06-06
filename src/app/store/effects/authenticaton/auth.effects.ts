@@ -74,7 +74,7 @@ export class AuthEffects {
   updateUser$ = this.actions$.pipe(ofType(DefaultAuth.UPDATE_USER_API),
   switchMap(
     userDetail => {
-      return this.http.get(environment.baseApiUrl + AuthRoutes.UPDATE_USER).pipe(
+      return this.http.post(environment.baseApiUrl + AuthRoutes.UPDATE_USER, userDetail.payload).pipe(
         map(
           data => {
             return new DefaultAuth.UpdateUser(data);

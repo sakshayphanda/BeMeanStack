@@ -40,11 +40,10 @@ router.post(routes.CREATE_POST, (request, response) => {
             });
           } else {
             const localReadStream = fs.createReadStream(files.image.path);
-            const remoteWriteStream = imagesBucket.file(files.image.name).createWriteStream(
+            const remoteWriteStream = imagesBucket.file('posts/'+files.image.name).createWriteStream(
               {
                 resumable: false,
-                gzip: true,
-                metadata: { "cacheControl": "public, max-age=300" }
+                gzip: true
               }
             );
 
@@ -52,7 +51,7 @@ router.post(routes.CREATE_POST, (request, response) => {
               .on('error', function (err) { })
               .on('finish', function (abc) {
                 console.log('uploaded');
-                post.imageUrl = `https://storage.googleapis.com/${imagesbucketName}/${files.image.name}`;
+                post.imageUrl = `https://storage.googleapis.com/${imagesbucketName}/posts/${files.image.name}`;
                 post.save().then(
                   posts => response.status(200).json(posts)
                 )

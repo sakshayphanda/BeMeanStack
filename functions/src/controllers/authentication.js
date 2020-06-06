@@ -10,6 +10,10 @@ const MESSAGE = require('../constants/messages.constant');
 const ROUTES = require('../constants/routes.constants');
 const GLOBAL = require('../constants/global.constants');
 const STATUS = require('http-status-codes');
+const formidable = require('formidable-serverless');
+const fs = require('fs');
+const { Storage } = require('@google-cloud/storage');
+const path = require('path');
 
 
 router.post(ROUTES.SIGN_UP,
@@ -139,17 +143,58 @@ router.get(ROUTES.LOG_OUT, (request, response) => {
     );
 });
 
-router.get(ROUTES.UPDATE_USER, (request, response) => {
-  // User.save().then(
-  //   result => {
-  //     response.status(STATUS.OK).json(result);
-  //   }
-  // )
-  //   .catch(
-  //     err => {
-  //       response.status(STATUS.CONFLICT).json(err);
-  //     }
-  //   );
+router.post(ROUTES.UPDATE_USER, (request, response) => {
+  const form = new formidable.IncomingForm();
+  form.keepExtensions = true;
+  form.parse(request, (error, fields, files) => {
+    console.log(fields, files);
+    if (error) {
+      response.status(400).json({
+        error: "problem with the image"
+      });
+    } else {
+
+      if (files) {
+        if (files.picture) {
+          if (files.picture.size > 10 * 1024 * 1024) {
+            response.status(400).json({
+              error: "File exceeds 3 mb"
+            });
+          } else {
+            const gc = new Storage({
+              keyFilename: path.join(__dirname, '../../bemeanstack-fc78c23520d4.json'),
+              projectId: 'bemeanstack'
+            });
+            const imagesbucketName = 'images-bemeanstack';
+            const imagesBucket = gc.bucket(imagesbucketName);
+
+            const localReadStream = fs.createReadStream(files.picture.path);
+            const remoteWriteStream = imagesBucket.file( `Profile Pictures/${fields._id}/${files.picture.name}`).createWriteStream(
+              {
+                resumable: false,
+                gzip: true
+              }
+            );
+
+            localReadStream.pipe(remoteWriteStream)
+              .on('error', function (err) { })
+              .on('finish', function (abc) {
+                console.log('uploaded');
+                User.findByIdAndUpdate({_id: fields._id}, {photoUrl: `https://storage.googleapis.com/${imagesbucketName}/Profile Pictures/${fields._id}/${files.picture.name}`})
+                .then(
+                  result => {
+                    console.log(result);
+
+                  }
+                );
+
+              });
+          }
+        }
+
+      }
+    }
+  });
 });
 
 function invalidCredentials(response) {
