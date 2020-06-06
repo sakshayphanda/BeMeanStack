@@ -15,11 +15,11 @@
   </div>
 </div>
 
-<div
-  class="menu-button"
-  *ngIf="showMenuButton"
-  (click)="showSideMenu = !showSideMenu"
->
+<div id="rightside" *ngIf="showSideMenu" class="right-side-navigation">
+  <app-right-side-navigation></app-right-side-navigation>
+</div>
+
+<div class="menu-button" *ngIf="showMenuButton" (click)="showSideMenu = !showSideMenu">
   <span class="material-icons">
     =
   </span>

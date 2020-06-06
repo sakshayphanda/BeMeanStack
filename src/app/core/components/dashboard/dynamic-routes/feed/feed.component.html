@@ -1,17 +1,14 @@
+<div class="container">
 <div class="feeds">
   <div class="feeds__input">
-    <input
-      type="text"
-      [value]="postText ? postText : null"
-      placeholder="Write something you wish to share"
-      (change)="postText = $event.target.value"
-    />
+    <input type="text" [value]="postText ? postText : null" placeholder="Write something you wish to share"
+      (change)="postText = $event.target.value" />
     <div style="width: 50%;height: 20%; display: flex; justify-content: center" *ngIf="imagePreview">
       <img style="width: 50%; height: 100%" [src]="imagePreview">
     </div>
   </div>
   <div class="feeds__button">
-    <input class="file-button" [value] = "imagePreview" name="image" type="file" (change)="imageFile($event)">
+    <input class="file-button" [value]="imagePreview" name="image" type="file" (change)="imageFile($event)">
     <button mat-flat-button color="primary" (click)="postCreate()">Post</button>
   </div>
 </div>
@@ -25,6 +22,8 @@
     <p class="text">{{ post.text }}</p>
     <div class="image">
       <img *ngIf="post?.imageUrl" [src]="post.imageUrl">
-  </div>
+    </div>
   </div>
 </ng-container>
+
+</div>

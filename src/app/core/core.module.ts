@@ -11,6 +11,7 @@ import { CoreRoutingModule } from './core-routing.module';
 import { FriendsComponent } from './components/dashboard/dynamic-routes/friends/friends.component';
 import { ChatComponent } from './components/dashboard/dynamic-routes/chat/chat.component';
 import { FeedComponent } from './components/dashboard/dynamic-routes/feed/feed.component';
+import { RightSideNavigationComponent } from './components/dashboard/right-side-navigation/right-side-navigation.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FeedComponent } from './components/dashboard/dynamic-routes/feed/feed.c
     DynamicRoutesComponent,
     FriendsComponent,
     ChatComponent,
-    FeedComponent
+    FeedComponent,
+    RightSideNavigationComponent
   ],
   imports: [
     SharedModule,

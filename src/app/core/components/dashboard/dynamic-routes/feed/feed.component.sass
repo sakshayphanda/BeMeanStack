@@ -1,70 +1,78 @@
-.feeds
+.container
   display: flex
   flex-direction: column
-  border: 1px solid #dbdbdb
-  border-radius: 10px
-  padding: 10px
-  margin: 10px
-  box-shadow: 2px 2px 5px 2px #c5bdbd
-  &__input
-    width: 100%
-    height: fit-content
-    input
-      width: 100%
-      height: 100%
-      background: #f1f0f0
-      border: 0
-      border-radius: 10px
-      padding: 10px
-      box-sizing: border-box
-      outline: none
-      font-size: 1.1rem
-  &__button
+  align-items: center
+  width: 100%
+  .feeds
     display: flex
-    align-items: center
-    justify-content: flex-end
-    margin: 10px
-.posts
-  display: flex
-  flex-direction: column
-  border: 1px solid #dbdbdb
-  border-radius: 10px
-  padding: 10px
-  margin: 10px
-  min-height: 100px
-  box-shadow: 1px 1px 4px 1px #dbdbdb
-  .name
-    height: 60px
-    display: flex
-    align-items: center
-    img
-      margin: 10px
-      height: 40px
-      width: 40px
-      clip-path: circle()
-      transform: scale(1)
-      transition: transform 0.5s ease-in-out
-      transform-origin: left
-
-      &:hover
-        transform: scale(5)
-        left: 90px
-  .text
-    font-size: 1rem
-    color: grey
-    text-indent: 10px
-    min-height: 50px
-    max-height: 200px
-    padding: 5px
+    flex-direction: column
     border: 1px solid #dbdbdb
-    border-radius: 5px
-    display: flex
-    align-items: center
-  .image
-    display: flex
-    align-items: center
-    justify-content: center
+    border-radius: 10px
     padding: 10px
-    img
-      height: 400px
-      max-width: 95%
+    margin: 10px 0
+    width: 90%
+    box-sizing: border-box
+    box-shadow: 2px 2px 5px 2px #c5bdbd
+    &__input
+      width: 100%
+      height: fit-content
+      input
+        width: 100%
+        height: 100%
+        background: #f1f0f0
+        border: 0
+        border-radius: 10px
+        padding: 10px
+        box-sizing: border-box
+        outline: none
+        font-size: 1.1rem
+    &__button
+      display: flex
+      align-items: center
+      justify-content: flex-end
+      margin: 10px
+  .posts
+    display: flex
+    flex-direction: column
+    border: 1px solid #dbdbdb
+    border-radius: 3px
+    margin: 10px
+    min-height: 100px
+    width: 90%
+    box-shadow: 1px 1px 4px 1px #dbdbdb
+    .name
+      height: 60px
+      display: flex
+      align-items: center
+      img
+        margin: 10px
+        height: 40px
+        width: 40px
+        clip-path: circle()
+        transform: scale(1)
+        transition: transform 0.5s ease-in-out
+        transform-origin: left
+        &:hover
+          transform: scale(5)
+          left: 90px
+    .text
+      font-size: 1rem
+      color: grey
+      text-indent: 10px
+      min-height: 50px
+      max-height: 200px
+      padding: 5px
+      // border: 1px solid #dbdbdb
+      display: flex
+      align-items: center
+    .image
+      display: flex
+      align-items: center
+      justify-content: center
+      background: black
+      border-radius: inherit
+      img
+        height: 400px
+        max-width: 100%
+        border-radius: inherit
+

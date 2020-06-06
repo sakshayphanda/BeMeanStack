@@ -16,7 +16,7 @@
 
 .side-navigation
   color: white
-  width: 220px
+  width: 250px
   z-index: 1
   position: absolute
   display: flex
@@ -29,8 +29,24 @@
   box-sizing: border-box
   background: white
 
+.right-side-navigation
+  color: white
+  width: 250px
+  z-index: 1
+  position: absolute
+  right: 0
+  display: flex
+  justify-content: center
+  -webkit-box-shadow: 0 17px 25px rgba(0,0,0,0.18)
+  -moz-box-shadow: 0 17px 25px rgba(0,0,0,0.18)
+  box-shadow: 0 17px 25px rgba(0,0,0,0.18)
+  top: 65px
+  height: calc(100vh - 65px)
+  box-sizing: border-box
+  background: white
+
 .dynamic
-  width: calc(100vw - 220px)
+  width: calc(100vw - 500px)
   height: calc(100vh - 65px)
   background: white
   // background: var(--dynamicBackground)
@@ -38,7 +54,7 @@
   z-index: 0
   position: absolute
   bottom: 0
-  right: 0
+  left: 250px
   box-sizing: border-box
   padding: 5px
 
@@ -63,3 +79,4 @@
 @media screen and ( max-width: 900px)
   .dynamic
     width: 100vw
+    left: 0
