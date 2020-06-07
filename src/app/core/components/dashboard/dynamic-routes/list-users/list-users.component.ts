@@ -89,7 +89,7 @@ export class ListUsersComponent implements OnInit {
     return pending;
   }
 
-  checkIfReceived(user) {
+    checkIfReceived(user) {
     let received = false;
     console.log(this.currentUser);
 

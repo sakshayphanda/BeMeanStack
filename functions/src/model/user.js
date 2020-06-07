@@ -9,8 +9,8 @@ const userSchema = mongoose.Schema({
   lastName: { type: String, required: false },
   displayName: { type: String, required: true },
   friendRequests: { type: Array, required: true },
-  friendRequestsPending: { type: Array, required: true },
-  friends: { type: Array, required: true },
+  friendRequestsPending: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }],
+  friends: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }],
   photoUrl: { type: String, required: false }
 });
 

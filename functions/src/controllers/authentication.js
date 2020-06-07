@@ -49,6 +49,9 @@ router.post(ROUTES.SIGN_UP,
 router.post(ROUTES.LOG_IN,
   (request, response) => {
     User.findOne({ email: request.body.email })
+    .select()
+    .populate('friends')
+    .exec()
       .then(
         user => {
           if (!user) {
@@ -100,6 +103,9 @@ router.post(ROUTES.LOG_IN,
 
 router.post(ROUTES.CHECK_AUTH, checkAuth, (request, response) => {
   User.findOne({ email: request.body.email })
+  .select()
+  .populate('friends friendRequests', '-password -friendRequests -friendRequestsPending')
+  .exec()
     .then(
       user => {
         if (!user) {
