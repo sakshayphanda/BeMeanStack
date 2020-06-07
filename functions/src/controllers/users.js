@@ -22,9 +22,9 @@ router.post(routes.FRIEND_REQUEST, async (request, response, next) => {
       fromUser.friendRequestsPending.push(request.body.to);
       await User.updateOne({_id: fromUser._id}, {$set: fromUser});
       await User.updateOne({_id: toUser._id}, {$set: toUser});
-      response.status(200).json(fromUser);
+      response.status(200).json(await new User(fromUser).populate('friends friendRequestsPending friendRequests','-friendRequestsPending -friendRequests').execPopulate());
     } else {
-      response.status(200).json(fromUser);
+      response.status(200).json(await new User(fromUser).populate('friends friendRequestsPending friendRequests','-friendRequestsPending -friendRequests').execPopulate());
     }
   }
 });
@@ -44,9 +44,10 @@ router.post(routes.FRIEND_REQUEST_ACCEPTED, async (request, response, next) => {
       fromUser.friends.push(request.body.to);
       await User.updateOne({_id: fromUser._id}, {$set: fromUser});
       await User.updateOne({_id: toUser._id}, {$set: toUser});
+      response.status(200).json(await new User(fromUser).populate('friends friendRequestsPending friendRequests','-friendRequestsPending -friendRequests').execPopulate());
+    } else {
+      response.status(200).json(await new User(fromUser).populate('friends friendRequestsPending friendRequests','-friendRequestsPending -friendRequests').execPopulate());
     }
-    response.status(200).json(fromUser);
-
   }
 });
 
@@ -63,9 +64,9 @@ router.post(routes.FRIEND_REQUEST_REJECTED, async (request, response, next) => {
       toUser.friendRequestsPending.splice(index1, 1);
       await User.updateOne({_id: fromUser._id}, {$set: fromUser});
       await User.updateOne({_id: toUser._id}, {$set: toUser});
-      response.status(200).json(fromUser);
+      response.status(200).json(await new User(fromUser).populate('friends friendRequestsPending friendRequests','-friendRequestsPending -friendRequests').execPopulate());
     } else {
-      response.status(200).json(fromUser);
+      response.status(200).json(await new User(fromUser).populate('friends friendRequestsPending friendRequests','-friendRequestsPending -friendRequests').execPopulate());
     }
   }
 });
@@ -84,9 +85,9 @@ router.post(routes.UNFRIEND, async (request, response, next) => {
       toUser.friends.splice(index1, 1);
       await User.updateOne({_id: fromUser._id}, {$set: fromUser});
       await User.updateOne({_id: toUser._id}, {$set: toUser});
-      response.status(200).json(fromUser);
+      response.status(200).json(await new User(fromUser).populate('friends friendRequestsPending friendRequests','-friendRequestsPending -friendRequests').execPopulate());
     } else {
-      response.status(200).json(fromUser);
+      response.status(200).json(await new User(fromUser).populate('friends friendRequestsPending friendRequests','-friendRequestsPending -friendRequests').execPopulate());
     }
   }
 });
