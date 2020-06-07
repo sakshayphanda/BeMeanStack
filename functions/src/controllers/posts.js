@@ -75,11 +75,18 @@ router.post(routes.CREATE_POST, (request, response) => {
   });
 });
 
-router.get(routes.GET_ALL_POSTS, async (_request, response) => {
+router.post(routes.GET_ALL_POSTS, async (request, response) => {
+  const ids = request.body ?  request.body.friends.map(friend => friend._id) : [];
+  console.log(ids);
+  ids.push(request.body._id);
+
   let posts = await Post.find()
   .select()
+  .where('user')
+  .in(ids)
+  .sort({ _id: -1 })
   .populate('user', 'displayName photoUrl')
-  .sort({ _id: -1 }).exec();
+  .exec();
   response.status(200).json(posts);
 });
 

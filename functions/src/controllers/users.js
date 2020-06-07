@@ -4,15 +4,9 @@ const User = require('../model/user');
 
 
 router.get(routes.GET_ALL_USERS, async (_request, response) => {
-  let users = await User.find({});
-  users = users.map(
-    user=> {
-      const currentUser = JSON.parse(JSON.stringify(user));
-      delete currentUser.friendRequests;
-      delete currentUser.friendRequestsPending;
-      return currentUser;
-    }
-  );
+  let users = await User.find()
+  .select('-friendRequests -friendRequestsPending')
+  .exec();
   response.status(200).json(users);
 });
 

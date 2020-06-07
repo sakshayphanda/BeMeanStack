@@ -26,7 +26,7 @@ export class FeedComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.store.dispatch(new ListAllPostsApi());
+    this.store.dispatch(new ListAllPostsApi(this.authService.userDetails));
     this.store.select(posts).subscribe(
       post => {
         this.posts = post;

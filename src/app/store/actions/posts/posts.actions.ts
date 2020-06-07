@@ -5,7 +5,7 @@ export const CREATE_POSTS_SUCCESS = '[Posts] | Success';
 
 export class ListAllPostsApi implements Action {
   readonly type = LIST_ALL_POSTS;
-  constructor() {}
+  constructor(public payload) {}
 }
 
 

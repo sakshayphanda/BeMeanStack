@@ -12,6 +12,7 @@ import { IUserInfo } from 'src/app/shared/models/interfaces/authenticate.interfa
 export class HomeComponent implements OnInit {
 
   showMenuButton = false;
+  showRightSideMenu;
   showSideMenu;
   @Input('user') user: IUserInfo;
   constructor(
@@ -22,18 +23,23 @@ export class HomeComponent implements OnInit {
     if(window.innerWidth < 900) {
       this.showMenuButton = true;
       this.showSideMenu = false;
+      this.showRightSideMenu = false;
     } else {
       this.showMenuButton = false;
       this.showSideMenu = true;
+      this.showRightSideMenu = true;
+
     }
 
     window.addEventListener('resize', (ev) => {
       if (ev[`target`][`innerWidth`] < 900) {
         this.showMenuButton = true;
         this.showSideMenu = false;
+        this.showRightSideMenu = false;
       } else {
         this.showMenuButton = false;
         this.showSideMenu = true;
+        this.showRightSideMenu = true;
       }
 
       this.cdr.markForCheck();

@@ -18,7 +18,7 @@ export class PostsEffects {
   listPosts$ = this.actions$.pipe(ofType(fromPostsActions.LIST_ALL_POSTS),
   switchMap(
     userDetail => {
-      return this.http.get(environment.baseApiUrl + PostRoutes.GET_POSTS).pipe(
+      return this.http.post(environment.baseApiUrl + PostRoutes.GET_POSTS, userDetail.payload).pipe(
         map(
           data => {
             return new fromPostsActions.PostSuccess(data);
