@@ -75,7 +75,6 @@ router.post(routes.UNFRIEND, async (request, response, next) => {
   const toUser = JSON.parse(JSON.stringify( await User.findOne({_id: request.body.to})));
   const fromUser = JSON.parse(JSON.stringify( await User.findOne({_id: request.body.from})));
   if (toUser && fromUser) {
-
     const isToUserFriend = toUser.friends.some(req => req === fromUser._id);
     const isFromUserFriend = fromUser.friends.some(req => req === toUser._id);
     if  (isFromUserFriend) {

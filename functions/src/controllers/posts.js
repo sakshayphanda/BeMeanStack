@@ -13,10 +13,7 @@ const gc = new Storage({
 });
 
 gc.getBuckets().then(
-  buckets => {
-    // console.log(buckets);
-
-  }
+  buckets => {}
 );
 const imagesbucketName = 'images-bemeanstack';
 const imagesBucket = gc.bucket(imagesbucketName);
@@ -32,8 +29,11 @@ router.post(routes.CREATE_POST, (request, response) => {
       });
     } else {
       const post = new Post(fields);
-      if (files) {
+      console.log(fields, files);
+
+      if (files && Object.keys(files).length) {
         if (files.image) {
+
           if (files.image.size > 10 * 1024 * 1024) {
             response.status(400).json({
               error: "File exceeds 3 mb"
@@ -70,6 +70,23 @@ router.post(routes.CREATE_POST, (request, response) => {
           }
         }
 
+      } else {
+        console.log('a');
+
+        post.save().then(
+          async (post) => {
+           const currentPost = await
+            post
+            .populate('user', 'displayName photoUrl')
+            .execPopulate();
+            response.status(200).json(currentPost);
+            }
+        )
+          .catch(
+            error => {
+              console.log(error);
+            }
+          );
       }
     }
   });
