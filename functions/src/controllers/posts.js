@@ -83,22 +83,20 @@ async function readAllPosts(request, response) {
 async function updatePost(request, response) {}
 async function deletePost(request, response) {
   const post = await Post.findOne({_id: request.body.postId});
-  console.log(post.imageUrl.split('/')[4]);
-
-  const file = imagesBucket.file(post.imageUrl.split('/').slice(4, post.imageUrl.length + 1).join("/"));
   if(post.user.equals(request.body.userId)) {
-    file.delete((err, apiResponse) => {});
+    if(post.imageUrl) {
+      const file = imagesBucket.file(post.imageUrl.split('/').slice(4, post.imageUrl.length + 1).join("/"));
+      file.delete((err, apiResponse) => {});
+    }
     const posts = await Post.deleteOne({_id: request.body.postId})
     .sort({ _id: -1 })
-    .populate('user', 'displayName photoUrl')
     .exec();
-    file.delete((err, apiResponse) => {});
     response.status(200).json({
       message: 'Successfully deleted'
     });
   } else {
     response.status(400).json({
-      error: 'Cant delete Post'
+      error: 'You dont have permission delete Post'
     });
   }
 }

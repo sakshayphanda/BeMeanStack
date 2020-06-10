@@ -49,7 +49,7 @@ export class PostsEffects {
       return this.http.post(environment.baseApiUrl + PostRoutes.DELETE, data.payload).pipe(
         map(
           response => {
-            return new fromPostsActions.DeleteSuccess(response);
+            return new fromPostsActions.DeleteSuccess(data.payload.index);
           }
         )
       );

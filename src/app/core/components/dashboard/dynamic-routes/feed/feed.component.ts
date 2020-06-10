@@ -71,11 +71,12 @@ export class FeedComponent implements OnInit {
     return image;
   }
 
-  deletePost(id) {
+  deletePost(id, i) {
 
     this.store.dispatch(new DeletePostApi({
       postId: id,
-      userId: this.authService.userDetails._id
+      userId: this.authService.userDetails._id,
+      index: i
     }));
   }
 
