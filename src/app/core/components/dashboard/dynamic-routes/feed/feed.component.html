@@ -18,7 +18,7 @@
     <div class="name">
       <img [src]="post?.user?.photoUrl" />
       {{ post?.user?.displayName }}
-      <button class="btn btn-primary" style="margin: 10px 10px 10px auto" *ngIf ="post.user._id === this.authService.userDetails._id" (click)="deletePost(post._id, i)">Delete</button>
+      <button class="btn btn-primary" style="margin: 10px 10px 10px auto" *ngIf ="post.user._id === authService.userDetails._id" (click)="deletePost(post._id, i)">Delete</button>
     </div>
     <p class="text">{{ post.text }}</p>
     <div class="image">

@@ -20,7 +20,7 @@ export class FeedComponent implements OnInit {
   imgFile: File;
   constructor(
     private store: Store<AppState>,
-    private authService: AuthenticationService,
+    public authService: AuthenticationService,
     private changeDetectorRef: ChangeDetectorRef,
     private domSanitizer: DomSanitizer
   ) { }
@@ -78,6 +78,8 @@ export class FeedComponent implements OnInit {
       userId: this.authService.userDetails._id,
       index: i
     }));
+
+  //  this.posts.splice(i, 1);
   }
 
 }

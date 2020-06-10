@@ -17,7 +17,7 @@ export function postsReducer(state = defaultState, action: fromPostsAction.Succe
 
     case fromPostsAction.DELETE_SUCCESS: {
       const newState = Object.assign([], state);
-      newState.splice(action.payload.index, 1);
+      newState.splice(action.payload, 1);
       return [...newState];
     }
 
