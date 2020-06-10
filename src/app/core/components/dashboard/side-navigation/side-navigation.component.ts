@@ -41,7 +41,8 @@ export class SideNavigationComponent implements OnInit, OnChanges {
       {
         name: 'News Feed',
         route: 'feed',
-        count: null
+        count: null,
+        params: false
       },
       {
         name: 'Find users',
