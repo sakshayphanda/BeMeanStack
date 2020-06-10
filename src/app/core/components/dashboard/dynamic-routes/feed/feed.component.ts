@@ -18,6 +18,7 @@ export class FeedComponent implements OnInit {
   posts;
   imagePreview: string | ArrayBuffer;
   imgFile: File;
+  loading = false;
   constructor(
     private store: Store<AppState>,
     public authService: AuthenticationService,
@@ -30,13 +31,15 @@ export class FeedComponent implements OnInit {
     this.store.select(posts).subscribe(
       post => {
         this.posts = post;
-        console.log(post);
+        this.loading = false;
+      //  console.log(post);
         this.changeDetectorRef.markForCheck();
       }
     );
   }
 
   postCreate() {
+    this.loading = true;
     const postData = new FormData();
     postData.append('text', this.postText);
    // postData.append('user', new Blob([JSON.stringify(this.authService.userDetails)], {type: 'application/json'}));
@@ -72,7 +75,7 @@ export class FeedComponent implements OnInit {
   }
 
   deletePost(id, i) {
-
+    this.loading = true;
     this.store.dispatch(new DeletePostApi({
       postId: id,
       userId: this.authService.userDetails._id,

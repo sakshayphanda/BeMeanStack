@@ -7010,6 +7010,13 @@ neo-async@^2.5.0, neo-async@^2.6.1:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.1.tgz#ac27ada66167fa8849a6addd837f6b189ad2081c"
   integrity sha512-iyam8fBuCUpWeKPGpaNMetEocMt364qkCsfL9JuhjXX6dRnguRVOfk2GZaDpPjcOKiiXCPINZC1GczQ7iTq3Zw==
 
+ng-circle-progress@^1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/ng-circle-progress/-/ng-circle-progress-1.5.1.tgz#ea4ea89318754b929dc1550d5779e391d7c5c646"
+  integrity sha512-gJ0SdWc+TkXckfbhbvUY522yjya3qcc1a3lGvvVyLsUfSOgll8LQaZGDEko84d8dk8vYO83n0O5vP+e8bJTInQ==
+  dependencies:
+    tslib "^1.9.0"
+
 ngrx-store-freeze@^0.2.4:
   version "0.2.4"
   resolved "https://registry.yarnpkg.com/ngrx-store-freeze/-/ngrx-store-freeze-0.2.4.tgz#146687cdf7e21244eb9003c7e883f2125847076c"

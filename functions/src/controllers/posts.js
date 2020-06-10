@@ -36,7 +36,7 @@ function createPost(request, response){
             });
           } else {
             const localReadStream = fs.createReadStream(files.image.path);
-            const remoteWriteStream = imagesBucket.file('posts/' + files.image.name).createWriteStream(
+            const remoteWriteStream = imagesBucket.file('posts/' + Date.now() + files.image.name ).createWriteStream(
               {
                 resumable: false,
                 gzip: true

@@ -15,7 +15,7 @@ export class HttpService {
     return this.http.get(url);
   }
 
-  post(url: string, requestPayload: any): Observable<any> {
-    return this.http.post(url, requestPayload);
+  post(url: string, requestPayload: any, options = {}): Observable<any> {
+    return this.http.post(url, requestPayload, options);
   }
 }

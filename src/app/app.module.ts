@@ -16,6 +16,8 @@ import { reducers, metaReducers } from './store/reducers';
 import { AuthEffects } from './store/effects/authenticaton/auth.effects';
 import { UsersEffects } from './store/effects/users/users.effect';
 import { PostsEffects } from './store/effects/posts/posts.effect';
+import { NgCircleProgressModule } from 'ng-circle-progress';
+
 
 const config = {
   apiKey: 'AIzaSyBAgpmHBxTqe8VHPwc3koB87T830vQ7boo',
@@ -39,7 +41,15 @@ firebase.initializeApp(config);
     }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     StoreRouterConnectingModule.forRoot({stateKey: 'router'}),
-    EffectsModule.forRoot([AuthEffects, UsersEffects, PostsEffects])
+    EffectsModule.forRoot([AuthEffects, UsersEffects, PostsEffects]),
+    NgCircleProgressModule.forRoot({
+      radius: 100,
+      outerStrokeWidth: 16,
+      innerStrokeWidth: 8,
+      outerStrokeColor: "#78C000",
+      innerStrokeColor: "#C7E596",
+      animationDuration: 300
+    })
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
