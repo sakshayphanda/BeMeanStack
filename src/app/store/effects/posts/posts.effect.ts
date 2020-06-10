@@ -35,6 +35,12 @@ export class PostsEffects {
       return this.http.post(environment.baseApiUrl + PostRoutes.CREATE, data.payload).pipe(
         map(
           response => {
+            // if (response.type === HttpEventType.DownloadProgress) {
+            //   console.log("download progress", response.loaded, response.total);
+            // }
+            // if (response.type === HttpEventType.Response) {
+            //   console.log("donwload completed");
+            // }
             return new fromPostsActions.PostSuccess(response);
           }
         )

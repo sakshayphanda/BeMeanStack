@@ -9,7 +9,7 @@ import { FeedComponent } from './components/dashboard/dynamic-routes/feed/feed.c
 const routes: Routes = [
   {
     path: '',
-    component: DynamicRoutesComponent
+    component: FeedComponent
   },
   {
     path: 'users',
