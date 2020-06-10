@@ -9,7 +9,7 @@ module.exports = Object.freeze({
   FRIEND_REQUEST_ACCEPTED: '/friend-request-accepted',
   FRIEND_REQUEST_REJECTED: '/friend-request-rejected',
   UNFRIEND: '/unfriend',
-  GET_ALL_POSTS: '/get-all-posts',
+  READ_ALL_POST: '/get-all-posts',
   CREATE_POST: '/create-post',
   UPDATE_POST: '/update-post',
   DELETE_POST: '/delete-post'

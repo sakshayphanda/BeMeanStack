@@ -41,4 +41,18 @@ export class PostsEffects {
       );
     }
   ));
+
+  @Effect()
+  deletePost$ = this.actions$.pipe(ofType(fromPostsActions.DELETE_POST),
+  switchMap(
+    data => {
+      return this.http.post(environment.baseApiUrl + PostRoutes.DELETE, data.payload).pipe(
+        map(
+          response => {
+            return new fromPostsActions.DeleteSuccess(response);
+          }
+        )
+      );
+    }
+  ));
 }

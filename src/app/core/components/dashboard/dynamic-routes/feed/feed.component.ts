@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/reducers';
-import { CreatePostApi, ListAllPostsApi } from 'src/app/store/actions/posts/posts.actions';
+import { CreatePostApi, ListAllPostsApi, DeletePostApi } from 'src/app/store/actions/posts/posts.actions';
 import { AuthenticationService } from 'src/app/shared/services/authentication.service';
 import { posts } from 'src/app/store/selectors/post.selector';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -52,8 +52,6 @@ export class FeedComponent implements OnInit {
 
   imageFile(event: Event) {
     this.imgFile = (event.target as HTMLInputElement).files[0];
-
-    console.log(event);
     const reader = new FileReader();
     reader.onload = () => {
         this.imagePreview = reader.result;
@@ -71,6 +69,14 @@ export class FeedComponent implements OnInit {
     const base64String = btoa(STRING_CHAR);
     const image =  this.domSanitizer.bypassSecurityTrustUrl('data:image/png;base64, ' + base64String);
     return image;
+  }
+
+  deletePost(id) {
+
+    this.store.dispatch(new DeletePostApi({
+      postId: id,
+      userId: this.authService.userDetails._id
+    }));
   }
 
 }

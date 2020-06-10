@@ -15,6 +15,16 @@ export function postsReducer(state = defaultState, action: fromPostsAction.Succe
       return [...newState];
     }
 
+    case fromPostsAction.DELETE_SUCCESS: {
+      let newState = Object.assign([], state);
+      if (action.payload instanceof Array) {
+      newState = [...action.payload];
+      } else {
+        newState = [action.payload, ...newState];
+      }
+      return [...newState];
+    }
+
     default : {
       return state;
     }

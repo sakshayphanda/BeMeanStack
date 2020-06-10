@@ -17,5 +17,6 @@ export enum UserRoutes {
 
 export enum PostRoutes {
   CREATE = '/posts/create-post',
-  GET_POSTS = '/posts/get-all-posts'
+  GET_POSTS = '/posts/get-all-posts',
+  DELETE = '/posts/delete-post',
 }
