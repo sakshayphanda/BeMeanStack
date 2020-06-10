@@ -93,7 +93,9 @@ async function deletePost(request, response) {
     .populate('user', 'displayName photoUrl')
     .exec();
     file.delete((err, apiResponse) => {});
-    response.status(200).json(posts);
+    response.status(200).json({
+      message: 'Successfully deleted'
+    });
   } else {
     response.status(400).json({
       error: 'Cant delete Post'
