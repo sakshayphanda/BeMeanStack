@@ -18,8 +18,10 @@
   --scrollbarColor: #60606042
   --color-light-blue-600: #039be5
 
+
 html
   height: 100%
+  -webkit-tap-highlight-color: transparent
 body
   margin: 0
   height: 100%
@@ -43,6 +45,8 @@ p
   box-shadow: -1px 2px 4px 2px #e2e2e2
   cursor: pointer
   background: white
+  border-radius: 5px
+  font-size: 0.7rem
   &.selected
     background: #f1f0f0
     font-weight: bold
@@ -63,6 +67,7 @@ p
   border: 6px solid var(--primary)
   border-color: var(--primary) transparent var(--primary) transparent
   animation: lds-dual-ring 1.2s linear infinite
+
 
 @keyframes lds-dual-ring
   0%

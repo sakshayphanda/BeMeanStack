@@ -1,8 +1,12 @@
 <div class="container">
 <div class="feeds">
   <div class="feeds__input">
-    <input type="text" [value]="postText ? postText : null" placeholder="Write something you wish to share"
+    <div class="post-input">
+      <img  [src]="authService.userDetails.photoUrl" />
+      <input type="text" [value]="postText ? postText : null" placeholder="Write something you wish to share"
       (change)="postText = $event.target.value" />
+    </div>
+
     <div style="width: 50%;height: 20%; display: flex; justify-content: center" *ngIf="imagePreview">
       <img style="width: 50%; height: 100%" [src]="imagePreview">
     </div>
@@ -17,7 +21,10 @@
   <div class="posts">
     <div class="name">
       <img [src]="post?.user?.photoUrl" />
-      {{ post?.user?.displayName }}
+      <div>
+        <p>{{ post?.user?.displayName }}</p>
+        <p style="color: grey; font-size: 0.7rem;margin: 3px;">{{ post?.date }}</p>
+      </div>
       <button class="btn btn-primary" style="margin: 10px 10px 10px auto" *ngIf ="post.user._id === authService.userDetails._id" (click)="deletePost(post._id, i)">Delete</button>
     </div>
     <p class="text">{{ post.text }}</p>

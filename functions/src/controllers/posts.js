@@ -28,6 +28,12 @@ function createPost(request, response){
       });
     } else {
       const post = new Post(fields);
+      const currentDate = Date.now();
+      const date = new Date();
+      const monthNames = ["January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"];
+      const currentDateAndTime = `${date.getDay()} ${monthNames[date.getMonth()]} at ${date.getHours()}:${date.getMinutes()}`
+      post.date = currentDateAndTime;
       if (files && Object.keys(files).length) {
         if (files.image) {
           if (files.image.size > 10 * 1024 * 1024) {
@@ -35,7 +41,7 @@ function createPost(request, response){
               error: "File exceeds 3 mb"
             });
           } else {
-            currentDate = Date.now();
+
             const localReadStream = fs.createReadStream(files.image.path);
             const remoteWriteStream = imagesBucket.file('posts/' + currentDate + files.image.name ).createWriteStream(
               {

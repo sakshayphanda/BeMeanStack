@@ -32,7 +32,7 @@ export class FeedComponent implements OnInit {
       post => {
         this.posts = post;
         this.loading = false;
-      //  console.log(post);
+        console.log(post);
         this.changeDetectorRef.markForCheck();
       }
     );
