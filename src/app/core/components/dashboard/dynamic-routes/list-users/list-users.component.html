@@ -2,7 +2,9 @@
   <div class="users__title">Users</div>
   <div class="users__data">
     <ng-container *ngFor="let user of allUsersExceptCurrent">
-     <p class="user"> {{user.displayName}}
+      <p class="user">
+        <img [src]="user?.photoUrl" />
+      {{user.displayName}}
       <button mat-raised-button color="primary" *ngIf="!user.alreadyAdded"  class="add" (click) = "addasFriend(user)">{{checkIfReceived(user) ? 'Request received' : checkIfSent(user) ? 'Pending':  'Add as a friend'}}</button>
       <button mat-raised-button color="primary" *ngIf="user.alreadyAdded"  class="added">Friends</button>
     </p>
