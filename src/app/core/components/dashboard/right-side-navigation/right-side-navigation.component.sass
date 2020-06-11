@@ -1,0 +1,38 @@
+\:host
+  width: 100%
+.users
+  height: 100%
+  width: 100%
+  &__title
+    font-size: 1.5rem
+    color: grey
+    display: flex
+    margin: 5px
+    display: flex
+    justify-content: center
+    align-items: center
+  &__data
+    padding: 10px
+    .user
+      height: 50px
+      display: flex
+      padding: 10px
+      display: flex
+      align-items: center
+      justify-content: flex-end
+      img
+        margin: 10px
+        height: 40px
+        width: 40px
+        clip-path: circle()
+        transform: scale(1)
+        transition: transform 0.5s ease-in-out
+        transform-origin: left
+        &:hover
+          transform: scale(5)
+          left: 90px
+      &__name
+        margin-right: auto
+        color: grey
+      .add
+        margin: 5px

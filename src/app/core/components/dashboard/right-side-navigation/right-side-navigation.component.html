@@ -1,1 +1,22 @@
-<p>right-side-navigation works!</p>
+<div class="users">
+  <div class="users__title">
+    Friends
+  </div>
+  <div class="users__data">
+    <ng-container *ngFor="let user of list">
+      <div class="user">
+        <img [src]="user?.photoUrl" />
+        <p class="user__name">{{user.displayName}}</p>
+        <!-- <button mat-raised-button color="accent" (click)="unfriend(user)" *ngIf="selectedType === 'friends'"
+          class="add">unfriend</button> -->
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="!list.length">
+      <div class="user">
+        <p class="user__name">Nothing to Show</p>
+      </div>
+    </ng-container>
+  </div>
+
+</div>
