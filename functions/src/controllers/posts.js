@@ -35,8 +35,9 @@ function createPost(request, response){
               error: "File exceeds 3 mb"
             });
           } else {
+            currentDate = Date.now();
             const localReadStream = fs.createReadStream(files.image.path);
-            const remoteWriteStream = imagesBucket.file('posts/' + Date.now() + files.image.name ).createWriteStream(
+            const remoteWriteStream = imagesBucket.file('posts/' + currentDate + files.image.name ).createWriteStream(
               {
                 resumable: false,
                 gzip: true
@@ -47,7 +48,7 @@ function createPost(request, response){
               .on('error', (err) => { })
               .on('finish', async () => {
                 console.log('uploaded');
-                post.imageUrl = `https://storage.googleapis.com/${imagesbucketName}/posts/${files.image.name}`;
+                post.imageUrl = `https://storage.googleapis.com/${imagesbucketName}/posts/${currentDate}${files.image.name}`;
                 const saveResponse = await post.save();
                 const currentPost = await saveResponse
                   .populate('user', 'displayName photoUrl')
