@@ -36,9 +36,9 @@ function createPost(request, response){
       post.date = currentDateAndTime;
       if (files && Object.keys(files).length) {
         if (files.image) {
-          if (files.image.size > 10 * 1024 * 1024) {
+          if (files.image.size > 5 * 1024 * 1024) {
             response.status(400).json({
-              error: "File exceeds 3 mb"
+              error: "File exceeds 5 mb"
             });
           } else {
 
