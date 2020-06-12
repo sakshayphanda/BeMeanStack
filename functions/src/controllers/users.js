@@ -33,8 +33,8 @@ router.post(routes.FRIEND_REQUEST_ACCEPTED, async (request, response, next) => {
   const toUser = JSON.parse(JSON.stringify( await User.findOne({_id: request.body.to})));
   const fromUser = JSON.parse(JSON.stringify( await User.findOne({_id: request.body.from})));
   if (toUser && fromUser) {
-    const isToUserUnique = !toUser.friends.some(req => req._id === fromUser._id);
-    const isFromUserUnique = !fromUser.friends.some(req => req._id === toUser._id);
+    const isToUserUnique = !toUser.friends.some(req => req === fromUser._id);
+    const isFromUserUnique = !fromUser.friends.some(req => req === toUser._id);
     if (isToUserUnique && isFromUserUnique) {
       const index = fromUser.friendRequests.findIndex(req => req === toUser._id);
       fromUser.friendRequests.splice(index, 1);
