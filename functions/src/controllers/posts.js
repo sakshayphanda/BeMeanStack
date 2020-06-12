@@ -57,7 +57,7 @@ function createPost(request, response){
                 post.imageUrl = `https://storage.googleapis.com/${imagesbucketName}/posts/${currentDate}${files.image.name}`;
                 const saveResponse = await post.save();
                 const currentPost = await saveResponse
-                  .populate('user', 'displayName photoUrl')
+                  .populate('user', 'displayName photoUrl admin')
                   .execPopulate();
                 response.status(200).json(currentPost);
               });
@@ -67,7 +67,7 @@ function createPost(request, response){
       } else {
         const saveResponse = await post.save();
         const currentPost = await saveResponse
-          .populate('user', 'displayName photoUrl')
+          .populate('user', 'displayName photoUrl  admin')
           .execPopulate();
         response.status(200).json(currentPost);
       }
@@ -82,7 +82,7 @@ async function readAllPosts(request, response) {
     .select()
     .where('user').in(ids)
     .sort({ _id: -1 })
-    .populate('user', 'displayName photoUrl')
+    .populate('user', 'displayName photoUrl admin')
     .exec();
   response.status(200).json(posts);
 }

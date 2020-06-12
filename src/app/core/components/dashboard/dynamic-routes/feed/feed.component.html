@@ -27,7 +27,7 @@
       <div class="name">
         <img [src]="post?.user?.photoUrl" />
         <div>
-          <p>{{ post?.user?.displayName }}</p>
+          <p>{{ post?.user?.displayName }} <span class="admin" *ngIf="post?.user?.admin">Admin</span></p>
           <p style="color: grey; font-size: 0.7rem;margin: 3px;">{{ post?.date }}</p>
         </div>
         <button class="delete-btn" mat-fab color="accent" style="" *ngIf="post.user._id === authService.userDetails._id"
