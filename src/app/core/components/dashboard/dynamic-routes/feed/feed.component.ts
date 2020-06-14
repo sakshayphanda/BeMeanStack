@@ -32,25 +32,33 @@ export class FeedComponent implements OnInit {
       post => {
         this.posts = post;
         this.loading = false;
-        console.log(post);
         this.changeDetectorRef.markForCheck();
       }
     );
   }
 
   postCreate() {
-    this.loading = true;
-    const postData = new FormData();
-    postData.append('text', this.postText);
-   // postData.append('user', new Blob([JSON.stringify(this.authService.userDetails)], {type: 'application/json'}));
-    postData.append('image', this.imgFile);
-    postData.append('user', this.authService.userDetails._id);
-    this.store.dispatch(new CreatePostApi(postData));
-
-    this.postText = '';
-    this.imgFile = null;
-    this.imagePreview = null;
-
+    if (this.imgFile || this.postText) {
+      this.loading = true;
+      const date = new Date();
+      const hours =  date.getHours();
+      const minutes = date.getMinutes();
+      const time = (hours > 12) ? (hours - 12 + ':' + minutes + ' PM') : (hours + ':' + minutes + ' AM');
+      const monthNames = [
+        'January', 'February', 'March', 'April', 'May', 'June',
+        'July', 'August', 'September', 'October', 'November', 'December'
+      ];
+      const currentDateAndTime = `${date.getDate()} ${monthNames[date.getMonth()]} at ${time}`;
+      const postData = new FormData();
+      postData.append('text', this.postText);
+      postData.append('image', this.imgFile);
+      postData.append('date', currentDateAndTime);
+      postData.append('user', this.authService.userDetails._id);
+      this.store.dispatch(new CreatePostApi(postData));
+      this.postText = '';
+      this.imgFile = null;
+      this.imagePreview = null;
+    }
   }
 
   imageFile(event: Event) {

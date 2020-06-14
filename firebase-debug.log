@@ -1,13 +1,17 @@
-[debug] [2020-06-14T12:08:30.464Z] ----------------------------------------------------------------------
-[debug] [2020-06-14T12:08:30.466Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy --only functions
-[debug] [2020-06-14T12:08:30.466Z] CLI Version:   8.1.1
-[debug] [2020-06-14T12:08:30.466Z] Platform:      darwin
-[debug] [2020-06-14T12:08:30.466Z] Node Version:  v12.16.3
-[debug] [2020-06-14T12:08:30.467Z] Time:          Sun Jun 14 2020 17:38:30 GMT+0530 (India Standard Time)
-[debug] [2020-06-14T12:08:30.467Z] ----------------------------------------------------------------------
-[debug] [2020-06-14T12:08:30.467Z] 
-[debug] [2020-06-14T12:08:30.477Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2020-06-14T12:08:30.477Z] > authorizing via signed-in user
-[debug] [2020-06-14T12:08:30.477Z] [iam] checking project bemeanstack for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
-[debug] [2020-06-14T12:08:30.480Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/bemeanstack:testIamPermissions  
+[debug] [2020-06-14T12:15:10.690Z] ----------------------------------------------------------------------
+[debug] [2020-06-14T12:15:10.692Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy --only functions
+[debug] [2020-06-14T12:15:10.692Z] CLI Version:   8.1.1
+[debug] [2020-06-14T12:15:10.692Z] Platform:      darwin
+[debug] [2020-06-14T12:15:10.692Z] Node Version:  v12.16.3
+[debug] [2020-06-14T12:15:10.693Z] Time:          Sun Jun 14 2020 17:45:10 GMT+0530 (India Standard Time)
+[debug] [2020-06-14T12:15:10.694Z] ----------------------------------------------------------------------
+[debug] [2020-06-14T12:15:10.694Z] 
+[debug] [2020-06-14T12:15:10.705Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-06-14T12:15:10.706Z] > authorizing via signed-in user
+[debug] [2020-06-14T12:15:10.706Z] [iam] checking project bemeanstack for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2020-06-14T12:15:10.708Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/bemeanstack:testIamPermissions  
  {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2020-06-14T12:15:13.331Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 14 Jun 2020 12:15:13 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1388","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-06-14T12:15:13.332Z] >>> HTTP REQUEST POST https://iam.googleapis.com/v1/projects/bemeanstack/serviceAccounts/bemeanstack@appspot.gserviceaccount.com:testIamPermissions  
+ {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2020-06-14T12:15:15.111Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 14 Jun 2020 12:15:14 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
