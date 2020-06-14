@@ -32,7 +32,7 @@ function createPost(request, response){
       const date = new Date();
       const monthNames = ["January", "February", "March", "April", "May", "June",
       "July", "August", "September", "October", "November", "December"];
-      const currentDateAndTime = `${date.getDay()} ${monthNames[date.getMonth()]} at ${date.toLocaleString('en-in', { hour: 'numeric', minute: 'numeric', hour12: true })}`
+      const currentDateAndTime = `${date.getDate()} ${monthNames[date.getMonth()]} at ${date.toLocaleString('en-in', { hour: 'numeric', minute: 'numeric', hour12: true })}`
       post.date = currentDateAndTime;
       if (files && Object.keys(files).length) {
         if (files.image) {

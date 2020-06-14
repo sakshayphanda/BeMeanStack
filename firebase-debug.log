@@ -1,0 +1,310 @@
+[debug] [2020-06-14T11:53:23.432Z] ----------------------------------------------------------------------
+[debug] [2020-06-14T11:53:23.434Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve --only functions
+[debug] [2020-06-14T11:53:23.434Z] CLI Version:   8.1.1
+[debug] [2020-06-14T11:53:23.434Z] Platform:      darwin
+[debug] [2020-06-14T11:53:23.434Z] Node Version:  v12.16.3
+[debug] [2020-06-14T11:53:23.443Z] Time:          Sun Jun 14 2020 17:23:23 GMT+0530 (India Standard Time)
+[debug] [2020-06-14T11:53:23.444Z] ----------------------------------------------------------------------
+[debug] [2020-06-14T11:53:23.444Z] 
+[debug] [2020-06-14T11:53:23.455Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-06-14T11:53:23.456Z] > authorizing via signed-in user
+[debug] [2020-06-14T11:53:23.456Z] [iam] checking project bemeanstack for permissions ["firebase.projects.get"]
+[debug] [2020-06-14T11:53:23.457Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-06-14T11:53:23.457Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-06-14T11:53:23.744Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 14 Jun 2020 11:53:23 GMT","server":"scaffolding on HTTPServer2","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-06-14T11:53:23.756Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/bemeanstack:testIamPermissions  
+ {"permissions":["firebase.projects.get"]}
+[debug] [2020-06-14T11:53:25.417Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 14 Jun 2020 11:53:25 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1372","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-06-14T11:53:25.418Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/bemeanstack  
+ 
+[debug] [2020-06-14T11:53:27.093Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 14 Jun 2020 11:53:26 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[warn] ⚠  Your requested "node" version "8" doesn't match your global version "12"
+[info] ✔  functions: functions emulator started at http://localhost:5000
+[info] i  functions: Watching "/Users/sakshay/Practice/MEANStack/bemeanstack/functions" for Cloud Functions...
+[debug] [2020-06-14T11:53:27.115Z] [worker-pool] addWorker(~diagnostic~) 
+[debug] [2020-06-14T11:53:27.115Z] [worker-pool] Adding worker with key ~diagnostic~, total=1 
+[debug] [2020-06-14T11:53:27.115Z] [worker-pool] submitWork(triggerId=) 
+[debug] [2020-06-14T11:53:27.116Z] [worker-~diagnostic~-61d63226-eda2-4788-9749-4d93a1f74597]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_15132.sock 
+[debug] [2020-06-14T11:53:27.116Z] [worker-~diagnostic~-61d63226-eda2-4788-9749-4d93a1f74597]: BUSY 
+[debug] [2020-06-14T11:53:27.539Z] [runtime-status] [15132] Functions runtime initialized. {"cwd":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions","node_version":"12.16.3"} 
+[debug] [2020-06-14T11:53:27.540Z] [runtime-status] [15132] Disabled runtime features: undefined 
+[debug] [2020-06-14T11:53:27.543Z] [runtime-status] [15132] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-admin/lib/index.js"} 
+[debug] [2020-06-14T11:53:27.544Z] [runtime-status] [15132] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-06-14T11:53:27.545Z] [runtime-status] [15132] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] 
+[debug] [2020-06-14T11:53:27.588Z] [runtime-status] [15132] Checked functions.config() {"config":{}} 
+[debug] [2020-06-14T11:53:27.589Z] [runtime-status] [15132] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-06-14T11:53:27.589Z] [runtime-status] [15132] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-admin/lib/index.js"} 
+[debug] [2020-06-14T11:53:27.590Z] [runtime-status] [15132] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-06-14T11:53:27.590Z] [runtime-status] [15132] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-admin/lib/index.js"}} 
+[debug] [2020-06-14T11:53:27.591Z] [runtime-status] [15132] initializeApp(DEFAULT) {"databaseURL":"https://bemeanstack.firebaseio.com","storageBucket":"bemeanstack.appspot.com","projectId":"bemeanstack"} 
+[info] ✔  functions[application]: http function initialized (http://localhost:5000/bemeanstack/us-central1/application).
+[debug] [2020-06-14T11:53:28.307Z] [worker-~diagnostic~-61d63226-eda2-4788-9749-4d93a1f74597]: IDLE 
+[warn] ⚠  Google API requested!
+   - URL: "https://www.googleapis.com/oauth2/v4/token"
+   - Be careful, this may be a production service.
+[warn] ⚠  Google API requested!
+   - URL: "https://storage.googleapis.com/storage/v1/b?project=bemeanstack"
+   - Be careful, this may be a production service.
+[info] >  (node:15132) DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead. {"user":"(node:15132) DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead."}
+[info] >  Connected to the database {"user":"Connected to the database"}
+[debug] [2020-06-14T11:55:15.048Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-14T11:55:15.048Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-14T11:55:15.049Z] Accepted request OPTIONS /bemeanstack/us-central1/application/auth/login --> application
+[debug] [2020-06-14T11:55:15.053Z] [worker-pool] addWorker(application) 
+[debug] [2020-06-14T11:55:15.053Z] [worker-pool] Adding worker with key application, total=1 
+[debug] [2020-06-14T11:55:15.053Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-14T11:55:15.053Z] [worker-application-7fafe399-d907-4b16-bcf5-244de5c49276]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_15140.sock 
+[debug] [2020-06-14T11:55:15.054Z] [worker-application-7fafe399-d907-4b16-bcf5-244de5c49276]: BUSY 
+[debug] [2020-06-14T11:55:15.620Z] [runtime-status] [15140] Functions runtime initialized. {"cwd":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions","node_version":"12.16.3"} 
+[debug] [2020-06-14T11:55:15.622Z] [runtime-status] [15140] Disabled runtime features: undefined 
+[debug] [2020-06-14T11:55:15.626Z] [runtime-status] [15140] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-admin/lib/index.js"} 
+[debug] [2020-06-14T11:55:15.631Z] [runtime-status] [15140] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-06-14T11:55:15.633Z] [runtime-status] [15140] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] 
+[debug] [2020-06-14T11:55:15.687Z] [runtime-status] [15140] Checked functions.config() {"config":{}} 
+[debug] [2020-06-14T11:55:15.688Z] [runtime-status] [15140] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-06-14T11:55:15.689Z] [runtime-status] [15140] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-admin/lib/index.js"} 
+[debug] [2020-06-14T11:55:15.689Z] [runtime-status] [15140] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-06-14T11:55:15.689Z] [runtime-status] [15140] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-admin/lib/index.js"}} 
+[debug] [2020-06-14T11:55:15.691Z] [runtime-status] [15140] initializeApp(DEFAULT) {"databaseURL":"https://bemeanstack.firebaseio.com","storageBucket":"bemeanstack.appspot.com","projectId":"bemeanstack"} 
+[debug] [2020-06-14T11:55:16.562Z] [runtime-status] [15140] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-14T11:55:16.562Z] [runtime-status] [15140] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-14T11:55:16.562Z] [runtime-status] [15140] Running application in mode HTTPS 
+[debug] [2020-06-14T11:55:16.566Z] [runtime-status] [15140] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_15140.sock 
+[debug] [2020-06-14T11:55:16.573Z] [functions] Runtime ready! Sending request! 
+[warn] ⚠  Google API requested!
+   - URL: "https://www.googleapis.com/oauth2/v4/token"
+   - Be careful, this may be a production service.
+[debug] [2020-06-14T11:55:16.596Z] [runtime-status] [15140] Ephemeral server handling OPTIONS request 
+[debug] [2020-06-14T11:55:16.601Z] [runtime-status] [15140] Ephemeral server survived. 
+[debug] [2020-06-14T11:55:16.602Z] [work-queue] {"queueLength":1,"workRunningCount":1}
+[debug] [2020-06-14T11:55:16.602Z] [work-queue] {"queueLength":0,"workRunningCount":2}
+[debug] [2020-06-14T11:55:16.602Z] Accepted request POST /bemeanstack/us-central1/application/auth/login --> application
+[debug] [2020-06-14T11:55:16.605Z] [worker-pool] addWorker(application) 
+[debug] [2020-06-14T11:55:16.605Z] [worker-pool] Adding worker with key application, total=2 
+[debug] [2020-06-14T11:55:16.606Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-14T11:55:16.606Z] [worker-application-226f95db-2d23-432d-9d20-692bbbbb0a68]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_15141.sock 
+[debug] [2020-06-14T11:55:16.606Z] [worker-application-226f95db-2d23-432d-9d20-692bbbbb0a68]: BUSY 
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-14T11:55:16.606Z] [worker-application-7fafe399-d907-4b16-bcf5-244de5c49276]: IDLE 
+[debug] [2020-06-14T11:55:16.607Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[warn] ⚠  Google API requested!
+   - URL: "https://storage.googleapis.com/storage/v1/b?project=bemeanstack"
+   - Be careful, this may be a production service.
+[debug] [2020-06-14T11:55:16.820Z] [runtime-status] [15141] Functions runtime initialized. {"cwd":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions","node_version":"12.16.3"} 
+[debug] [2020-06-14T11:55:16.822Z] [runtime-status] [15141] Disabled runtime features: undefined 
+[debug] [2020-06-14T11:55:16.824Z] [runtime-status] [15141] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-admin/lib/index.js"} 
+[debug] [2020-06-14T11:55:16.827Z] [runtime-status] [15141] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-06-14T11:55:16.829Z] [runtime-status] [15141] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] 
+[debug] [2020-06-14T11:55:16.852Z] [runtime-status] [15141] Checked functions.config() {"config":{}} 
+[debug] [2020-06-14T11:55:16.853Z] [runtime-status] [15141] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-06-14T11:55:16.853Z] [runtime-status] [15141] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-admin/lib/index.js"} 
+[debug] [2020-06-14T11:55:16.854Z] [runtime-status] [15141] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-06-14T11:55:16.854Z] [runtime-status] [15141] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-admin/lib/index.js"}} 
+[debug] [2020-06-14T11:55:16.855Z] [runtime-status] [15141] initializeApp(DEFAULT) {"databaseURL":"https://bemeanstack.firebaseio.com","storageBucket":"bemeanstack.appspot.com","projectId":"bemeanstack"} 
+[info] >  (node:15140) DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead. {"user":"(node:15140) DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead."}
+[info] >  Connected to the database {"user":"Connected to the database"}
+[debug] [2020-06-14T11:55:17.218Z] [runtime-status] [15141] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-14T11:55:17.218Z] [runtime-status] [15141] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-14T11:55:17.218Z] [runtime-status] [15141] Running application in mode HTTPS 
+[debug] [2020-06-14T11:55:17.220Z] [runtime-status] [15141] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_15141.sock 
+[debug] [2020-06-14T11:55:17.225Z] [functions] Runtime ready! Sending request! 
+[warn] ⚠  Google API requested!
+   - URL: "https://www.googleapis.com/oauth2/v4/token"
+   - Be careful, this may be a production service.
+[debug] [2020-06-14T11:55:17.259Z] [runtime-status] [15141] Ephemeral server handling POST request 
+[debug] [2020-06-14T11:55:17.263Z] [runtime-status] [15141] Ephemeral server survived. 
+[warn] ⚠  Google API requested!
+   - URL: "https://storage.googleapis.com/storage/v1/b?project=bemeanstack"
+   - Be careful, this may be a production service.
+[info] >  (node:15141) DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead. {"user":"(node:15141) DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead."}
+[info] >  Connected to the database {"user":"Connected to the database"}
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-14T11:55:18.094Z] [worker-application-226f95db-2d23-432d-9d20-692bbbbb0a68]: IDLE 
+[debug] [2020-06-14T11:55:18.094Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-14T11:55:18.117Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-14T11:55:18.117Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-14T11:55:18.117Z] Accepted request OPTIONS /bemeanstack/us-central1/application/posts/get-all-posts --> application
+[debug] [2020-06-14T11:55:18.117Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-14T11:55:18.117Z] [worker-application-7fafe399-d907-4b16-bcf5-244de5c49276]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_15140.sock 
+[debug] [2020-06-14T11:55:18.117Z] [worker-application-7fafe399-d907-4b16-bcf5-244de5c49276]: BUSY 
+[debug] [2020-06-14T11:55:18.118Z] [runtime-status] [15140] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-14T11:55:18.118Z] [runtime-status] [15140] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-14T11:55:18.118Z] [runtime-status] [15140] Running application in mode HTTPS 
+[debug] [2020-06-14T11:55:18.118Z] [runtime-status] [15140] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_15140.sock 
+[debug] [2020-06-14T11:55:18.119Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-14T11:55:18.121Z] [runtime-status] [15140] Ephemeral server handling OPTIONS request 
+[debug] [2020-06-14T11:55:18.122Z] [runtime-status] [15140] Ephemeral server survived. 
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-14T11:55:18.123Z] [worker-application-7fafe399-d907-4b16-bcf5-244de5c49276]: IDLE 
+[debug] [2020-06-14T11:55:18.123Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-14T11:55:18.123Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-14T11:55:18.123Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-14T11:55:18.123Z] Accepted request POST /bemeanstack/us-central1/application/posts/get-all-posts --> application
+[debug] [2020-06-14T11:55:18.123Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-14T11:55:18.124Z] [worker-application-7fafe399-d907-4b16-bcf5-244de5c49276]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_15140.sock 
+[debug] [2020-06-14T11:55:18.124Z] [worker-application-7fafe399-d907-4b16-bcf5-244de5c49276]: BUSY 
+[debug] [2020-06-14T11:55:18.133Z] [runtime-status] [15140] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-14T11:55:18.133Z] [runtime-status] [15140] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-14T11:55:18.133Z] [runtime-status] [15140] Running application in mode HTTPS 
+[debug] [2020-06-14T11:55:18.133Z] [runtime-status] [15140] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_15140.sock 
+[debug] [2020-06-14T11:55:18.134Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-14T11:55:18.144Z] [runtime-status] [15140] Ephemeral server handling POST request 
+[debug] [2020-06-14T11:55:18.151Z] [runtime-status] [15140] Ephemeral server survived. 
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-14T11:55:18.255Z] [worker-application-7fafe399-d907-4b16-bcf5-244de5c49276]: IDLE 
+[debug] [2020-06-14T11:55:18.255Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-14T11:55:26.668Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-14T11:55:26.669Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-14T11:55:26.669Z] Accepted request OPTIONS /bemeanstack/us-central1/application/posts/create-post --> application
+[debug] [2020-06-14T11:55:26.669Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-14T11:55:26.669Z] [worker-application-7fafe399-d907-4b16-bcf5-244de5c49276]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_15140.sock 
+[debug] [2020-06-14T11:55:26.669Z] [worker-application-7fafe399-d907-4b16-bcf5-244de5c49276]: BUSY 
+[debug] [2020-06-14T11:55:26.670Z] [runtime-status] [15140] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-14T11:55:26.670Z] [runtime-status] [15140] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-14T11:55:26.671Z] [runtime-status] [15140] Running application in mode HTTPS 
+[debug] [2020-06-14T11:55:26.671Z] [runtime-status] [15140] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_15140.sock 
+[debug] [2020-06-14T11:55:26.672Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-14T11:55:26.676Z] [runtime-status] [15140] Ephemeral server handling OPTIONS request 
+[debug] [2020-06-14T11:55:26.677Z] [runtime-status] [15140] Ephemeral server survived. 
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-14T11:55:26.678Z] [worker-application-7fafe399-d907-4b16-bcf5-244de5c49276]: IDLE 
+[debug] [2020-06-14T11:55:26.678Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-14T11:55:26.679Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-14T11:55:26.679Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-14T11:55:26.680Z] Accepted request POST /bemeanstack/us-central1/application/posts/create-post --> application
+[debug] [2020-06-14T11:55:26.680Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-14T11:55:26.680Z] [worker-application-7fafe399-d907-4b16-bcf5-244de5c49276]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_15140.sock 
+[debug] [2020-06-14T11:55:26.680Z] [worker-application-7fafe399-d907-4b16-bcf5-244de5c49276]: BUSY 
+[debug] [2020-06-14T11:55:26.688Z] [runtime-status] [15140] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-14T11:55:26.688Z] [runtime-status] [15140] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-14T11:55:26.689Z] [runtime-status] [15140] Running application in mode HTTPS 
+[debug] [2020-06-14T11:55:26.689Z] [runtime-status] [15140] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_15140.sock 
+[debug] [2020-06-14T11:55:26.689Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-06-14T11:55:26.693Z] [runtime-status] [15140] Ephemeral server handling POST request 
+[debug] [2020-06-14T11:55:26.728Z] [runtime-status] [15140] Ephemeral server survived. 
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-14T11:55:26.833Z] [worker-application-7fafe399-d907-4b16-bcf5-244de5c49276]: IDLE 
+[debug] [2020-06-14T11:55:26.833Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-06-14T11:56:19.998Z] File /Users/sakshay/Practice/MEANStack/bemeanstack/functions/src/controllers/posts.js changed, reloading triggers 
+[debug] [2020-06-14T11:56:21.004Z] [worker-pool] Shutting down IDLE worker (~diagnostic~) 
+[debug] [2020-06-14T11:56:21.005Z] [worker-~diagnostic~-61d63226-eda2-4788-9749-4d93a1f74597]: FINISHING 
+[debug] [2020-06-14T11:56:21.006Z] [worker-pool] Shutting down IDLE worker (application) 
+[debug] [2020-06-14T11:56:21.006Z] [worker-application-7fafe399-d907-4b16-bcf5-244de5c49276]: FINISHING 
+[debug] [2020-06-14T11:56:21.006Z] [worker-pool] Shutting down IDLE worker (application) 
+[debug] [2020-06-14T11:56:21.006Z] [worker-application-226f95db-2d23-432d-9d20-692bbbbb0a68]: FINISHING 
+[debug] [2020-06-14T11:56:21.018Z] [worker-pool] addWorker(~diagnostic~) 
+[debug] [2020-06-14T11:56:21.019Z] [worker-pool] Adding worker with key ~diagnostic~, total=2 
+[debug] [2020-06-14T11:56:21.019Z] [worker-pool] submitWork(triggerId=) 
+[debug] [2020-06-14T11:56:21.019Z] [worker-~diagnostic~-f623988d-b545-4453-9bb7-1b632761502c]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_15187.sock 
+[debug] [2020-06-14T11:56:21.019Z] [worker-~diagnostic~-f623988d-b545-4453-9bb7-1b632761502c]: BUSY 
+[debug] [2020-06-14T11:56:21.022Z] [worker-~diagnostic~-61d63226-eda2-4788-9749-4d93a1f74597]: exited 
+[debug] [2020-06-14T11:56:21.022Z] [worker-~diagnostic~-61d63226-eda2-4788-9749-4d93a1f74597]: FINISHED 
+[debug] [2020-06-14T11:56:21.022Z] [worker-application-7fafe399-d907-4b16-bcf5-244de5c49276]: exited 
+[debug] [2020-06-14T11:56:21.022Z] [worker-application-7fafe399-d907-4b16-bcf5-244de5c49276]: FINISHED 
+[debug] [2020-06-14T11:56:21.023Z] [worker-application-226f95db-2d23-432d-9d20-692bbbbb0a68]: exited 
+[debug] [2020-06-14T11:56:21.023Z] [worker-application-226f95db-2d23-432d-9d20-692bbbbb0a68]: FINISHED 
+[debug] [2020-06-14T11:56:21.529Z] [runtime-status] [15187] Functions runtime initialized. {"cwd":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions","node_version":"12.16.3"} 
+[debug] [2020-06-14T11:56:21.530Z] [runtime-status] [15187] Disabled runtime features: undefined 
+[debug] [2020-06-14T11:56:21.533Z] [runtime-status] [15187] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-admin/lib/index.js"} 
+[debug] [2020-06-14T11:56:21.534Z] [runtime-status] [15187] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-06-14T11:56:21.537Z] [runtime-status] [15187] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] 
+[debug] [2020-06-14T11:56:21.592Z] [runtime-status] [15187] Checked functions.config() {"config":{}} 
+[debug] [2020-06-14T11:56:21.592Z] [runtime-status] [15187] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-06-14T11:56:21.593Z] [runtime-status] [15187] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-admin/lib/index.js"} 
+[debug] [2020-06-14T11:56:21.594Z] [runtime-status] [15187] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-06-14T11:56:21.594Z] [runtime-status] [15187] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-admin/lib/index.js"}} 
+[debug] [2020-06-14T11:56:21.596Z] [runtime-status] [15187] initializeApp(DEFAULT) {"databaseURL":"https://bemeanstack.firebaseio.com","storageBucket":"bemeanstack.appspot.com","projectId":"bemeanstack"} 
+[debug] [2020-06-14T11:56:22.490Z] [worker-~diagnostic~-f623988d-b545-4453-9bb7-1b632761502c]: IDLE 
+[warn] ⚠  Google API requested!
+   - URL: "https://www.googleapis.com/oauth2/v4/token"
+   - Be careful, this may be a production service.
+[warn] ⚠  Google API requested!
+   - URL: "https://storage.googleapis.com/storage/v1/b?project=bemeanstack"
+   - Be careful, this may be a production service.
+[debug] [2020-06-14T11:56:22.829Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-06-14T11:56:22.830Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-14T11:56:22.830Z] Accepted request OPTIONS /bemeanstack/us-central1/application/posts/create-post --> application
+[debug] [2020-06-14T11:56:22.830Z] [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1 
+[debug] [2020-06-14T11:56:22.830Z] [worker-pool] Cleaned up workers for application: 2 --> 0 
+[debug] [2020-06-14T11:56:22.834Z] [worker-pool] addWorker(application) 
+[debug] [2020-06-14T11:56:22.834Z] [worker-pool] Adding worker with key application, total=1 
+[debug] [2020-06-14T11:56:22.835Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-14T11:56:22.835Z] [worker-application-1d7d94c3-25c0-4c71-9bd5-e61121cb796c]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_15188.sock 
+[debug] [2020-06-14T11:56:22.835Z] [worker-application-1d7d94c3-25c0-4c71-9bd5-e61121cb796c]: BUSY 
+[info] >  (node:15187) DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead. {"user":"(node:15187) DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead."}
+[info] >  Connected to the database {"user":"Connected to the database"}
+[debug] [2020-06-14T11:56:23.063Z] [runtime-status] [15188] Functions runtime initialized. {"cwd":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions","node_version":"12.16.3"} 
+[debug] [2020-06-14T11:56:23.064Z] [runtime-status] [15188] Disabled runtime features: undefined 
+[debug] [2020-06-14T11:56:23.066Z] [runtime-status] [15188] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-admin/lib/index.js"} 
+[debug] [2020-06-14T11:56:23.068Z] [runtime-status] [15188] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-06-14T11:56:23.069Z] [runtime-status] [15188] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] 
+[debug] [2020-06-14T11:56:23.092Z] [runtime-status] [15188] Checked functions.config() {"config":{}} 
+[debug] [2020-06-14T11:56:23.093Z] [runtime-status] [15188] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-06-14T11:56:23.093Z] [runtime-status] [15188] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-admin/lib/index.js"} 
+[debug] [2020-06-14T11:56:23.094Z] [runtime-status] [15188] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-06-14T11:56:23.094Z] [runtime-status] [15188] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-admin/lib/index.js"}} 
+[debug] [2020-06-14T11:56:23.095Z] [runtime-status] [15188] initializeApp(DEFAULT) {"databaseURL":"https://bemeanstack.firebaseio.com","storageBucket":"bemeanstack.appspot.com","projectId":"bemeanstack"} 
+[debug] [2020-06-14T11:56:23.464Z] [runtime-status] [15188] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-14T11:56:23.464Z] [runtime-status] [15188] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-14T11:56:23.465Z] [runtime-status] [15188] Running application in mode HTTPS 
+[debug] [2020-06-14T11:56:23.467Z] [runtime-status] [15188] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_15188.sock 
+[debug] [2020-06-14T11:56:23.472Z] [functions] Runtime ready! Sending request! 
+[warn] ⚠  Google API requested!
+   - URL: "https://www.googleapis.com/oauth2/v4/token"
+   - Be careful, this may be a production service.
+[debug] [2020-06-14T11:56:23.494Z] [runtime-status] [15188] Ephemeral server handling OPTIONS request 
+[debug] [2020-06-14T11:56:23.498Z] [runtime-status] [15188] Ephemeral server survived. 
+[debug] [2020-06-14T11:56:23.499Z] [work-queue] {"queueLength":1,"workRunningCount":1}
+[debug] [2020-06-14T11:56:23.499Z] [work-queue] {"queueLength":0,"workRunningCount":2}
+[debug] [2020-06-14T11:56:23.499Z] Accepted request POST /bemeanstack/us-central1/application/posts/create-post --> application
+[debug] [2020-06-14T11:56:23.502Z] [worker-pool] addWorker(application) 
+[debug] [2020-06-14T11:56:23.502Z] [worker-pool] Adding worker with key application, total=2 
+[debug] [2020-06-14T11:56:23.502Z] [worker-pool] submitWork(triggerId=application) 
+[debug] [2020-06-14T11:56:23.502Z] [worker-application-b55fd468-24c0-4f3a-9aa8-1192f60c2787]: Assigning socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_15189.sock 
+[debug] [2020-06-14T11:56:23.502Z] [worker-application-b55fd468-24c0-4f3a-9aa8-1192f60c2787]: BUSY 
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-14T11:56:23.503Z] [worker-application-1d7d94c3-25c0-4c71-9bd5-e61121cb796c]: IDLE 
+[debug] [2020-06-14T11:56:23.503Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-06-14T11:56:23.712Z] [runtime-status] [15189] Functions runtime initialized. {"cwd":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions","node_version":"12.16.3"} 
+[debug] [2020-06-14T11:56:23.713Z] [runtime-status] [15189] Disabled runtime features: undefined 
+[debug] [2020-06-14T11:56:23.714Z] [runtime-status] [15189] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-admin/lib/index.js"} 
+[debug] [2020-06-14T11:56:23.715Z] [runtime-status] [15189] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-06-14T11:56:23.718Z] [runtime-status] [15189] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] 
+[debug] [2020-06-14T11:56:23.741Z] [runtime-status] [15189] Checked functions.config() {"config":{}} 
+[debug] [2020-06-14T11:56:23.741Z] [runtime-status] [15189] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-06-14T11:56:23.742Z] [runtime-status] [15189] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-admin/lib/index.js"} 
+[debug] [2020-06-14T11:56:23.742Z] [runtime-status] [15189] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-06-14T11:56:23.742Z] [runtime-status] [15189] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/sakshay/Practice/MEANStack/bemeanstack/functions/node_modules/firebase-admin/lib/index.js"}} 
+[debug] [2020-06-14T11:56:23.743Z] [runtime-status] [15189] initializeApp(DEFAULT) {"databaseURL":"https://bemeanstack.firebaseio.com","storageBucket":"bemeanstack.appspot.com","projectId":"bemeanstack"} 
+[warn] ⚠  Google API requested!
+   - URL: "https://storage.googleapis.com/storage/v1/b?project=bemeanstack"
+   - Be careful, this may be a production service.
+[info] >  (node:15188) DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead. {"user":"(node:15188) DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead."}
+[info] >  Connected to the database {"user":"Connected to the database"}
+[debug] [2020-06-14T11:56:24.092Z] [runtime-status] [15189] Trigger "application" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "application"
+[debug] [2020-06-14T11:56:24.093Z] [runtime-status] [15189] triggerDefinition {"httpsTrigger":{},"name":"application","entryPoint":"application"} 
+[debug] [2020-06-14T11:56:24.094Z] [runtime-status] [15189] Running application in mode HTTPS 
+[debug] [2020-06-14T11:56:24.096Z] [runtime-status] [15189] Attempting to listen to socketPath: /var/folders/0q/dv5gw5vn6bs06d9y82697yr00000gn/T/fire_emu_15189.sock 
+[debug] [2020-06-14T11:56:24.099Z] [functions] Runtime ready! Sending request! 
+[warn] ⚠  Google API requested!
+   - URL: "https://www.googleapis.com/oauth2/v4/token"
+   - Be careful, this may be a production service.
+[debug] [2020-06-14T11:56:24.124Z] [runtime-status] [15189] Ephemeral server handling POST request 
+[debug] [2020-06-14T11:56:24.139Z] [runtime-status] [15189] Ephemeral server survived. 
+[warn] ⚠  Google API requested!
+   - URL: "https://storage.googleapis.com/storage/v1/b?project=bemeanstack"
+   - Be careful, this may be a production service.
+[info] >  (node:15189) DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead. {"user":"(node:15189) DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead."}
+[info] >  Connected to the database {"user":"Connected to the database"}
+[info] i  functions: Finished "application" in ~1s
+[debug] [2020-06-14T11:56:24.919Z] [worker-application-b55fd468-24c0-4f3a-9aa8-1192f60c2787]: IDLE 
+[debug] [2020-06-14T11:56:24.919Z] [work-queue] {"queueLength":0,"workRunningCount":0}
