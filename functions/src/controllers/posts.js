@@ -30,9 +30,11 @@ function createPost(request, response){
       const post = new Post(fields);
       const currentDate = Date.now();
       const date = new Date();
+      const hours =  date.getHours(), minutes = date.getMinutes();
+      const _time = (hours > 12) ? (hours-12 + ':' + minutes +' PM') : (hours + ':' + minutes +' AM');
       const monthNames = ["January", "February", "March", "April", "May", "June",
       "July", "August", "September", "October", "November", "December"];
-      const currentDateAndTime = `${date.getDate()} ${monthNames[date.getMonth()]} at ${date.toLocaleString('en-in', { hour: 'numeric', minute: 'numeric', hour12: true })}`
+      const currentDateAndTime = `${date.getDate()} ${monthNames[date.getMonth()]} at ${_time}`
       post.date = currentDateAndTime;
       if (files && Object.keys(files).length) {
         if (files.image) {
