@@ -9,6 +9,7 @@ interface IActions {
   route: string;
   count: number;
   params: any;
+  icon: string;
 }
 @Component({
   selector: 'app-side-navigation',
@@ -42,19 +43,22 @@ export class SideNavigationComponent implements OnInit, OnChanges {
         name: 'News Feed',
         route: 'feed',
         count: null,
-        params: false
+        params: false,
+        icon: 'insert_comment'
       },
       {
         name: 'Find users',
         route: 'users',
         count: null,
-        params: {user: this.user._id}
+        params: {user: this.user._id},
+        icon: 'group_add'
       },
       {
         name: 'Friends',
         route: 'friends',
         count: this.user.friends.length,
-        params: false
+        params: false,
+        icon: 'group'
       }
     ];
 

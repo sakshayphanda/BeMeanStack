@@ -15,6 +15,7 @@
     <mat-nav-list>
     <a class="list-item" mat-list-item [routerLinkActive]="['selected']" [routerLink]="action.route"
       [queryParams]="action.params">
+      <mat-icon style="margin: 5px;">{{action.icon}}</mat-icon>
       {{ action.name + " " + (action.count ? action.count : "") }}
     </a>
   </mat-nav-list>

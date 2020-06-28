@@ -3,7 +3,7 @@
 }
 
 .sidenav {
-  width: 200px;
+  width: 250px;
   background: white;
   -webkit-box-shadow: 0 17px 25px rgba(0,0,0,0.18);
   -moz-box-shadow: 0 17px 25px rgba(0,0,0,0.18);
@@ -11,7 +11,7 @@
 }
 
 .rightsidenav {
-  width: 200px;
+  width: 250px;
   background: white;
   -webkit-box-shadow: 0 17px 25px rgba(0,0,0,0.18);
   -moz-box-shadow: 0 17px 25px rgba(0,0,0,0.18);
