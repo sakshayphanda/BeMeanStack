@@ -58,6 +58,7 @@ export class ListUsersComponent implements OnInit {
 
     this.store.select(friendRequestSuccess).subscribe(
       user => {
+
         if (user && Object.keys(user).length) {
           this.store.dispatch(new UpdateUser(user));
 
@@ -76,8 +77,6 @@ export class ListUsersComponent implements OnInit {
 
   checkIfSent(user) {
     let pending = false;
-    console.log(this.currentUser);
-
     this.currentUser.friendRequestsPending.forEach(
       item => {
         if (item._id === user._id) {

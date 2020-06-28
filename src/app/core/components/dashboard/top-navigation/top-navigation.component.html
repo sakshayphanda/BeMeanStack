@@ -5,13 +5,7 @@
     <p style="font-size: 0.6rem; margin-top: 10px;">BETA</p>
   </div>
 
-  <button
-    class="logout"
-    mat-raised-button
-    color="accent"
-    type="submit"
-    (click)="logOut()"
-  >
-    Sign out
+  <button [matTooltip]= "'Logout'" class="logout" mat-fab color="warn" type="submit" (click)="logOut()">
+    <mat-icon>power_settings_new</mat-icon>
   </button>
 </div>

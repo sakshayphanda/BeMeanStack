@@ -78,9 +78,9 @@ router.post(routes.UNFRIEND, async (request, response, next) => {
     const isToUserFriend = toUser.friends.some(req => req === fromUser._id);
     const isFromUserFriend = fromUser.friends.some(req => req === toUser._id);
     if  (isFromUserFriend) {
-      const index = fromUser.friends.findIndex(req => req === request.body.from);
+      const index = fromUser.friends.findIndex(req => req === request.body.to);
       fromUser.friends.splice(index, 1);
-      const index1 = toUser.friends.findIndex(req => req === request.body.to);
+      const index1 = toUser.friends.findIndex(req => req === request.body.from);
       toUser.friends.splice(index1, 1);
       await User.updateOne({_id: fromUser._id}, {$set: fromUser});
       await User.updateOne({_id: toUser._id}, {$set: toUser});

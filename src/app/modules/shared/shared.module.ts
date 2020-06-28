@@ -6,6 +6,8 @@ import { AuthenticationService } from 'src/app/shared/services/authentication.se
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatTooltipModule} from '@angular/material/tooltip';
+
 
 @NgModule({
   declarations: [],
@@ -13,6 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CommonModule,
     FormsModule,
     MatButtonModule,
+    MatTooltipModule,
     HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule
@@ -21,6 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CommonModule,
     FormsModule,
     MatButtonModule,
+    MatTooltipModule,
     HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule
