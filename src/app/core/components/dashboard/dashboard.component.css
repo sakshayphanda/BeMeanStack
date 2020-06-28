@@ -1,0 +1,43 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+  background: white;
+  -webkit-box-shadow: 0 17px 25px rgba(0,0,0,0.18);
+  -moz-box-shadow: 0 17px 25px rgba(0,0,0,0.18);
+  box-shadow: 0 17px 25px rgba(0,0,0,0.18);
+}
+
+.rightsidenav {
+  width: 200px;
+  background: white;
+  -webkit-box-shadow: 0 17px 25px rgba(0,0,0,0.18);
+  -moz-box-shadow: 0 17px 25px rgba(0,0,0,0.18);
+  box-shadow: 0 17px 25px rgba(0,0,0,0.18);
+}
+
+.toolbar {
+  background: linear-gradient(90deg, #3c7a86 18%, #0d6380 73%, #22525c 100%);
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.nav-content {
+  background: white;
+  overflow: hidden;
+}
+.dynamic-routes {
+  overflow: auto;
+  left: 0;
+  height: calc( 100vh - 64px);
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}

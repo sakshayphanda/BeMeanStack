@@ -12,12 +12,13 @@
       </div>
     </div>
     <div class="feeds__button">
-      <button class="attachment-btn" mat-fab color="primary" (click) ="attach.click()">
+      <button class="attachment-btn" mat-fab color="primary" (click)="attach.click()">
         <span class="material-icons" style="font-size: 0.8rem">
           attach_file
         </span>
       </button>
-      <input [hidden] = "true" #attach class="file-button" [value]="imagePreview" name="image" type="file" (change)="imageFile($event)">
+      <input [hidden]="true" #attach class="file-button" [value]="imagePreview" name="image" type="file"
+        (change)="imageFile($event)">
       <button mat-flat-button color="primary" (click)="postCreate()">Post</button>
     </div>
   </div>
@@ -26,8 +27,9 @@
     <div class="posts">
       <div class="name">
         <img [src]="post?.user?.photoUrl" />
-        <div>
-          <p>{{ post?.user?.displayName }} <span class="admin" *ngIf="post?.user?.admin">Admin</span></p>
+        <div class="name-container">
+          <p class="userName">{{ post?.user?.displayName }} <span class="admin" *ngIf="post?.user?.admin">Admin</span>
+          </p>
           <p style="color: grey; font-size: 0.7rem;margin: 3px;">{{ post?.date }}</p>
         </div>
         <button class="delete-btn" mat-fab color="accent" style="" *ngIf="post.user._id === authService.userDetails._id"
