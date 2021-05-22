@@ -1,15 +1,13 @@
-// Method 1..
-// Method 2 .. working ---> npm run functions
-
 const http = require('http');
-const app = require('./functions/src/app');
+const app = require('./src/app');
 const os = require('os');
 const fileSystem = require('fs');
 const path = require('path');
-const Logger = require('./functions/src/logger');
+const Logger = require('./src/logger');
 const port = process.env.PORT || 3000;
 
-app.set('port', port);const server = http.createServer(app);
+app.set('port', port);
+const server = http.createServer(app);
 server.listen(port);
 
 /**Path
