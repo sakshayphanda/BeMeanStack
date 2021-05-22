@@ -59,6 +59,30 @@ export class LoginComponent implements OnInit{
     }
   }
 
+  updatePw(userDetails) {
+   // /updatePassword
+   console.log(userDetails);
+
+   if (userDetails.value.email && userDetails.value.newpassword) {
+    this.authenticationService
+    .updatePassword(userDetails.value)
+    .pipe(
+      catchError((error) => {
+        this.error = true;
+        this.message = error.error.message;
+        return throwError(error);
+      })
+    )
+    .subscribe((response) => {
+      this.error = false;
+      this.message = response.message;
+    });
+  } else {
+    this.message = 'Enter all the fields';
+    this.error = true;
+  }
+  }
+
 
   signup(userDetails) {
     if (userDetails.value.email && userDetails.value.password) {

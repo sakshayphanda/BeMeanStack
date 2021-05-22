@@ -80,6 +80,37 @@ router.post(ROUTES.SIGN_UP,
         });
   });
 
+
+  router.post(ROUTES.UPDATE_PASSWORD,
+    (request, response) => {
+      User.findOne({ email: request.body.email })
+      .select()
+      .exec()
+        .then(
+          user => {
+            bcrypt.hash(request.body.newpassword, 10)
+            .then(
+              userPassword => {
+                user.password = userPassword;
+                user.markModified('password');
+                user.save().then(
+                  result => {
+                    response.status(STATUS.CREATED).json(
+                      {
+                        message: MESSAGE.SUCCESS_UPDATED,
+                        user: result
+                      });
+                  }
+                )
+                  .catch(
+                    err => {
+                      response.status(STATUS.CONFLICT).json(err);
+                    }
+                  );
+              });
+          });
+    });
+
 router.post(ROUTES.LOG_IN,
   (request, response) => {
     User.findOne({ email: request.body.email })
@@ -96,7 +127,7 @@ router.post(ROUTES.LOG_IN,
                 userState => {
                   if (userState) {
                     const token = jwt.sign({ email: user.email, userId: user._id },
-                      process.env.JWT_KEY, { expiresIn: '365d' }
+                      'Sakshayphanda_this_secretkey', { expiresIn: '365d' }
                     );
 
                     response.status(STATUS.OK).json(

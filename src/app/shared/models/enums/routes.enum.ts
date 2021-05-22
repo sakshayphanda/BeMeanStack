@@ -3,7 +3,8 @@ export enum AuthRoutes {
   LOG_IN = '/auth/login',
   LOG_OUT = '/auth/logout',
   CHECK_AUTH = '/auth/check-auth',
-  UPDATE_USER = '/auth/update-user'
+  UPDATE_USER = '/auth/update-user',
+  UPDATE_PASSWORD = '/auth/updatePassword'
 }
 
 

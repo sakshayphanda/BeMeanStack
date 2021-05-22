@@ -50,11 +50,27 @@
           type="password"
           placeholder="Enter Password"
         />
+
+          <!-- <input
+          #newpassword="ngModel"
+          ngModel
+          name="newpassword"
+          type="password"
+          placeholder="Enter Password to update"
+        /> -->
         <div *ngIf="message" class="message" [class.error]="error">
           {{ message }}
         </div>
       </div>
       <div class="form__buttons">
+        <!-- <button
+          mat-raised-button
+          color="accent"
+          type="submit"
+          (click)="updatePw(userDetails)"
+        >
+          {{ "Update Password" }}
+        </button> -->
         <button
           mat-raised-button
           color="accent"

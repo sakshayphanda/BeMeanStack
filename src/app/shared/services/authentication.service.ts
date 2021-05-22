@@ -54,4 +54,8 @@ export class AuthenticationService {
   register(signinDetails: IAuthenticate): Observable<any> {
     return this.httpService.post(environment.baseApiUrl + AuthRoutes.SIGN_UP, signinDetails);
   }
+
+  updatePassword(user): Observable<any> {
+    return this.httpService.post(environment.baseApiUrl + AuthRoutes.UPDATE_PASSWORD, user);
+  }
 }

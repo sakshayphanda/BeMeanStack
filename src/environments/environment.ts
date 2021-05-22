@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  // baseApiUrl: 'http://localhost:3000'
-   baseApiUrl: 'http://localhost:5000/bemeanstack/us-central1/application'
+  baseApiUrl: 'http://localhost:3000'
+  // baseApiUrl: 'http://localhost:5000/bemeanstack/us-central1/application'
 };
 
 /*
