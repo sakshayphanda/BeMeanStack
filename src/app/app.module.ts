@@ -4,7 +4,7 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './modules/shared/shared.module';
 import { AdminModule } from './modules/admin/admin.module';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import * as firebase from 'firebase/app';
 import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
 import { StoreModule} from '@ngrx/store';
@@ -36,6 +36,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AppRouterModule } from './app.router.module';
+import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 const config = {
@@ -50,37 +54,20 @@ firebase.initializeApp(config);
 @NgModule({
   declarations: [
     AppComponent,
-    DragComponent,
-    TreeComponent,
-    DashComponent,
-    TableComponent,
-    AddressFormComponent
   ],
   imports: [
-    CoreModule,
-    SharedModule,
-    AdminModule,
+    AppRouterModule,
+    CommonModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
     StoreModule.forRoot(reducers, {
       metaReducers
     }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     StoreRouterConnectingModule.forRoot({stateKey: 'router'}),
     EffectsModule.forRoot([AuthEffects, UsersEffects, PostsEffects]),
-    DragDropModule,
-    MatTreeModule,
-    MatIconModule,
-    MatButtonModule,
-    MatGridListModule,
-    MatCardModule,
-    MatMenuModule,
-    LayoutModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatInputModule,
-    MatSelectModule,
-    MatRadioModule,
-    ReactiveFormsModule
+
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}

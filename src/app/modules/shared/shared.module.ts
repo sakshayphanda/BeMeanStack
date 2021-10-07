@@ -12,7 +12,6 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule,
     FormsModule,
     MatButtonModule,
     MatTooltipModule,
@@ -21,7 +20,6 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     BrowserAnimationsModule
   ],
   exports: [
-    CommonModule,
     FormsModule,
     MatButtonModule,
     MatTooltipModule,

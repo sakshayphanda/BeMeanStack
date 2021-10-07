@@ -12,15 +12,14 @@ export class AppComponent implements OnInit {
   title = 'bemeanstack';
   loading: boolean;
   constructor(
-    private store: Store<AppState>
   ) {
   }
 
   ngOnInit() {
-    this.store.select(loadingState).subscribe(
-      loading => {
-        this.loading = loading;
-      }
-    );
+    // this.store.select(loadingState).subscribe(
+    //   loading => {
+    //     this.loading = loading;
+    //   }
+    // );
   }
 }
