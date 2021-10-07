@@ -8,7 +8,7 @@
   <div class="users__data">
     <ng-container *ngFor="let user of list">
       <div class="user">
-        <img [src]="user?.photoUrl" />
+        <img [src]="user?.photoUrl" onerror="this.src = '../../../../../../assets/Mean.png'" />
         <p class="user__name">{{user.displayName}}  <span class="admin" *ngIf="user?.admin">Admin</span></p>
         <button mat-raised-button color="accent" (click)="unfriend(user)" *ngIf="selectedType === 'friends'"
           class="add">unfriend</button>

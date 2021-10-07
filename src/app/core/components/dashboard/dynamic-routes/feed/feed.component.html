@@ -2,7 +2,7 @@
   <div class="feeds">
     <div class="feeds__input">
       <div class="post-input">
-        <img [src]="authService.userDetails.photoUrl" />
+        <img [src]="authService.userDetails.photoUrl"  onerror="this.src = '../../../../../../assets/Mean.png'"/>
         <textarea type="text" [value]="postText ? postText : null" placeholder="Write something you wish to share"
           (change)="postText = $event.target.value"></textarea>
       </div>
@@ -26,7 +26,7 @@
   <ng-container *ngFor="let post of posts; let i = index">
     <div class="posts">
       <div class="name">
-        <img [src]="post?.user?.photoUrl" />
+        <img [src]="post?.user?.photoUrl" onerror="this.src = '../../../../../assets/Mean.png'"/>
         <div class="name-container">
           <p class="userName">{{ post?.user?.displayName }} <span class="admin" *ngIf="post?.user?.admin">Admin</span>
           </p>
@@ -40,7 +40,7 @@
       </div>
       <pre><code class="text">{{ post.text }}</code></pre>
       <div class="image">
-        <img *ngIf="post?.imageUrl" [src]="post.imageUrl">
+        <img [src]="post.imageUrl" onerror="this.src = '../../../../../assets/Mean.png'">
       </div>
     </div>
   </ng-container>

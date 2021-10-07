@@ -5,5 +5,4 @@ module.exports = Object.freeze({
   INVALID_CREDENTIALS: 'Invalid Credentials',
   AUTH_FAILED: 'Authorization Failed',
   SUCCESS_UPDATED: 'Successfully Updated',
-
 });

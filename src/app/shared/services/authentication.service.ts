@@ -4,7 +4,6 @@ import { HttpService } from './http.service';
 import { environment } from 'src/environments/environment';
 import { AuthRoutes } from '../models/enums/routes.enum';
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
