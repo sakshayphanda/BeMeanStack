@@ -1,14 +1,35 @@
 {
   "extends": "tslint:recommended",
   "rules": {
+    "cyclomatic-complexity": [
+      true,
+      17
+    ],
+    "max-file-line-count": [
+      true,
+      970
+    ],
+    "align": {
+      "options": [
+        "parameters",
+        "statements"
+      ]
+    },
     "array-type": false,
-    "arrow-parens": false,
+    "arrow-return-shorthand": true,
+    "curly": true,
     "deprecation": {
       "severity": "warning"
     },
-    "component-class-suffix": true,
+    "component-class-suffix": [
+      true,
+      "Component"
+    ],
     "contextual-lifecycle": true,
-    "directive-class-suffix": true,
+    "directive-class-suffix": [
+      true,
+      "Directive"
+    ],
     "directive-selector": [
       true,
       "attribute",
@@ -21,71 +42,193 @@
       "app",
       "kebab-case"
     ],
+    "eofline": true,
     "import-blacklist": [
       true,
       "rxjs/Rx"
     ],
-    "interface-name": false,
+    "import-spacing": true,
+    "indent": {
+      "options": [
+        "spaces"
+      ]
+    },
     "max-classes-per-file": false,
     "max-line-length": [
       true,
       140
     ],
-    "member-access": false,
+    "completed-docs": [
+      true,
+      {
+        "enums": true,
+        "functions": {
+          "visibilities": [
+            "exported"
+          ]
+        },
+        "methods": {
+          "privacies": [
+            "public",
+            "protected"
+          ]
+        }
+      }
+    ],
+    "file-header": [
+      true,
+      {
+        "allow-single-line-comments": true,
+        "enforce-trailing-newline": false
+      }
+    ],
     "member-ordering": [
       true,
       {
         "order": [
-          "static-field",
-          "instance-field",
-          "static-method",
-          "instance-method"
+          "public-static-field",
+          "private-static-field",
+          "public-instance-field",
+          "private-instance-field",
+          "public-constructor",
+          "private-constructor",
+          "public-instance-method",
+          "protected-instance-method",
+          "private-instance-method"
         ]
       }
     ],
-    "no-consecutive-blank-lines": false,
+    "no-conditional-assignment": true,
     "no-console": [
       true,
       "debug",
       "info",
       "time",
       "timeEnd",
-      "trace"
+      "trace",
+      "log"
     ],
     "no-empty": false,
-    "no-inferrable-types": [
-      true,
-      "ignore-params"
-    ],
+    "no-inferrable-types": false,
     "no-non-null-assertion": true,
     "no-redundant-jsdoc": true,
+    "no-sparse-arrays": true,
+    "import-destructuring-spacing": true,
+    "relative-url-prefix": true,
+    "no-relative-imports": [
+      true,
+      "allow-siblings"
+    ],
     "no-switch-case-fall-through": true,
+    "no-invalid-template-strings": true,
     "no-var-requires": false,
     "object-literal-key-quotes": [
       true,
       "as-needed"
     ],
-    "object-literal-sort-keys": false,
-    "ordered-imports": false,
+    "ordered-imports": [
+      true,
+      {
+        "import-sources-order": "any",
+        "named-imports-order": "case-insensitive",
+        "grouped-imports": true
+      }
+    ],
     "quotemark": [
       true,
       "single"
     ],
-    "trailing-comma": false,
+    "semicolon": {
+      "options": [
+        "always"
+      ]
+    },
+    "space-before-function-paren": {
+      "options": {
+        "anonymous": "never",
+        "asyncArrow": "always",
+        "constructor": "never",
+        "method": "never",
+        "named": "never"
+      }
+    },
+    "typedef": {
+      "severity": "warning",
+      "options": [
+        true,
+        "call-signature",
+        "arrow-call-signature",
+        "parameter",
+        "arrow-parameter",
+        "property-declaration",
+        "variable-declaration",
+        "member-variable-declaration",
+        "object-destructuring"
+      ]
+    },
+    "typedef-whitespace": {
+      "options": [
+        {
+          "call-signature": "nospace",
+          "index-signature": "nospace",
+          "parameter": "nospace",
+          "property-declaration": "nospace",
+          "variable-declaration": "nospace"
+        },
+        {
+          "call-signature": "onespace",
+          "index-signature": "onespace",
+          "parameter": "onespace",
+          "property-declaration": "onespace",
+          "variable-declaration": "onespace"
+        }
+      ]
+    },
+    "variable-name": {
+      "options": [
+        "allow-leading-underscore",
+        "ban-keywords",
+        "check-format",
+        "allow-pascal-case"
+      ]
+    },
+    "whitespace": {
+      "options": [
+        "check-branch",
+        "check-decl",
+        "check-operator",
+        "check-separator",
+        "check-type",
+        "check-typecast"
+      ]
+    },
     "no-conflicting-lifecycle": true,
     "no-host-metadata-property": true,
-    "no-input-rename": false,
+    "no-input-rename": true,
     "no-inputs-metadata-property": true,
     "no-output-native": true,
     "no-output-on-prefix": true,
     "no-output-rename": true,
     "no-outputs-metadata-property": true,
+    "no-queries-metadata-property": true,
+    "prefer-inline-decorator": false,
     "template-banana-in-box": true,
     "template-no-negated-async": true,
     "use-lifecycle-interface": true,
     "use-pipe-transform-interface": true
   },
+  "linterOptions": {
+    "exclude": [
+      "package.json",
+      "angular.json",
+      "**/*.spec.ts",
+      "**/test.ts",
+      "**/main.ts",
+      "**/e2e/**"
+    ]
+  },
   "rulesDirectory": [
-    "codelyzer"
+    "codelyzer",
+    "tslint-microsoft-contrib"
   ]
 }

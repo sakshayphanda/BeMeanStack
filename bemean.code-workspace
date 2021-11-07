@@ -1,0 +1,33 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "prettier.requireConfig": true,
+    "css.validate": false,
+    "scss.validate": false,
+    "tslint.configFile": "./tslint.json",
+    "typescript.tsdk": "./node_modules/typescript/lib",
+    "typescript.enablePromptUseWorkspaceTsdk": true,
+    "tslint.exclude": [],
+    "files.associations": {
+      "tslint.json": "jsonc"
+    }
+  },
+  "extensions": {
+    "recommendations": [
+      "christian-kohler.path-intellisense",
+      "eamodio.gitlens",
+      "esbenp.prettier-vscode",
+      "ms-vscode.vscode-typescript-tslint-plugin",
+      "cyrilletuzi.angular-schematics",
+      "stylelint.vscode-stylelint",
+      "editorconfig.editorconfig",
+      "VisualStudioExptTeam.vscodeintellicode"
+    ]
+  }
+}
