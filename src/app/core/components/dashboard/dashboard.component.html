@@ -25,7 +25,7 @@
   </mat-sidenav-content>
 
   <mat-sidenav position="end" #drawer2 class="rightsidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    [mode]="'over'" [opened]="false">
     <app-right-side-navigation></app-right-side-navigation>
 
   </mat-sidenav>

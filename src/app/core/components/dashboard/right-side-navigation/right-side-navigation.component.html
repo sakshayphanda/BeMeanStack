@@ -7,8 +7,8 @@
       <div class="user">
         <img [src]="user?.photoUrl" onerror="this.src = '../../../../../assets/Mean.png'" />
         <p class="user__name">{{user.displayName}}</p>
-        <!-- <button mat-raised-button color="accent" (click)="unfriend(user)" *ngIf="selectedType === 'friends'"
-          class="add">unfriend</button> -->
+        <button mat-raised-button color="accent" (click)="unfriend(user)" *ngIf="selectedType === 'friends'"
+          class="add">unfriend</button>
       </div>
     </ng-container>
 

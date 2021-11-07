@@ -16,7 +16,7 @@ export class DashboardComponent {
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(this.match)
     .pipe(
       map(result => result.matches),
-      shareReplay()
+      shareReplay() // to share the same response to different subscriptions
     );
 
   constructor(private breakpointObserver: BreakpointObserver) {}

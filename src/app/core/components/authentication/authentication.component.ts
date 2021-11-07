@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 })
 export class AuthenticationComponent implements OnInit {
 
-  isLoggedIn = false;
+  isLoggedIn: boolean = false;
   user: IAuthInfo;
   constructor(
     private store: Store<AppState>,
@@ -34,13 +34,6 @@ export class AuthenticationComponent implements OnInit {
           this.user = userDetails;
           this.authService.userDetails = userDetails.user;
           this.isLoggedIn = userDetails.loggedIn;
-          console.log(this.isLoggedIn);
-          // if(this.isLoggedIn) {
-          //   this.router.navigate(['home']);
-          // } else {
-          //   this.router.navigate(['login']);
-          // }
-
         }
       }
     );

@@ -74,7 +74,6 @@ export class SideNavigationComponent implements OnInit, OnChanges {
 
   imageFile(event: Event) {
     this.profilePic = (event.target as HTMLInputElement).files[0];
-    console.log(event);
     const reader = new FileReader();
     reader.onload = () => {
         this.imagePreview = reader.result;
