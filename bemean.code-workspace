@@ -16,7 +16,12 @@
     "tslint.exclude": [],
     "files.associations": {
       "tslint.json": "jsonc"
-    }
+    },
+    "prettier.singleQuote": true,
+    "javascript.preferences.quoteStyle": "single",
+    "typescript.preferences.quoteStyle": "single",
+    "prettier.jsxSingleQuote": true,
+    "prettier.quoteProps": "consistent"
   },
   "extensions": {
     "recommendations": [

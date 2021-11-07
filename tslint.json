@@ -74,6 +74,7 @@
     "no-invalid-template-strings": true,
     "no-var-requires": false,
     "object-literal-key-quotes": [true, "as-needed"],
+    "object-literal-sort-keys": false,
     "ordered-imports": [
       true,
       {
@@ -109,6 +110,8 @@
         "object-destructuring"
       ]
     },
+    "trailing-comma": false,
+    "member-access": false,
     "typedef-whitespace": {
       "options": [
         {
@@ -170,5 +173,17 @@
       "**/e2e/**"
     ]
   },
+  "trailing-comma": [
+    true,
+    {
+      "singleline": "never",
+      "multiline": {
+        "objects": "never",
+        "arrays": "never",
+        "functions": "never",
+        "typeLiterals": "ignore"
+      }
+    }
+  ],
   "rulesDirectory": ["codelyzer", "tslint-microsoft-contrib"]
 }
