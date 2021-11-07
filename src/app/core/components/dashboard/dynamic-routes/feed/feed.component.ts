@@ -14,6 +14,7 @@ import {
 import { AuthenticationService } from "src/app/shared/services/authentication.service";
 import { posts } from "src/app/store/selectors/post.selector";
 import { DomSanitizer } from "@angular/platform-browser";
+import { tap } from "rxjs/operators";
 
 @Component({
   selector: "app-feed",
@@ -36,11 +37,21 @@ export class FeedComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(new ListAllPostsApi(this.authService.userDetails));
-    this.store.select(posts).subscribe((post) => {
-      this.posts = post;
-      this.loading = false;
-      this.changeDetectorRef.markForCheck();
-    });
+    this.store
+      .select(posts)
+      .pipe(
+        /**
+         * tap is used to perform side effects.
+         * i.e to perform actions outside the scope
+         * */
+        tap((post) => {
+          this.posts = post;
+          this.loading = false;
+        })
+      )
+      .subscribe(() => {
+        this.changeDetectorRef.markForCheck();
+      });
   }
 
   postCreate() {
