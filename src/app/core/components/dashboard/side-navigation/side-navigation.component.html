@@ -1,23 +1,54 @@
 <div class="container">
   <div class="image-container">
     <!-- <img src ="https://cdn1.iconfinder.com/data/icons/big-rocket/80/BigRocket-1-01-512.png"> -->
-    <img class="profile-pic" src="{{imagePreview ? imagePreview : user?.photoUrl }}" />
+    <img
+      class="profile-pic"
+      src="{{
+        imagePreview
+          ? imagePreview
+          : user?.photoUrl
+          ? user?.photoUrl
+          : '../../../../../../../assets/pic.jpeg'
+      }}"
+    />
     <p class="email">{{ user.displayName }}</p>
 
-    <div class="update-pic" style="display: flex; flex-direction: column;">
-      <input [hidden] ="true" #fileInput style="width: 100%;" placeholder="choose an image" type="file" [value]="imagePreview" (change)="imageFile($event)">
-      <button mat-stroked-button color="primary" (click)="fileInput.click()">Change Picture</button>
-      <button *ngIf="imagePreview" mat-stroked-button color="primary" (click)="updateProfilePic()">Update Picture</button>
+    <div class="update-pic" style="display: flex; flex-direction: column">
+      <input
+        [hidden]="true"
+        #fileInput
+        style="width: 100%"
+        placeholder="choose an image"
+        type="file"
+        [value]="imagePreview"
+        (change)="imageFile($event)"
+      />
+      <button mat-stroked-button color="primary" (click)="fileInput.click()">
+        Change Picture
+      </button>
+      <button
+        *ngIf="imagePreview"
+        mat-stroked-button
+        color="primary"
+        (click)="updateProfilePic()"
+      >
+        Update Picture
+      </button>
     </div>
   </div>
 
   <ng-container *ngFor="let action of actions">
     <mat-nav-list>
-    <a class="list-item" mat-list-item [routerLinkActive]="['selected']" [routerLink]="['/'+ action.route]"
-      [queryParams]="action.params">
-      <mat-icon style="margin: 5px;">{{action.icon}}</mat-icon>
-      {{ action.name + " " + (action.count ? action.count : "") }}
-    </a>
-  </mat-nav-list>
+      <a
+        class="list-item"
+        mat-list-item
+        [routerLinkActive]="['selected']"
+        [routerLink]="['/' + action.route]"
+        [queryParams]="action.params"
+      >
+        <mat-icon style="margin: 5px">{{ action.icon }}</mat-icon>
+        {{ action.name + " " + (action.count ? action.count : "") }}
+      </a>
+    </mat-nav-list>
   </ng-container>
 </div>

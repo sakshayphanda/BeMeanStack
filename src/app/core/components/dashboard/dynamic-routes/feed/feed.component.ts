@@ -7,7 +7,8 @@ import {
 } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { Store } from '@ngrx/store';
-import { tap } from 'rxjs/operators';
+import * as moment from 'node_modules/moment';
+import { map, tap } from 'rxjs/operators';
 import { AuthenticationService } from 'src/app/shared/services/authentication.service';
 import { getMonthNames } from 'src/app/shared/utils/commonUtils';
 import {
@@ -45,9 +46,17 @@ export class FeedComponent implements OnInit {
     this.store
       .select(posts)
       .pipe(
-        tap((post: any) => {
-          this.posts = post;
+        map((postsArr: any[]): any[] => {
+          return [
+            ...postsArr.map((post: any) => ({
+              ...post,
+              date: moment(post.date).format('MMMM Do YYYY, h:mm a'),
+            })),
+          ];
+        }),
+        tap((post: any[]) => {
           this.loading = false;
+          this.posts = post;
         })
       )
       .subscribe(() => {
@@ -75,7 +84,7 @@ export class FeedComponent implements OnInit {
       const postData: FormData = new FormData();
       postData.append('text', this.postText);
       postData.append('image', this.imgFile);
-      postData.append('date', currentDateAndTime);
+      postData.append('date', date.toString());
       postData.append('user', this.authService.userDetails._id);
       this.store.dispatch(new CreatePostApi(postData));
       this.postText = '';

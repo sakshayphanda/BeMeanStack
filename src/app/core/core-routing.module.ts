@@ -1,35 +1,32 @@
-import { NgModule } from "@angular/core";
-import { Routes, RouterModule } from "@angular/router";
-import { ListUsersComponent } from "./components/dashboard/dynamic-routes/list-users/list-users.component";
-import { FriendsComponent } from "./components/dashboard/dynamic-routes/friends/friends.component";
-import { FeedComponent } from "./components/dashboard/dynamic-routes/feed/feed.component";
-import { AuthenticationComponent } from "./components/authentication/authentication.component";
-import { DashboardComponent } from "./components/dashboard/dashboard.component";
-import { LoginComponent } from "./components/login/login.component";
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { AuthenticationComponent } from './components/authentication/authentication.component';
+import { FeedComponent } from './components/dashboard/dynamic-routes/feed/feed.component';
+import { FriendsComponent } from './components/dashboard/dynamic-routes/friends/friends.component';
+import { ListUsersComponent } from './components/dashboard/dynamic-routes/list-users/list-users.component';
 
 const routes: Routes = [
   {
-    path: "",
+    path: '',
     component: AuthenticationComponent,
     children: [
       {
-        path: "feed",
+        path: 'feed',
         component: FeedComponent,
       },
       {
-        path: "users",
+        path: 'users',
         component: ListUsersComponent,
       },
       {
-        path: "friends",
+        path: 'friends',
         component: FriendsComponent,
       },
       {
-        path: "feed",
+        path: 'feed',
         component: FeedComponent,
       },
-      { path: "**", redirectTo: "" },
-
+      { path: '**', redirectTo: '' },
     ],
   },
 ];
