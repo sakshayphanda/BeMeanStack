@@ -1,6 +1,6 @@
-import { createFeatureSelector, createSelector } from "@ngrx/store";
+import { createFeatureSelector, createSelector } from '@ngrx/store';
 
-export const users = createFeatureSelector("users");
+export const users = createFeatureSelector('users');
 export const getAllUsers = createSelector(users, (data) => {
   if (data) {
     return data[`users`];

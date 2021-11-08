@@ -1,5 +1,5 @@
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, Input } from '@angular/core';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { IUserInfo } from 'src/app/shared/models/interfaces/authenticate.interface';
@@ -7,18 +7,17 @@ import { IUserInfo } from 'src/app/shared/models/interfaces/authenticate.interfa
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent {
-
-  @Input('user') user: IUserInfo;
-  match = '(max-width: 900px)';
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(this.match)
+  @Input() user: IUserInfo;
+  match: string = '(max-width: 900px)';
+  isHandset$: Observable<boolean> = this.breakpointObserver
+    .observe(this.match)
     .pipe(
-      map(result => result.matches),
+      map((result: BreakpointState) => result.matches),
       shareReplay() // to share the same response to different subscriptions
     );
 
   constructor(private breakpointObserver: BreakpointObserver) {}
-
 }

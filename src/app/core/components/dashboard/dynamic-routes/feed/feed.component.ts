@@ -1,3 +1,4 @@
+// News Feed
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
@@ -8,6 +9,7 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { Store } from '@ngrx/store';
 import { tap } from 'rxjs/operators';
 import { AuthenticationService } from 'src/app/shared/services/authentication.service';
+import { getMonthNames } from 'src/app/shared/utils/commonUtils';
 import {
   CreatePostApi,
   DeletePostApi,
@@ -24,7 +26,7 @@ import { posts } from 'src/app/store/selectors/post.selector';
 })
 export class FeedComponent implements OnInit {
   postText: string = '';
-  posts;
+  posts: any;
   imagePreview: string | ArrayBuffer;
   imgFile: File;
   loading: boolean = false;
@@ -43,7 +45,7 @@ export class FeedComponent implements OnInit {
     this.store
       .select(posts)
       .pipe(
-        tap((post) => {
+        tap((post: any) => {
           this.posts = post;
           this.loading = false;
         })
@@ -53,30 +55,20 @@ export class FeedComponent implements OnInit {
       });
   }
 
-  postCreate() {
+  /**
+   * create a post
+   */
+  postCreate(): void {
     if (this.imgFile || this.postText) {
       this.loading = true;
-      const date = new Date();
-      const hours = date.getHours();
-      const minutes = date.getMinutes();
-      const time =
+      const date: Date = new Date();
+      const hours: number = date.getHours();
+      const minutes: number = date.getMinutes();
+      const time: string =
         hours > 12
           ? hours - 12 + ':' + minutes + ' PM'
           : hours + ':' + minutes + ' AM';
-      const monthNames = [
-        'January',
-        'February',
-        'March',
-        'April',
-        'May',
-        'June',
-        'July',
-        'August',
-        'September',
-        'October',
-        'November',
-        'December',
-      ];
+      const monthNames: string[] = getMonthNames();
       const currentDateAndTime: string = `${date.getDate()} ${
         monthNames[date.getMonth()]
       } at ${time}`;
@@ -92,20 +84,29 @@ export class FeedComponent implements OnInit {
     }
   }
 
+  /**
+   * image file
+   * @param event event
+   */
   imageFile(event: Event): void {
     this.imgFile = (event.target as HTMLInputElement).files[0];
-    const reader = new FileReader();
-    reader.onload = () => {
+    const reader: FileReader = new FileReader();
+    reader.onload = (): void => {
       this.imagePreview = reader.result;
       this.changeDetectorRef.markForCheck();
     };
     reader.readAsDataURL(this.imgFile);
   }
 
-  getImage(buffer, post): SafeUrl {
+  /**
+   * get image url
+   * @param buffer image buffer array
+   * @param post post
+   */
+  getImage(buffer: [], post?: any): SafeUrl {
     // const TYPED_ARRAY = new Uint8Array(buffer);
-    const STRING_CHAR: string = buffer.reduce((data, byte) => {
-      return data + String.fromCharCode(byte);
+    const STRING_CHAR: string = buffer.reduce((acc: string, byte: number) => {
+      return acc + String.fromCharCode(byte);
     }, '');
     const base64String: string = btoa(STRING_CHAR);
     const safeImageUrl: SafeUrl = this.domSanitizer.bypassSecurityTrustUrl(
@@ -114,13 +115,18 @@ export class FeedComponent implements OnInit {
     return safeImageUrl;
   }
 
-  deletePost(id, i) {
+  /**
+   * Delete a post
+   * @param postId  postId
+   * @param i index
+   */
+  deletePost(postId: any, index: number): void {
     this.loading = true;
     this.store.dispatch(
       new DeletePostApi({
-        postId: id,
+        postId,
         userId: this.authService.userDetails._id,
-        index: i,
+        index,
       })
     );
   }
