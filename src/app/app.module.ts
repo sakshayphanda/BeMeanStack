@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EffectsModule } from '@ngrx/effects';
@@ -26,6 +26,18 @@ const config: any = {
   messagingSenderId: '699849827638',
 };
 firebase.initializeApp(config);
+
+/**
+ * runs on app boot
+ */
+export function applicationBoot(): Promise<boolean> {
+  console.log('Boot with one sec delay');
+  return new Promise((resolve: () => void, reject: () => void): void => {
+    setTimeout(() => {
+      resolve();
+    }, 1000);
+  });
+}
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -42,6 +54,12 @@ firebase.initializeApp(config);
     EffectsModule.forRoot([AuthEffects, UsersEffects, PostsEffects]),
   ],
   providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: (): (() => void) => applicationBoot,
+      multi: true,
+      deps: [],
+    },
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],

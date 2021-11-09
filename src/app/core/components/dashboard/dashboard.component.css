@@ -3,19 +3,19 @@
 }
 
 .sidenav {
-  width: 250px;
+  width: 300px;
   background: white;
-  -webkit-box-shadow: 0 17px 25px rgba(0,0,0,0.18);
-  -moz-box-shadow: 0 17px 25px rgba(0,0,0,0.18);
-  box-shadow: 0 17px 25px rgba(0,0,0,0.18);
+  -webkit-box-shadow: 0 17px 25px rgba(0, 0, 0, 0.18);
+  -moz-box-shadow: 0 17px 25px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 17px 25px rgba(0, 0, 0, 0.18);
 }
 
 .rightsidenav {
   width: 300px;
   background: white;
-  -webkit-box-shadow: 0 17px 25px rgba(0,0,0,0.18);
-  -moz-box-shadow: 0 17px 25px rgba(0,0,0,0.18);
-  box-shadow: 0 17px 25px rgba(0,0,0,0.18);
+  -webkit-box-shadow: 0 17px 25px rgba(0, 0, 0, 0.18);
+  -moz-box-shadow: 0 17px 25px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 17px 25px rgba(0, 0, 0, 0.18);
 }
 
 .toolbar {
@@ -33,7 +33,7 @@
 .dynamic-routes {
   overflow: auto;
   left: 0;
-  height: calc( 100vh - 64px);
+  height: calc(100vh - 64px);
   padding: 10px;
 }
 
