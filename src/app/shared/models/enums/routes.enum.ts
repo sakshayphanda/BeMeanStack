@@ -4,16 +4,16 @@ export enum AuthRoutes {
   LOG_OUT = '/auth/logout',
   CHECK_AUTH = '/auth/check-auth',
   UPDATE_USER = '/auth/update-user',
-  UPDATE_PASSWORD = '/auth/updatePassword'
+  UPDATE_PASSWORD = '/auth/updatePassword',
+  GET_USER = '/auth/get-user',
 }
-
 
 export enum UserRoutes {
   GET_ALL_USERS = '/users/get-all-users',
   FRIEND_REQUEST = '/users/friend-request',
   FRIEND_REQUEST_ACCEPTED = '/users/friend-request-accepted',
   FRIEND_REQUEST_REJECTED = '/users/friend-request-rejected',
-  UNFRIEND = '/users/unfriend'
+  UNFRIEND = '/users/unfriend',
 }
 
 export enum PostRoutes {

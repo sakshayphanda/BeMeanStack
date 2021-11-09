@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     if (localStorage.getItem('email') && localStorage.getItem('token')) {
-      this.store.dispatch(new DefaultAuth.CheckLoggedIn());
+      //  this.store.dispatch(new DefaultAuth.CheckLoggedIn());
     }
     this.store.select(authSelector).subscribe((userDetails: IAuthInfo) => {
       if (userDetails) {

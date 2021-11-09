@@ -215,6 +215,19 @@ router.post(ROUTES.UPDATE_USER, (request, response) => {
     }
   });
 });
+router.post(ROUTES.GET_USER, (request, response) => {
+  User.findOne({ email: request.body.email })
+    .then((user) => {
+      console.log(request.body);
+      response.status(STATUS.ACCEPTED).json({
+        message: MESSAGE.SUCCESS_LOGIN,
+        user,
+      });
+    })
+    .catch((err) => {
+      response.status(STATUS.UNAUTHORIZED).json(err);
+    });
+});
 
 function invalidCredentials(response) {
   response.status(STATUS.UNAUTHORIZED).json({

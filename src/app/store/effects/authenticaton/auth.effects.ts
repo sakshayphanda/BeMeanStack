@@ -28,7 +28,6 @@ export class AuthEffects {
         })
         .pipe(
           map((data) => {
-            console.log(data);
             return new DefaultAuth.LoginSuccess(data);
           })
         );

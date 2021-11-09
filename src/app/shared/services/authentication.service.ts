@@ -60,6 +60,12 @@ export class AuthenticationService {
     );
   }
 
+  getUserDetails(email): Observable<any> {
+    return this.httpService.post(environment.baseApiUrl + AuthRoutes.GET_USER, {
+      email,
+    });
+  }
+
   updatePassword(user): Observable<any> {
     return this.httpService.post(
       environment.baseApiUrl + AuthRoutes.UPDATE_PASSWORD,
