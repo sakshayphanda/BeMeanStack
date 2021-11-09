@@ -1,5 +1,5 @@
-import * as DefaultAuth from '../actions/authentication/auth.actions';
 import { IAuthInfo } from 'src/app/shared/models/interfaces/authenticate.interface';
+import * as DefaultAuth from '../actions/authentication/auth.actions';
 
 const defaultValues: IAuthInfo = {
   loading: false,
@@ -12,15 +12,18 @@ const defaultValues: IAuthInfo = {
     _id: null,
     friendRequests: [],
     friendRequestsPending: [],
-    friends: []
+    friends: [],
   },
   message: null,
-  isError: false
+  isError: false,
 };
-export function authenticationReducer(state = defaultValues, action: DefaultAuth.AuthTypes) {
+export function authenticationReducer(
+  state = defaultValues,
+  action: DefaultAuth.AuthTypes
+) {
   switch (action.type) {
     case DefaultAuth.LOGIN_REQUEST: {
-      const newState = {...state};
+      const newState = { ...state };
       newState.loading = true;
       return newState;
     }
@@ -48,7 +51,7 @@ export function authenticationReducer(state = defaultValues, action: DefaultAuth
       newState.loading = false;
       newState.loggedIn = false;
       window.location.reload();
-      return {...newState};
+      return { ...newState };
     }
 
     case DefaultAuth.UPDATE_USER: {
@@ -57,13 +60,11 @@ export function authenticationReducer(state = defaultValues, action: DefaultAuth
       newState.user = action.payload;
       console.log(newState, state);
       // window.location.reload();
-      return {...newState};
+      return { ...newState };
     }
 
-    default : {
+    default: {
       return state;
     }
   }
 }
-
-

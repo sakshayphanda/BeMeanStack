@@ -1,8 +1,15 @@
-import { Component, OnInit, Input, OnChanges, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
-import { IUserInfo } from 'src/app/shared/models/interfaces/authenticate.interface';
-import { AppState } from 'src/app/store/reducers';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+} from '@angular/core';
 import { Store } from '@ngrx/store';
+import { IUserInfo } from 'src/app/shared/models/interfaces/authenticate.interface';
 import { UpdateUserApi } from 'src/app/store/actions/authentication/auth.actions';
+import { AppState } from 'src/app/store/reducers';
 
 interface IActions {
   name: string;
@@ -15,10 +22,9 @@ interface IActions {
   selector: 'app-side-navigation',
   templateUrl: './side-navigation.component.html',
   styleUrls: ['./side-navigation.component.sass'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SideNavigationComponent implements OnInit, OnChanges {
-
   @Input('user') user: IUserInfo;
   actions: IActions[] = [];
   profilePic: File;
@@ -26,11 +32,12 @@ export class SideNavigationComponent implements OnInit, OnChanges {
   constructor(
     private changeDetectorRef: ChangeDetectorRef,
     private store: Store<AppState>
-  ) { }
+  ) {}
 
   ngOnInit() {
-    this.actions = this.getActions();
+    console.log('user', this.user);
 
+    this.actions = this.getActions();
   }
 
   ngOnChanges() {
@@ -44,22 +51,22 @@ export class SideNavigationComponent implements OnInit, OnChanges {
         route: 'feed',
         count: null,
         params: false,
-        icon: 'insert_comment'
+        icon: 'insert_comment',
       },
       {
         name: 'Find users',
         route: 'users',
         count: null,
-        params: {user: this.user._id},
-        icon: 'group_add'
+        params: { user: this.user._id },
+        icon: 'group_add',
       },
       {
         name: 'Friends',
         route: 'friends',
-        count: this.user.friends.length,
+        count: this.user.friends?.length,
         params: false,
-        icon: 'group'
-      }
+        icon: 'group',
+      },
     ];
 
     return actions;
@@ -76,10 +83,9 @@ export class SideNavigationComponent implements OnInit, OnChanges {
     this.profilePic = (event.target as HTMLInputElement).files[0];
     const reader = new FileReader();
     reader.onload = () => {
-        this.imagePreview = reader.result;
-        this.changeDetectorRef.markForCheck();
-      };
+      this.imagePreview = reader.result;
+      this.changeDetectorRef.markForCheck();
+    };
     reader.readAsDataURL(this.profilePic);
   }
-
 }

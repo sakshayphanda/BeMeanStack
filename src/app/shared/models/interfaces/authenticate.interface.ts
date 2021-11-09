@@ -1,9 +1,8 @@
+// interfaces
 export interface IAuthenticate {
   email: string;
   password: string;
 }
-
-
 export interface IAuthInfo {
   loading: boolean;
   loggedIn: boolean;
@@ -17,9 +16,8 @@ export interface IUserInfo {
   displayName: string;
   email: string;
   photoUrl: string;
-  _id: string;
-  friendRequests: string[];
-  friendRequestsPending: string[];
-  friends: string[];
-
+  _id?: string;
+  friendRequests?: string[];
+  friendRequestsPending?: string[];
+  friends?: string[];
 }

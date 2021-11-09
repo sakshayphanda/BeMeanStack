@@ -1,15 +1,12 @@
-import { ofType, Effect, Actions } from '@ngrx/effects';
 import { Injectable } from '@angular/core';
-import { switchMap, catchError, map } from 'rxjs/operators';
+import { Actions, Effect, ofType } from '@ngrx/effects';
 import * as firebase from 'firebase';
+import { from, throwError } from 'rxjs';
+import { catchError, map, switchMap } from 'rxjs/operators';
 import * as FBAuth from '../../actions/authentication/auth.actions';
-import { throwError, from } from 'rxjs';
-import { IUserInfo } from 'src/app/shared/models/interfaces/authenticate.interface';
 
 @Injectable()
-export class SocialAuthEffects {
-  constructor(private actions$: Actions<FBAuth.AuthTypes>) {}
-
+export class FacebookAuthEffects {
   @Effect()
   facebookLogin$ = this.actions$.pipe(
     ofType(FBAuth.LOGIN_REQUEST),
@@ -42,7 +39,7 @@ export class SocialAuthEffects {
     switchMap(() => {
       return from(this.authState()).pipe(
         map((user) => {
-          const userInfo: IUserInfo = {
+          const userInfo = {
             token: user.id,
             displayName: user.displayName,
             email: user.email,
@@ -72,6 +69,11 @@ export class SocialAuthEffects {
     })
   );
 
+  constructor(private actions$: Actions<FBAuth.AuthTypes>) {}
+
+  /**
+   * auth state
+   */
   async authState(): Promise<any> {
     const promise = new Promise((resolve, reject) => {
       firebase.auth().onAuthStateChanged((user) => {

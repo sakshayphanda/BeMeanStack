@@ -1,12 +1,28 @@
-import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { IAuthInfo } from 'src/app/shared/models/interfaces/authenticate.interface';
+import {
+  createFeatureSelector,
+  createSelector,
+  DefaultProjectorFn,
+  MemoizedSelector,
+} from '@ngrx/store';
+import {
+  IAuthInfo,
+  IUserInfo,
+} from 'src/app/shared/models/interfaces/authenticate.interface';
 
+export const authSelector: MemoizedSelector<any, any> =
+  createFeatureSelector('authentication');
 
-export const authSelector = createFeatureSelector('authentication');
-export const currentUser = createSelector(authSelector, (auth: IAuthInfo) => {
+export const currentUser: MemoizedSelector<
+  any,
+  IUserInfo,
+  DefaultProjectorFn<IUserInfo>
+> = createSelector(authSelector, (auth: IAuthInfo) => {
   return auth.user;
 });
-export const loadingState = createSelector(authSelector, (userAuth: IAuthInfo) => {
-  return userAuth.loading;
-});
 
+export const loadingState = createSelector(
+  authSelector,
+  (userAuth: IAuthInfo) => {
+    return userAuth.loading;
+  }
+);

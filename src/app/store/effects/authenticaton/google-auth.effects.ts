@@ -1,46 +1,58 @@
-import { ofType, Effect, Actions } from '@ngrx/effects';
 import { Injectable } from '@angular/core';
-import { switchMap, catchError, map } from 'rxjs/operators';
+import { Actions, Effect, ofType } from '@ngrx/effects';
 import * as firebase from 'firebase';
-import * as GAuth from '../../actions/authentication/auth.actions';
-import { throwError, from } from 'rxjs';
-import { IUserInfo } from 'src/app/shared/models/interfaces/authenticate.interface';
+import { from, Observable, throwError } from 'rxjs';
+import { catchError, concatMap, map, switchMap } from 'rxjs/operators';
+import { AuthenticationService } from 'src/app/shared/services/authentication.service';
+import * as GAuth from '../../actions/authentication/google-auth.actions';
 
 @Injectable()
-export class SocialAuthEffects {
-  constructor(private actions$: Actions<GAuth.AuthTypes>) {}
-
+export class GoogleAuthEffects {
   @Effect()
-  gmailLogin$ = this.actions$.pipe(
+  gmailLogin$: Observable<any> = this.actions$.pipe(
     ofType(GAuth.LOGIN_REQUEST),
     switchMap(() => {
       return from(
         firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider())
       ).pipe(
-        map((data) => {
+        concatMap((data) => {
           const obj = {
-            token: data.credential[`accessToken`],
-            displayName: data.user.displayName,
-            email: data.user.email,
-            userImage: data.user.photoURL,
+            user: {
+              token: data.credential[`accessToken`],
+              displayName: data.user.displayName,
+              email: data.user.email,
+              photoUrl: data.user.photoURL,
+            },
           };
+          const payload = {
+            email: data.user.email,
+            firstName: data.user.displayName.split(' ')[0],
+            lastName: data.user.displayName.split(' ')[1] || '',
+            authType: 'googleAuth',
+            password: '',
+            photoUrl: data.user.photoURL,
+          };
+          return this.authenticationService.register(payload);
+        }),
+        map((obj) => {
+          console.log('mapped obj', obj);
+
           return new GAuth.LoginSuccess(obj);
         }),
         catchError((error) => {
-          const errorCode = error.code;
-          throw throwError(errorCode);
+          throw throwError(error.code);
         })
       );
     })
   );
 
   @Effect()
-  checkLoggedIn$ = this.actions$.pipe(
+  checkLoggedIn$: Observable<any> = this.actions$.pipe(
     ofType(GAuth.CHECK_LOGGED_IN),
     switchMap(() => {
-      return from(this.authState()).pipe(
+      return from(this.firebaseAuthState()).pipe(
         map((user) => {
-          const userInfo: IUserInfo = {
+          const userInfo = {
             token: user.id,
             displayName: user.displayName,
             email: user.email,
@@ -70,8 +82,13 @@ export class SocialAuthEffects {
     })
   );
 
-  async authState(): Promise<any> {
-    const promise = new Promise((resolve, reject) => {
+  constructor(
+    private actions$: Actions<GAuth.AuthTypes>,
+    private authenticationService: AuthenticationService
+  ) {}
+
+  async firebaseAuthState(): Promise<any> {
+    return new Promise((resolve, reject) => {
       firebase.auth().onAuthStateChanged((user) => {
         if (user) {
           user.getIdToken().then((userID) => {
@@ -83,7 +100,5 @@ export class SocialAuthEffects {
         }
       });
     });
-
-    return promise;
   }
 }

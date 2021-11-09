@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ChatComponent } from './components/dashboard/dynamic-routes/chat/chat.component';
@@ -44,6 +45,7 @@ import { CoreRoutingModule } from './core-routing.module';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    MatTooltipModule,
   ],
   exports: [],
 })

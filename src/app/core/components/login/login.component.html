@@ -2,15 +2,15 @@
   <div class="login__content {{ showSignUp ? 'sign-up' : 'log-in' }}">
     <div class="title">
       <ng-content select="div"></ng-content>
-      <img class="logo" src="../../../../assets/Mean.png" />
+      <img class="logo" src="../../../../assets/meanstack-logo.png" />
     </div>
     <div class="auth-type">
       {{ showSignUp ? "REGISTER" : "LOGIN" }}
     </div>
     <div class="social-signin">
-      <!-- <button mat-fab color="accent" type="submit" (click)="google()">
+      <button mat-fab color="accent" (click)="google()">
         <i class="fab fa-google"></i>
-      </button> -->
+      </button>
 
       <!--
       <button mat-fab color="primary" type="submit" (click)="facebook()">
@@ -51,7 +51,7 @@
           placeholder="Enter Password"
         />
 
-          <!-- <input
+        <!-- <input
           #newpassword="ngModel"
           ngModel
           name="newpassword"

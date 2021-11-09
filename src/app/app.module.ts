@@ -13,29 +13,32 @@ import { AppComponent } from './app.component';
 import { AppRouterModule } from './app.router.module';
 import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
 import { AuthEffects } from './store/effects/authenticaton/auth.effects';
+import { GoogleAuthEffects } from './store/effects/authenticaton/google-auth.effects';
 import { PostsEffects } from './store/effects/posts/posts.effect';
 import { UsersEffects } from './store/effects/users/users.effect';
 import { metaReducers, reducers } from './store/reducers';
 
-const config: any = {
+const firebaseConfig = {
   apiKey: 'AIzaSyBAgpmHBxTqe8VHPwc3koB87T830vQ7boo',
   authDomain: 'bemeanstack.firebaseapp.com',
   databaseURL: 'https://bemeanstack.firebaseio.com',
   projectId: 'bemeanstack',
-  storageBucket: '',
+  storageBucket: 'bemeanstack.appspot.com',
   messagingSenderId: '699849827638',
+  appId: '1:699849827638:web:bf8ab82a3e3539a8adbf97',
+  measurementId: 'G-6HQ56MQEF7',
 };
-firebase.initializeApp(config);
+firebase.initializeApp(firebaseConfig);
 
 /**
  * runs on app boot
  */
 export function applicationBoot(): Promise<boolean> {
-  console.log('Boot with one sec delay');
+  // add app logic to be run before the app loads
   return new Promise((resolve: () => void, reject: () => void): void => {
     setTimeout(() => {
       resolve();
-    }, 1000);
+    }, 0);
   });
 }
 @NgModule({
@@ -51,7 +54,12 @@ export function applicationBoot(): Promise<boolean> {
     }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     StoreRouterConnectingModule.forRoot({ stateKey: 'router' }),
-    EffectsModule.forRoot([AuthEffects, UsersEffects, PostsEffects]),
+    EffectsModule.forRoot([
+      AuthEffects,
+      GoogleAuthEffects,
+      UsersEffects,
+      PostsEffects,
+    ]),
   ],
   providers: [
     {
