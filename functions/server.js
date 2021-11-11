@@ -1,15 +1,18 @@
 // Method 1..
 // Method 2 .. working ---> npm run functions
+/**
+  const os = require('os');
+  const fileSystem = require('fs');
+  const path = require('path');
+  const Logger = require('./functions/src/logger');
+ */
 
-const http = require('http');
-const app = require('./functions/src/app');
-const os = require('os');
-const fileSystem = require('fs');
-const path = require('path');
-const Logger = require('./functions/src/logger');
+const http = require("http");
+const app = require("./src/app");
 const port = process.env.PORT || 3000;
 
-app.set('port', port);const server = http.createServer(app);
+app.set("port", port);
+const server = http.createServer(app);
 server.listen(port);
 
 /**Path
@@ -21,7 +24,6 @@ console.log(path.parse(__filename)); // this can be useful
 console.log(path.join(__dirname, 'text', 'hi.html'));
 */
 
-
 /**OS related methods
 console.log(os.hostname());
 console.log(os.platform());
@@ -30,7 +32,6 @@ console.log(os.cpus());
 console.log(os.freemem());
 console.log(os.totalmem());
 */
-
 
 /**File System
 

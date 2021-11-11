@@ -6,18 +6,19 @@ const TokenSchema = require("../model/blacklist-tokens");
 const jwt = require("jsonwebtoken");
 const checkAuth = require("../middleware/check-auth"); // check for the auth token
 require("dotenv").config();
-const MESSAGE = require("../constants/messages.constant");
-const ROUTES = require("../constants/routes.constants");
+const MESSAGE = require("../shared/constants/messages.constant");
+const ROUTES = require("../shared/constants/routes.constants");
+const GLOBAL = require("../shared/constants/global.constants");
 const STATUS = require("http-status-codes");
 const formidable = require("formidable-serverless");
 const fs = require("fs");
 const { Storage } = require("@google-cloud/storage");
 const path = require("path");
 
-router.post(ROUTES.CHECK_AUTH, checkAuth, (request, response) => {
+router.post(ROUTES.AUTH.CHECK_AUTH, checkAuth, (request, response) => {
   User.findOne({ email: request.body.email })
     .select()
-    .populate("friends friendRequests friendRequestsPending")
+    .populate(GLOBAL.KEYS_TO_POPULATE_IN_USER_DATA)
     .exec()
     .then((user) => {
       if (!user) {
@@ -27,7 +28,7 @@ router.post(ROUTES.CHECK_AUTH, checkAuth, (request, response) => {
           user: {
             token: request.headers.authorization,
             email: user.email,
-            message: MESSAGE.SUCCESS_LOGIN,
+            message: MESSAGE.SUCCESS.SUCCESS_LOGIN,
             displayName: user.displayName,
             _id: user._id,
             friendRequests: user.friendRequests,
@@ -43,13 +44,13 @@ router.post(ROUTES.CHECK_AUTH, checkAuth, (request, response) => {
     });
 });
 
-router.post(ROUTES.SIGN_UP, (request, response) => {
+router.post(ROUTES.AUTH.SIGN_UP, (request, response) => {
   bcrypt.hash(request.body.password, 10).then(async (userPassword) => {
     const userDetails = JSON.parse(JSON.stringify(request.body));
     await User.findOne({ email: userDetails.email }, (err, res) => {
       console.log(res);
       response.status(STATUS.ACCEPTED).json({
-        message: MESSAGE.SUCCESS_LOGIN,
+        message: MESSAGE.SUCCESS.SUCCESS_LOGIN,
         user: res,
       });
     });
@@ -65,7 +66,7 @@ router.post(ROUTES.SIGN_UP, (request, response) => {
       .save()
       .then((result) => {
         response.status(STATUS.CREATED).json({
-          message: MESSAGE.SUCCESS_CREATE,
+          message: MESSAGE.SUCCESS.SUCCESS_CREATE,
           user: result,
         });
       })
@@ -75,7 +76,7 @@ router.post(ROUTES.SIGN_UP, (request, response) => {
   });
 });
 
-router.post(ROUTES.UPDATE_PASSWORD, (request, response) => {
+router.post(ROUTES.AUTH.UPDATE_PASSWORD, (request, response) => {
   User.findOne({ email: request.body.email })
     .select()
     .exec()
@@ -87,7 +88,7 @@ router.post(ROUTES.UPDATE_PASSWORD, (request, response) => {
           .save()
           .then((result) => {
             response.status(STATUS.CREATED).json({
-              message: MESSAGE.SUCCESS_UPDATED,
+              message: MESSAGE.SUCCESS.SUCCESS_UPDATED,
               user: result,
             });
           })
@@ -98,10 +99,10 @@ router.post(ROUTES.UPDATE_PASSWORD, (request, response) => {
     });
 });
 
-router.post(ROUTES.LOG_IN, (request, response) => {
+router.post(ROUTES.AUTH.LOG_IN, (request, response) => {
   User.findOne({ email: request.body.email })
     .select()
-    .populate("friends friendRequests friendRequestsPending")
+    .populate(GLOBAL.KEYS_TO_POPULATE_IN_USER_DATA)
     .exec()
     .then((user) => {
       if (!user) {
@@ -126,7 +127,7 @@ router.post(ROUTES.LOG_IN, (request, response) => {
                   friendRequests: user.friendRequests,
                   friendRequestsPending: user.friendRequestsPending,
                   friends: user.friends,
-                  message: MESSAGE.SUCCESS_LOGIN,
+                  message: MESSAGE.SUCCESS.SUCCESS_LOGIN,
                   photoUrl: user.photoUrl,
                 },
               });
@@ -146,9 +147,8 @@ router.post(ROUTES.LOG_IN, (request, response) => {
     });
 });
 
-router.get(ROUTES.LOG_OUT, (request, response) => {
+router.get(ROUTES.AUTH.LOG_OUT, (request, response) => {
   const token = new TokenSchema({ token: request.headers.authorization });
-
   token
     .save()
     .then((result) => {
@@ -159,14 +159,14 @@ router.get(ROUTES.LOG_OUT, (request, response) => {
     });
 });
 
-router.post(ROUTES.UPDATE_USER, (request, response) => {
+router.post(ROUTES.AUTH.UPDATE_USER, (request, response) => {
   const form = new formidable.IncomingForm();
   form.keepExtensions = true;
   form.parse(request, (error, fields, files) => {
     console.log(fields, files);
     if (error) {
       response.status(400).json({
-        error: "problem with the image",
+        error: MESSAGE.ERROR.PROBLEM_WITH_IMAGE,
       });
     } else {
       if (files) {
@@ -214,16 +214,16 @@ router.post(ROUTES.UPDATE_USER, (request, response) => {
     }
   });
 });
-router.post(ROUTES.GET_USER, (request, response) => {
+router.post(ROUTES.AUTH.GET_USER, (request, response) => {
   User.findOne({ email: request.body.email })
     .populate(
-      "friends friendRequests friendRequestsPending",
-      "-password -friendRequests -friendRequestsPending"
+      GLOBAL.KEYS_TO_POPULATE_IN_USER_DATA,
+      GLOBAL.REMOVE_NOT_REQUIRED_KEYS_FROM_USER_DATA
     )
     .then((user) => {
       console.log(request.body);
       response.status(STATUS.ACCEPTED).json({
-        message: MESSAGE.SUCCESS_LOGIN,
+        message: MESSAGE.SUCCESS.SUCCESS_LOGIN,
         user,
       });
     })

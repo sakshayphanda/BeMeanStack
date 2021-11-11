@@ -1,43 +1,35 @@
-const express = require('express');
-const path = require('path');
+const express = require("express"); // framework for node.js
 const app = express();
-const bodyParser = require('body-parser'); // to parse the incoming object into Json
-const mongoose = require('mongoose'); // interacts with the mongo db
-const authRoute = require('./controllers/authentication');
-const usersRoute = require('./controllers/users');
-const postsRoute = require('./controllers/posts');
+const path = require("path");
+const bodyParser = require("body-parser"); // to parse the incoming object into Json
+const MongooseUtil = require("./shared/utils/mongoose.util"); // interacts with the mongo db
+const authRoute = require("./controllers/authentication");
+const usersRoute = require("./controllers/users");
+const postsRoute = require("./controllers/posts");
+const ROUTE_CONSTANTS = require("./shared/constants/routes.constants");
+app.set("view engine", "ejs");
 
-app.set('view engine', 'ejs')
-
-
-// connection is created using mongoose (an external library added)
-mongoose.set('useNewUrlParser', true);
-mongoose.set('useUnifiedTopology', true);
-
-mongoose.connect('mongodb+srv://'+ 'sakshayphanda:SX49Enk2QlrZfXD7' + '@bemeanstack-b1ev1.mongodb.net/test?retryWrites=true&w=majority')
-  .then(() => {
-    console.log('Connected to the database');
-  })
-  .catch(err => {
-    console.log(err, 'Can not connect to the database');
-  });
+MongooseUtil.INIT_AND_CONNECT_TO_MONGOOSE();
 app.use(bodyParser.json());
 
-
-
-app.use('/images', express.static(path.join('./images/')));
+app.use("/images", express.static(path.join("./images/")));
 // app.use('/postUploads', express.static('postUploads')); // to make this folder publically available
-
 
 app.use((request, response, next) => {
   response.setHeader("Access-Control-Allow-Origin", "*");
-  response.setHeader("Access-Control-Allow-Headers", "Origin,X-Requested-With,Content-Type,Accept,Authorization");
-  response.setHeader("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
+  response.setHeader(
+    "Access-Control-Allow-Headers",
+    "Origin,X-Requested-With,Content-Type,Accept,Authorization"
+  );
+  response.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET,POST,PUT,DELETE,OPTIONS"
+  );
   next();
 });
 
-app.use('/auth', authRoute);
-app.use('/users', usersRoute);
-app.use('/posts', postsRoute)
+app.use(ROUTE_CONSTANTS.PARENT_ROUTES.AUTH, authRoute);
+app.use(ROUTE_CONSTANTS.PARENT_ROUTES.USERS, usersRoute);
+app.use(ROUTE_CONSTANTS.PARENT_ROUTES.POSTS, postsRoute);
 
 module.exports = app;

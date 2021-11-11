@@ -1,15 +1,15 @@
 const router = require("express").Router();
-const routes = require("../constants/routes.constants");
+const routes = require("../shared/constants/routes.constants");
 const User = require("../model/user");
 
-router.get(routes.GET_ALL_USERS, async (_request, response) => {
+router.get(routes.USER.GET_ALL_USERS, async (_request, response) => {
   let users = await User.find()
     .select("-friendRequests -friendRequestsPending")
     .exec();
   response.status(200).json(users);
 });
 
-router.post(routes.FRIEND_REQUEST, async (request, response, next) => {
+router.post(routes.USER.FRIEND_REQUEST, async (request, response, next) => {
   const toUser = JSON.parse(
     JSON.stringify(
       await User.findOne({ _id: request.body.to }).select("-password")
@@ -58,105 +58,115 @@ router.post(routes.FRIEND_REQUEST, async (request, response, next) => {
   }
 });
 
-router.post(routes.FRIEND_REQUEST_ACCEPTED, async (request, response, next) => {
-  const toUser = JSON.parse(
-    JSON.stringify(await User.findOne({ _id: request.body.to }))
-  );
-  const fromUser = JSON.parse(
-    JSON.stringify(await User.findOne({ _id: request.body.from }))
-  );
-  if (toUser && fromUser) {
-    const isToUserUnique = !toUser.friends.some((req) => req === fromUser._id);
-    const isFromUserUnique = !fromUser.friends.some(
-      (req) => req === toUser._id
+router.post(
+  routes.USER.FRIEND_REQUEST_ACCEPTED,
+  async (request, response, next) => {
+    const toUser = JSON.parse(
+      JSON.stringify(await User.findOne({ _id: request.body.to }))
     );
-    if (isToUserUnique && isFromUserUnique) {
-      const index = fromUser.friendRequests.findIndex(
-        (req) => req === toUser._id
-      );
-      fromUser.friendRequests.splice(index, 1);
-      const index1 = toUser.friendRequestsPending.findIndex(
+    const fromUser = JSON.parse(
+      JSON.stringify(await User.findOne({ _id: request.body.from }))
+    );
+    if (toUser && fromUser) {
+      const isToUserUnique = !toUser.friends.some(
         (req) => req === fromUser._id
       );
-      toUser.friendRequestsPending.splice(index1, 1);
-      toUser.friends.push(request.body.from);
-      fromUser.friends.push(request.body.to);
-      await User.updateOne({ _id: fromUser._id }, { $set: fromUser });
-      await User.updateOne({ _id: toUser._id }, { $set: toUser });
-      response
-        .status(200)
-        .json(
-          await new User(fromUser)
-            .populate(
-              "friends friendRequestsPending friendRequests",
-              "-friendRequestsPending -friendRequests"
-            )
-            .execPopulate()
+      const isFromUserUnique = !fromUser.friends.some(
+        (req) => req === toUser._id
+      );
+      if (isToUserUnique && isFromUserUnique) {
+        const index = fromUser.friendRequests.findIndex(
+          (req) => req === toUser._id
         );
-    } else {
-      response
-        .status(200)
-        .json(
-          await new User(fromUser)
-            .populate(
-              "friends friendRequestsPending friendRequests",
-              "-friendRequestsPending -friendRequests"
-            )
-            .execPopulate()
+        fromUser.friendRequests.splice(index, 1);
+        const index1 = toUser.friendRequestsPending.findIndex(
+          (req) => req === fromUser._id
         );
+        toUser.friendRequestsPending.splice(index1, 1);
+        toUser.friends.push(request.body.from);
+        fromUser.friends.push(request.body.to);
+        await User.updateOne({ _id: fromUser._id }, { $set: fromUser });
+        await User.updateOne({ _id: toUser._id }, { $set: toUser });
+        response
+          .status(200)
+          .json(
+            await new User(fromUser)
+              .populate(
+                "friends friendRequestsPending friendRequests",
+                "-friendRequestsPending -friendRequests"
+              )
+              .execPopulate()
+          );
+      } else {
+        response
+          .status(200)
+          .json(
+            await new User(fromUser)
+              .populate(
+                "friends friendRequestsPending friendRequests",
+                "-friendRequestsPending -friendRequests"
+              )
+              .execPopulate()
+          );
+      }
     }
   }
-});
+);
 
-router.post(routes.FRIEND_REQUEST_REJECTED, async (request, response, next) => {
-  const toUser = JSON.parse(
-    JSON.stringify(await User.findOne({ _id: request.body.to }))
-  );
-  const fromUser = JSON.parse(
-    JSON.stringify(await User.findOne({ _id: request.body.from }))
-  );
-  if (toUser && fromUser) {
-    const isToUserUnique = !toUser.friends.some((req) => req === fromUser._id);
-    const isFromUserUnique = !fromUser.friends.some(
-      (req) => req === toUser._id
+router.post(
+  routes.USER.FRIEND_REQUEST_REJECTED,
+  async (request, response, next) => {
+    const toUser = JSON.parse(
+      JSON.stringify(await User.findOne({ _id: request.body.to }))
     );
-    if (isToUserUnique && isFromUserUnique) {
-      const index = fromUser.friendRequests.findIndex(
-        (req) => req === request.body.from
+    const fromUser = JSON.parse(
+      JSON.stringify(await User.findOne({ _id: request.body.from }))
+    );
+    if (toUser && fromUser) {
+      const isToUserUnique = !toUser.friends.some(
+        (req) => req === fromUser._id
       );
-      fromUser.friendRequests.splice(index, 1);
-      const index1 = toUser.friendRequestsPending.findIndex(
-        (req) => req === request.body.to
+      const isFromUserUnique = !fromUser.friends.some(
+        (req) => req === toUser._id
       );
-      toUser.friendRequestsPending.splice(index1, 1);
-      await User.updateOne({ _id: fromUser._id }, { $set: fromUser });
-      await User.updateOne({ _id: toUser._id }, { $set: toUser });
-      response
-        .status(200)
-        .json(
-          await new User(fromUser)
-            .populate(
-              "friends friendRequestsPending friendRequests",
-              "-friendRequestsPending -friendRequests"
-            )
-            .execPopulate()
+      if (isToUserUnique && isFromUserUnique) {
+        const index = fromUser.friendRequests.findIndex(
+          (req) => req === request.body.from
         );
-    } else {
-      response
-        .status(200)
-        .json(
-          await new User(fromUser)
-            .populate(
-              "friends friendRequestsPending friendRequests",
-              "-friendRequestsPending -friendRequests"
-            )
-            .execPopulate()
+        fromUser.friendRequests.splice(index, 1);
+        const index1 = toUser.friendRequestsPending.findIndex(
+          (req) => req === request.body.to
         );
+        toUser.friendRequestsPending.splice(index1, 1);
+        await User.updateOne({ _id: fromUser._id }, { $set: fromUser });
+        await User.updateOne({ _id: toUser._id }, { $set: toUser });
+        response
+          .status(200)
+          .json(
+            await new User(fromUser)
+              .populate(
+                "friends friendRequestsPending friendRequests",
+                "-friendRequestsPending -friendRequests"
+              )
+              .execPopulate()
+          );
+      } else {
+        response
+          .status(200)
+          .json(
+            await new User(fromUser)
+              .populate(
+                "friends friendRequestsPending friendRequests",
+                "-friendRequestsPending -friendRequests"
+              )
+              .execPopulate()
+          );
+      }
     }
   }
-});
+);
 
-router.post(routes.UNFRIEND, async (request, response, next) => {
+router.post(routes.USER.UNFRIEND, async (request, response, next) => {
   const toUser = JSON.parse(
     JSON.stringify(await User.findOne({ _id: request.body.to }))
   );
