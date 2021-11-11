@@ -9,6 +9,7 @@ require("dotenv").config();
 const MESSAGE = require("../shared/constants/messages.constant");
 const ROUTES = require("../shared/constants/routes.constants");
 const GLOBAL = require("../shared/constants/global.constants");
+const GCP = require("../shared/constants/gcp.constants");
 const STATUS = require("http-status-codes");
 const formidable = require("formidable-serverless");
 const fs = require("fs");
@@ -114,7 +115,7 @@ router.post(ROUTES.AUTH.LOG_IN, (request, response) => {
             if (userState) {
               const token = jwt.sign(
                 { email: user.email, userId: user._id },
-                "Sakshayphanda_this_secretkey",
+                GLOBAL.SECRET_KEY,
                 { expiresIn: "365d" }
               );
 
@@ -135,11 +136,7 @@ router.post(ROUTES.AUTH.LOG_IN, (request, response) => {
               invalidCredentials(response);
             }
           })
-          .catch((error) => {
-            console.log(error);
-
-            invalidCredentials(response);
-          });
+          .catch((error) => invalidCredentials(response));
       }
     })
     .catch((err) => {
@@ -151,12 +148,8 @@ router.get(ROUTES.AUTH.LOG_OUT, (request, response) => {
   const token = new TokenSchema({ token: request.headers.authorization });
   token
     .save()
-    .then((result) => {
-      response.status(STATUS.OK).json(result);
-    })
-    .catch((err) => {
-      response.status(STATUS.CONFLICT).json(err);
-    });
+    .then((result) => response.status(STATUS.OK).json(result))
+    .catch((err) => response.status(STATUS.CONFLICT).json(err));
 });
 
 router.post(ROUTES.AUTH.UPDATE_USER, (request, response) => {
@@ -202,7 +195,9 @@ router.post(ROUTES.AUTH.UPDATE_USER, (request, response) => {
                 User.findByIdAndUpdate(
                   { _id: fields._id },
                   {
-                    photoUrl: `https://storage.googleapis.com/${imagesbucketName}/Profile Pictures/${fields._id}/${files.picture.name}`,
+                    photoUrl: `${
+                      GCP.BASE_URL + imagesbucketName
+                    }/Profile Pictures/${fields._id}/${files.picture.name}`,
                   }
                 ).then((result) => {
                   response.status(STATUS.OK).json(result);

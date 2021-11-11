@@ -3,4 +3,5 @@ module.exports = Object.freeze({
   KEYS_TO_POPULATE_IN_USER_DATA: "friends friendRequests friendRequestsPending",
   REMOVE_NOT_REQUIRED_KEYS_FROM_USER_DATA:
     "-password -friendRequests -friendRequestsPending",
+  SECRET_KEY: "Sakshayphanda_this_secretkey",
 });

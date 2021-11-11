@@ -51,7 +51,9 @@ function createPost(request, response) {
               .on("error", (err) => {})
               .on("finish", async () => {
                 console.log("uploaded");
-                post.imageUrl = `${GCP_CONSTANTS.BASE_URL}/${imagesbucketName}/posts/${currentDate}${files.image.name}`;
+                post.imageUrl = `${
+                  GCP_CONSTANTS.BASE_URL + imagesbucketName
+                }/posts/${currentDate}${files.image.name}`;
                 const saveResponse = await post.save();
                 const currentPost = await saveResponse
                   .populate("user", "displayName photoUrl admin")
