@@ -8,7 +8,6 @@ const checkAuth = require("../middleware/check-auth"); // check for the auth tok
 require("dotenv").config();
 const MESSAGE = require("../constants/messages.constant");
 const ROUTES = require("../constants/routes.constants");
-const GLOBAL = require("../constants/global.constants");
 const STATUS = require("http-status-codes");
 const formidable = require("formidable-serverless");
 const fs = require("fs");
@@ -217,6 +216,10 @@ router.post(ROUTES.UPDATE_USER, (request, response) => {
 });
 router.post(ROUTES.GET_USER, (request, response) => {
   User.findOne({ email: request.body.email })
+    .populate(
+      "friends friendRequests friendRequestsPending",
+      "-password -friendRequests -friendRequestsPending"
+    )
     .then((user) => {
       console.log(request.body);
       response.status(STATUS.ACCEPTED).json({
