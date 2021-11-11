@@ -1,6 +1,5 @@
 module.exports = Object.freeze({
   INVALID_CREDENTIALS: "Invalid Credentials",
-  AUTH_FAILED: "Authorization Failed",
   SUCCESS: {
     SUCCESS_CREATE: "Successfully Created",
     SUCCESS_REGISTER: "Successfully Registered",
@@ -12,7 +11,8 @@ module.exports = Object.freeze({
   ERROR: {
     PROBLEM_WITH_IMAGE: "problem with the image",
     NO_PERMISSION: "You dont have permission",
-    FILE_SIZE_EXCEEDED: "File size exceeds 5 mb",
+    FILE_SIZE_EXCEEDED: "File size exceeded",
     CANT_CONNECT_DB: "Can not connect to the database",
+    AUTH_FAILED: "Authorization Failed",
   },
 });

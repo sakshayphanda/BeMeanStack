@@ -50,18 +50,20 @@ router.post(ROUTES.AUTH.SIGN_UP, (request, response) => {
     const userDetails = JSON.parse(JSON.stringify(request.body));
     await User.findOne({ email: userDetails.email }, (err, res) => {
       console.log(res);
-      response.status(STATUS.ACCEPTED).json({
-        message: MESSAGE.SUCCESS.SUCCESS_LOGIN,
-        user: res,
-      });
+      if (res) {
+        response.status(STATUS.ACCEPTED).json({
+          message: MESSAGE.SUCCESS.SUCCESS_LOGIN,
+          user: res,
+        });
+      }
     });
-    userDetails["displayName"] =
+    userDetails.displayName =
       userDetails.firstName + " " + userDetails.lastName;
-    userDetails["password"] = userPassword;
-    userDetails["photoUrl"] = userDetails.photoUrl || "";
-    userDetails["friends"] = [];
-    userDetails["friendRequests"] = [];
-    userDetails["friendRequestsPending"] = [];
+    userDetails.password = userPassword;
+    userDetails.photoUrl = userDetails.photoUrl || "";
+    userDetails.friends = [];
+    userDetails.friendRequests = [];
+    userDetails.friendRequestsPending = [];
     const user = new User(userDetails);
     user
       .save()
@@ -121,7 +123,7 @@ router.post(ROUTES.AUTH.LOG_IN, (request, response) => {
 
               response.status(STATUS.OK).json({
                 user: {
-                  token: token,
+                  token,
                   displayName: user.displayName,
                   email: user.email,
                   _id: user._id,
@@ -166,7 +168,7 @@ router.post(ROUTES.AUTH.UPDATE_USER, (request, response) => {
         if (files.picture) {
           if (files.picture.size > 10 * 1024 * 1024) {
             response.status(400).json({
-              error: "File exceeds 3 mb",
+              error: MESSAGE.ERROR.FILE_SIZE_EXCEEDED,
             });
           } else {
             const gc = new Storage({
@@ -174,14 +176,14 @@ router.post(ROUTES.AUTH.UPDATE_USER, (request, response) => {
                 __dirname,
                 "../../bemeanstack-fc78c23520d4.json"
               ),
-              projectId: "bemeanstack",
+              projectId: GCP.PROJECT_ID,
             });
-            const imagesbucketName = "images-bemeanstack";
-            const imagesBucket = gc.bucket(imagesbucketName);
-
+            const imagesBucket = gc.bucket(GCP.IMG_BUCKET_NAME);
             const localReadStream = fs.createReadStream(files.picture.path);
             const remoteWriteStream = imagesBucket
-              .file(`Profile Pictures/${fields._id}/${files.picture.name}`)
+              .file(
+                `${GCP.FOLDERS.profile_pics}/${fields._id}/${files.picture.name}`
+              )
               .createWriteStream({
                 resumable: false,
                 gzip: true,
@@ -191,13 +193,12 @@ router.post(ROUTES.AUTH.UPDATE_USER, (request, response) => {
               .pipe(remoteWriteStream)
               .on("error", function (err) {})
               .on("finish", function (abc) {
-                console.log("uploaded");
                 User.findByIdAndUpdate(
                   { _id: fields._id },
                   {
-                    photoUrl: `${
-                      GCP.BASE_URL + imagesbucketName
-                    }/Profile Pictures/${fields._id}/${files.picture.name}`,
+                    photoUrl: `${GCP.BASE_URL + imagesbucketName}/${
+                      GCP.FOLDERS.profile_pics
+                    }/${fields._id}/${files.picture.name}`,
                   }
                 ).then((result) => {
                   response.status(STATUS.OK).json(result);

@@ -50,6 +50,7 @@ export function authenticationReducer(
       const newState = Object.assign({}, state);
       newState.loading = false;
       newState.loggedIn = false;
+      localStorage.clear();
       window.location.reload();
       return { ...newState };
     }

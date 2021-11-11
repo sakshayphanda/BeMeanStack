@@ -3,13 +3,36 @@
   <div class="users__data">
     <ng-container *ngFor="let user of allUsersExceptCurrent">
       <p class="user">
-        <img [src]="user?.photoUrl" onerror="this.src = '../../../../../../assets/Mean.png'"/>
-      {{user.displayName}} <span class="admin" *ngIf="user?.admin">Admin</span>
-      <button mat-raised-button color="primary" *ngIf="!user.alreadyAdded"  class="add" (click) = "addasFriend(user)">{{checkIfReceived(user) ? 'Request received' : checkIfSent(user) ? 'Pending':  'Add'}}</button>
-      <button mat-raised-button color="primary" *ngIf="user.alreadyAdded"  class="added">Friends</button>
-    </p>
-
+        <img
+          [src]="user?.photoUrl"
+          onerror="this.src = '../../../../../../assets/sunset.png'"
+        />
+        {{ user.displayName }}
+        <span class="admin" *ngIf="user?.admin">Admin</span>
+        <button
+          mat-raised-button
+          color="primary"
+          *ngIf="!user.alreadyAdded"
+          class="add"
+          (click)="addasFriend(user)"
+        >
+          {{
+            checkIfReceived(user)
+              ? "Request received"
+              : checkIfSent(user)
+              ? "Pending"
+              : "Add"
+          }}
+        </button>
+        <button
+          mat-raised-button
+          color="primary"
+          *ngIf="user.alreadyAdded"
+          class="added"
+        >
+          Friends
+        </button>
+      </p>
     </ng-container>
   </div>
-
 </div>

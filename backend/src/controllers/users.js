@@ -1,11 +1,10 @@
 const router = require("express").Router();
 const routes = require("../shared/constants/routes.constants");
 const User = require("../model/user");
+const GLOBAL = require("../shared/constants/global.constants");
 
 router.get(routes.USER.GET_ALL_USERS, async (_request, response) => {
-  let users = await User.find()
-    .select("-friendRequests -friendRequestsPending")
-    .exec();
+  let users = await User.find().select("photoUrl displayName").exec();
   response.status(200).json(users);
 });
 
@@ -92,8 +91,8 @@ router.post(
           .json(
             await new User(fromUser)
               .populate(
-                "friends friendRequestsPending friendRequests",
-                "-friendRequestsPending -friendRequests"
+                GLOBAL.KEYS_TO_POPULATE_IN_USER_DATA,
+                GLOBAL.REMOVE_NOT_REQUIRED_KEYS_FROM_USER_DATA
               )
               .execPopulate()
           );
@@ -103,8 +102,8 @@ router.post(
           .json(
             await new User(fromUser)
               .populate(
-                "friends friendRequestsPending friendRequests",
-                "-friendRequestsPending -friendRequests"
+                GLOBAL.KEYS_TO_POPULATE_IN_USER_DATA,
+                GLOBAL.REMOVE_NOT_REQUIRED_KEYS_FROM_USER_DATA
               )
               .execPopulate()
           );
@@ -145,8 +144,8 @@ router.post(
           .json(
             await new User(fromUser)
               .populate(
-                "friends friendRequestsPending friendRequests",
-                "-friendRequestsPending -friendRequests"
+                GLOBAL.KEYS_TO_POPULATE_IN_USER_DATA,
+                GLOBAL.REMOVE_NOT_REQUIRED_KEYS_FROM_USER_DATA
               )
               .execPopulate()
           );
@@ -156,8 +155,8 @@ router.post(
           .json(
             await new User(fromUser)
               .populate(
-                "friends friendRequestsPending friendRequests",
-                "-friendRequestsPending -friendRequests"
+                GLOBAL.KEYS_TO_POPULATE_IN_USER_DATA,
+                GLOBAL.REMOVE_NOT_REQUIRED_KEYS_FROM_USER_DATA
               )
               .execPopulate()
           );
@@ -174,7 +173,6 @@ router.post(routes.USER.UNFRIEND, async (request, response, next) => {
     JSON.stringify(await User.findOne({ _id: request.body.from }))
   );
   if (toUser && fromUser) {
-    const isToUserFriend = toUser.friends.some((req) => req === fromUser._id);
     const isFromUserFriend = fromUser.friends.some((req) => req === toUser._id);
     if (isFromUserFriend) {
       const index = fromUser.friends.findIndex(
@@ -192,8 +190,8 @@ router.post(routes.USER.UNFRIEND, async (request, response, next) => {
         .json(
           await new User(fromUser)
             .populate(
-              "friends friendRequestsPending friendRequests",
-              "-friendRequestsPending -friendRequests"
+              GLOBAL.KEYS_TO_POPULATE_IN_USER_DATA,
+              GLOBAL.REMOVE_NOT_REQUIRED_KEYS_FROM_USER_DATA
             )
             .execPopulate()
         );
@@ -203,8 +201,8 @@ router.post(routes.USER.UNFRIEND, async (request, response, next) => {
         .json(
           await new User(fromUser)
             .populate(
-              "friends friendRequestsPending friendRequests",
-              "-friendRequestsPending -friendRequests"
+              GLOBAL.KEYS_TO_POPULATE_IN_USER_DATA,
+              GLOBAL.REMOVE_NOT_REQUIRED_KEYS_FROM_USER_DATA
             )
             .execPopulate()
         );

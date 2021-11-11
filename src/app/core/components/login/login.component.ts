@@ -46,8 +46,6 @@ export class LoginComponent implements OnInit {
   }
 
   authenticate(userDetails) {
-    console.log('auth');
-
     this.showSignUp ? this.signup(userDetails) : this.login(userDetails);
   }
 
